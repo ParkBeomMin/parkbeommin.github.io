@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    [안드로이드] 현재 시간 구하기, 시간 계산하기 | BeomLog
+  </title>
+  <meta name="description" content="범민의 기술블로그입니다.">
+  
+  <meta name="keywords" content="
+  
+  ">
+  
+  <meta name="author" content="bmpark">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/MyPortfolio/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+  <script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7426857657290789" crossorigin="anonymous" async></script>
+<meta name="generator" content="Hexo 8.0.0"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/MyPortfolio/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/MyPortfolio/archives">Archives</a></li>
+        
+        
+        <li><a href="/MyPortfolio/categories">Categories</a></li>
+        
+        
+        <li><a href="/MyPortfolio/tags">Tags</a></li>
+        
+        
+        <li><a href="/MyPortfolio/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://avatars.githubusercontent.com/u/23355295?v=4"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/MyPortfolio/archives" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="/MyPortfolio/archives"
+           class="header-toolbar-right"> 57 </a>
+      </li>
+      <li>
+        <a href="/MyPortfolio/tags" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="/MyPortfolio/tags"
+           class="header-toolbar-right"> 0 </a>
+      </li>
+      <li>
+        <a href="/MyPortfolio/categories" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="/MyPortfolio/categories"
+           class="header-toolbar-right"> 30 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/MyPortfolio/">BeomLog</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    bmpark
+
+    <span class="post-date float-right" title="{{moment(1562545080000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      <i class="fa fa-pencil-square-o"></i>
+      {{moment(1562545080000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>[안드로이드] 현재 시간 구하기, 시간 계산하기</h1>
+    <h2 id="currentTimeMillis"><a href="#currentTimeMillis" class="headerlink" title="currentTimeMillis"></a>currentTimeMillis</h2><p>자바 언어에서 기본으로 제공하는 API Class인 System Class의 currentTimeMillis() 함수를 활용합니다.<br>안드로이드 공식 언어인 코틀린도 JVM 기반이기 때문에 문제 없이 사용가능 합니다.</p>
+<blockquote>
+<p>long currentTimeMillis()</p>
+</blockquote>
+<p>반환 타입은 long 타입으로 반환이 됩니다.<br>반환 값은 1970년 1월 1일부터 호출 시점까지의 ms로 반환이 됩니다.</p>
+<h2 id="현재-시간-구하기"><a href="#현재-시간-구하기" class="headerlink" title="현재 시간 구하기"></a>현재 시간 구하기</h2><p>currentTimeMillis()로 받은 값으로 현재 시간을 구해보도록 하겠습니다.<br>SimpleDateFormat Class 와 Date Class로 쉽게 나타낼 수 있습니다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">val time = System.currentTimeMillis()</span><br><span class="line">val dateFormat = SimpleDateFormat(&quot;yyyy-mm-dd hh:mm:ss&quot;)</span><br><span class="line">val curTime = dateFormat.format(Date(time))</span><br></pre></td></tr></table></figure>
+
+<p>curTime을 출력하면 포맷에 맞게 현재 시간이 출력됩니다.</p>
+<h2 id="시간-계산하기"><a href="#시간-계산하기" class="headerlink" title="시간 계산하기"></a>시간 계산하기</h2><p>이제 조금 응용을 해서 시간을 구해보도록 하겠습니다.</p>
+<h3 id="시간-차이-구하기"><a href="#시간-차이-구하기" class="headerlink" title="시간 차이 구하기"></a>시간 차이 구하기</h3><p>어떤 작업을 시작한 시간과 끝난 시간의 차이를 구해보도록 하겠습니다.<br>예제로 앱을 실행시켰을 때 시간과 버튼을 눌렀을 때 시간 차이를 구하도록 하겠습니다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">override fun onCreate(savedInstanceState: Bundle?) &#123;</span><br><span class="line">    super.onCreate(savedInstanceState)</span><br><span class="line">    setContentView(R.layout.activity_main)</span><br><span class="line"></span><br><span class="line">    val startTime = System.currentTimeMillis()</span><br><span class="line"></span><br><span class="line">    button.setOnClickListner &#123;</span><br><span class="line">        val clickTime = System.currentTimeMillis()</span><br><span class="line">        val time = (clickTime - startTime) / 1000</span><br><span class="line">        Log.d(&quot;TEST&quot;, &quot;$time 초 걸림&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="더한-시간-구하기"><a href="#더한-시간-구하기" class="headerlink" title="더한 시간 구하기"></a>더한 시간 구하기</h3><p>현재 시간에서 시간을 더했을 때의 시간을 출력하도록 하겠습니다.<br>예제로 현재 시간에서 부터 30분 후의 시간을 출력하도록 하겠습니다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var reservationTime = System.currentTimeMillis() + 1800000</span><br><span class="line">val dateFormat = SimpleDateFormat(&quot;yyyy-mm-dd hh:mm:ss&quot;)</span><br><span class="line">val curTime = dateFormat.format(Date(reservationTime))</span><br></pre></td></tr></table></figure>
+
+<p>currentTimeMillis()의 반환 값이 밀리초(ms)이기 때문에, 30분을 밀리초 단위로 변형 시켜서 더해주었습니다.</p>
+<p>감사합니다.</p>
+<h2 id="레퍼런스"><a href="#레퍼런스" class="headerlink" title="레퍼런스"></a>레퍼런스</h2><p>[<a target="_blank" rel="noopener" href="https://ra2kstar.tistory.com/123][ref-url-1]">https://ra2kstar.tistory.com/123][ref-url-1]</a><br>[<a target="_blank" rel="noopener" href="https://aroundck.tistory.com/10][ref-url-2]">https://aroundck.tistory.com/10][ref-url-2]</a></p>
+<!-- [ref-url-1]: "https://ra2kstar.tistory.com/123"
+[ref-url-2]: "https://aroundck.tistory.com/10" -->
+
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <a href="https://parkbeommin.github.io/MyPortfolio" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2025 bmpark</li>
+      <li><a href="https://parkbeommin.github.io/MyPortfolio">Home</a></li>
+      
+      <li><a target="_blank" rel="noopener" href="https://github.com/parkbeommin">Github</a></li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Theme <a target="_blank" rel="noopener" href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+      by <a target="_blank" rel="noopener" href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+    </div>
+  </footer>
+</div>
+
+
+
+
+<script src="/MyPortfolio/js/main.js"></script>
+
+</body>
+</html>

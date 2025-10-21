@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    [Vanilla JS] About Me 프로젝트 - 라우터 구성하기 | BeomLog
+  </title>
+  <meta name="description" content="범민의 기술블로그입니다.">
+  
+  <meta name="keywords" content="
+  
+  ">
+  
+  <meta name="author" content="bmpark">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/MyPortfolio/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+  <script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7426857657290789" crossorigin="anonymous" async></script>
+<meta name="generator" content="Hexo 8.0.0"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/MyPortfolio/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/MyPortfolio/archives">Archives</a></li>
+        
+        
+        <li><a href="/MyPortfolio/categories">Categories</a></li>
+        
+        
+        <li><a href="/MyPortfolio/tags">Tags</a></li>
+        
+        
+        <li><a href="/MyPortfolio/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://avatars.githubusercontent.com/u/23355295?v=4"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/MyPortfolio/archives" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="/MyPortfolio/archives"
+           class="header-toolbar-right"> 57 </a>
+      </li>
+      <li>
+        <a href="/MyPortfolio/tags" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="/MyPortfolio/tags"
+           class="header-toolbar-right"> 0 </a>
+      </li>
+      <li>
+        <a href="/MyPortfolio/categories" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="/MyPortfolio/categories"
+           class="header-toolbar-right"> 30 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/MyPortfolio/">BeomLog</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    bmpark
+
+    <span class="post-date float-right" title="{{moment(1688919360000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      <i class="fa fa-pencil-square-o"></i>
+      {{moment(1688919360000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>[Vanilla JS] About Me 프로젝트 - 라우터 구성하기</h1>
+    <img src='/assets/about-me/banner.png'>
+
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://aboutme2.web.app/">About Me</a><br>친구들이 생각하는 나는 어떤 사람일까? 친구들의 마음이 모여 나의 새싹을 키워보세요!</p>
+</blockquote>
+<p>지난 <a href="https://parkbeommin.github.io/web/frontend/vanillajs-project_2/">라우터 구성하기</a>에 이어서 프로젝트의 페이지 및 컴포넌트 구성에 대해 이야기해보겠습니다.</p>
+<p>About Me 컨셉은 나의 새싹을 만들어 키우는 것입니다.<br>나의 새싹을 만들면, 색상 및 종류가 랜덤하게 정해지고 id가 부여됩니다.<br>id를 통해 링크가 생성되며 링크를 친구들에게 공유하여 나에 대한 생각을 받습니다.<br>친구들에게 입력받은 단어&#x2F;문장들이 비가 되어 나의 새싹을 키우게 됩니다.</p>
+<h2 id="📃라우터-만들기"><a href="#📃라우터-만들기" class="headerlink" title="📃라우터 만들기"></a>📃라우터 만들기</h2><p>SPA로 만들기 위해 라우터 기능을 구현할 필요가 있습니다. 해시라우팅 방식으로 구현해보도록 하겠습니다.</p>
+<p><code>router.js</code>에 라우터 클래스를 만들어줍니다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">export default class Router &#123;</span><br><span class="line">    constructor(&#123; view, route &#125;) &#123;</span><br><span class="line">        this.view = view;</span><br><span class="line">        this.route = route;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>라우터를 통해 그려질 화면에 대한 요소를 view로 받습니다.<br>route로는 라우팅될 정보들을 받습니다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">export default class Router &#123;</span><br><span class="line">    constructor(&#123; view, route &#125;) &#123;</span><br><span class="line">        this.view = view;</span><br><span class="line">        this.route = route;</span><br><span class="line">        this.setRoute(); // 라우터가 동작할 수 있도록 추가</span><br><span class="line">    &#125;</span><br><span class="line">    setRoute() &#123;</span><br><span class="line">        document.addEventListener(&quot;DOMContentLoaded&quot;, () =&gt; &#123;</span><br><span class="line">            const url = window.location.hash.replace(&quot;#&quot;, &quot;&quot;);</span><br><span class="line">            this.renderPage(url);</span><br><span class="line">        &#125;);</span><br><span class="line">        window.addEventListener(&quot;hashchange&quot;, () =&gt; &#123;</span><br><span class="line">            const url = window.location.hash.replace(&quot;#&quot;, &quot;&quot;);</span><br><span class="line">            this.renderPage(url);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>페이지가 랜딩될 때와 url의 해시에 변화가 있을 때마다 페이지가 잘 랜더링될 수 있도록 setRoute함수를 만들고 라우터 클래스가 생성될 때 실행될 수 있도록 합니다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">export default class Router &#123;</span><br><span class="line">    constructor(&#123; view, route &#125;) &#123;</span><br><span class="line">        this.view = view;</span><br><span class="line">        this.route = route;</span><br><span class="line">        this.setRoute();</span><br><span class="line"></span><br><span class="line">        // urlChange함수를 window객체에 등록하여 전역으로 사용할 수 있도록 추가</span><br><span class="line">        window.urlChange = (url) =&gt; &#123;</span><br><span class="line">            this.urlChange(url);</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">    urlChange(url) &#123;</span><br><span class="line">        window.history.pushState(&quot;&quot;, &quot;&quot;, `#$&#123;url&#125;`);</span><br><span class="line">        this.renderPage(url);</span><br><span class="line">    &#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>각 페이지에서 라우팅이 필요할 경우, window.urlChange(…)로 사용가능하도록 함수를 셋팅시켜줍니다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">    renderPage(url) &#123;</span><br><span class="line">        this.view.innerHTML = &quot;&quot;;</span><br><span class="line"></span><br><span class="line">        const to =</span><br><span class="line">            this.route.filter((r) =&gt; this.matchUrl(r.url, url))[0] ||</span><br><span class="line">            this.route.filter((r) =&gt; r.url === &quot;/&quot;)[0];</span><br><span class="line">        try &#123;</span><br><span class="line">            to.page.render();</span><br><span class="line">            to.css</span><br><span class="line">                ? to.css.forEach((c) =&gt; require(`@/assets/css/$&#123;c&#125;.css`))</span><br><span class="line">                : null;</span><br><span class="line">            document.title = to.title;</span><br><span class="line">            document</span><br><span class="line">                .querySelector(`meta[name=&#x27;description&#x27;]`)</span><br><span class="line">                .setAttribute(&quot;content&quot;, to.description);</span><br><span class="line">        &#125; catch (e) &#123;</span><br><span class="line">            this.route.filter((r) =&gt; r.url === &quot;/&quot;)[0].page.render();</span><br><span class="line">            console.error(e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    matchUrl(a, b) &#123;</span><br><span class="line">        const index = a.indexOf(&quot;:&quot;);</span><br><span class="line"></span><br><span class="line">        if (index &gt; -1) &#123;</span><br><span class="line">            return a.substring(0, index) === b.substring(0, index);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            return a === b;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>라우팅을 통해 새로운 페이지가 랜더링되는 부분입니다.<br>기존 view를 초기화시켜준 뒤, 등록된 route에 있는 페이지를 랜더링 시켜줍니다.<br>추가적으로 페이지가 랜더링될 때 css파일도 불러오도록 처리를 했으며, 각 메타정보도 바뀔 수 있도록 했습니다.<br>오류가 날 경우에는 메인으로 랜더링되도록 했습니다.</p>
+<h2 id="🎊라우터-등록하기"><a href="#🎊라우터-등록하기" class="headerlink" title="🎊라우터 등록하기"></a>🎊라우터 등록하기</h2><p>위에서 만든 라우터를 등록시켜야 사용할 수 있습니다.<br><code>app.js</code>에 라우터를 등록시켜줍니다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">import Home from &#x27;./pages/Home.js&#x27;;</span><br><span class="line">import New from &#x27;./pages/New.js&#x27;;</span><br><span class="line">import About from &#x27;./pages/About.js&#x27;;</span><br><span class="line">import Router from &#x27;./router.js&#x27;;</span><br><span class="line"></span><br><span class="line">export default class App &#123;</span><br><span class="line">    constructor(&#123; $target &#125;) &#123;</span><br><span class="line">        this.$target = $target;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    render() &#123;</span><br><span class="line">        ...</span><br><span class="line">        const $main = document.createElement(&#x27;main&#x27;);</span><br><span class="line">        $main.setAttribute(&#x27;id&#x27;, &#x27;page_content&#x27;);</span><br><span class="line"></span><br><span class="line">        this.$target.appendChild($main);</span><br><span class="line"></span><br><span class="line">        const homePage = new Home(&#123; $target: $main &#125;);</span><br><span class="line">        const newPage = new New(&#123; $target: $main &#125;);</span><br><span class="line">        const aboutPage = new About(&#123; $target: $main &#125;);</span><br><span class="line">        new Router(&#123;</span><br><span class="line">            view: $main,</span><br><span class="line">            route: [</span><br><span class="line">                &#123;</span><br><span class="line">                    url: &#x27;/me/:id&#x27;,</span><br><span class="line">                    page: homePage,</span><br><span class="line">                    css: [&#x27;AboutMe&#x27;, &#x27;Header&#x27;],</span><br><span class="line">                    title: &#x27;나의 새싹 보기&#x27;,</span><br><span class="line">                    description: &#x27;친구들이 생각하는 나는 어떤 사람일까? 친구들의 마음이 모여 나의 새싹을 키워보세요!&#x27;,</span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line">                    url: &#x27;/&#x27;,</span><br><span class="line">                    page: newPage,</span><br><span class="line">                    css: [&#x27;New&#x27;, &#x27;Layer&#x27;],</span><br><span class="line">                    title: &#x27;About Me&#x27;,</span><br><span class="line">                    description: &#x27;친구들이 생각하는 나는 어떤 사람일까? 친구들의 마음이 모여 나의 새싹을 키워보세요!&#x27;,</span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line">                    url: &#x27;/about/:id&#x27;,</span><br><span class="line">                    page: aboutPage,</span><br><span class="line">                    css: [&#x27;About&#x27;, &#x27;Layer&#x27;],</span><br><span class="line">                    title: &#x27;나는 어떤 사람이야?&#x27;,</span><br><span class="line">                    description: &#x27;친구들이 생각하는 나는 어떤 사람일까? 친구들의 마음이 모여 나의 새싹을 키워보세요!&#x27;,</span><br><span class="line">                &#125;,</span><br><span class="line">            ],</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>이와 같이 각 페이지에 대한 정보들을 등록시켜주면 됩니다.</p>
+<h2 id="🕹라우터-사용하기"><a href="#🕹라우터-사용하기" class="headerlink" title="🕹라우터 사용하기"></a>🕹라우터 사용하기</h2><p>라우터 사용은 window객체에 등록시켜준 urlChange 함수를 활용합니다.<br><code>About.js</code>에서 ‘내 새싹 만들기’를 클릭해 메인화면으로 넘어오는 부분입니다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">export default class About &#123;</span><br><span class="line">    constructor(&#123; $target &#125;) &#123;</span><br><span class="line">        this.$target = $target;</span><br><span class="line">        this.id = window.location.hash.split(&#x27;#/about/&#x27;)[1];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    render() &#123;</span><br><span class="line">        ...</span><br><span class="line">        const $goNew = document.createElement(&#x27;a&#x27;);</span><br><span class="line">        const $goNewImg = document.createElement(&#x27;img&#x27;);</span><br><span class="line">        $goNewImg.setAttribute(&#x27;src&#x27;, require(&#x27;@/assets/images/sprout.svg&#x27;));</span><br><span class="line">        $goNewImg.setAttribute(&#x27;alt&#x27;, &#x27;goNew&#x27;);</span><br><span class="line">        $goNew.setAttribute(&#x27;class&#x27;, &#x27;go-new&#x27;);</span><br><span class="line">        $goNew.textContent = &#x27;내 새싹 만들러가기&#x27;;</span><br><span class="line">        $goNew.appendChild($goNewImg);</span><br><span class="line">        $goNew.addEventListener(&#x27;click&#x27;, () =&gt; &#123;</span><br><span class="line">            window.urlChange(&#x27;/&#x27;);</span><br><span class="line">        &#125;);</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><a target="_blank" rel="noopener" href="https://github.com/ParkBeomMin/AboutMe">AboutMe GitHub</a></p>
+
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <a href="https://parkbeommin.github.io/MyPortfolio" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2025 bmpark</li>
+      <li><a href="https://parkbeommin.github.io/MyPortfolio">Home</a></li>
+      
+      <li><a target="_blank" rel="noopener" href="https://github.com/parkbeommin">Github</a></li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Theme <a target="_blank" rel="noopener" href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+      by <a target="_blank" rel="noopener" href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+    </div>
+  </footer>
+</div>
+
+
+
+
+<script src="/MyPortfolio/js/main.js"></script>
+
+</body>
+</html>

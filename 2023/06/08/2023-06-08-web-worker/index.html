@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    웹워커와 서비스워커 | BeomLog
+  </title>
+  <meta name="description" content="범민의 기술블로그입니다.">
+  
+  <meta name="keywords" content="
+  
+  ">
+  
+  <meta name="author" content="bmpark">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/MyPortfolio/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+  <script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7426857657290789" crossorigin="anonymous" async></script>
+<meta name="generator" content="Hexo 8.0.0"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/MyPortfolio/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/MyPortfolio/archives">Archives</a></li>
+        
+        
+        <li><a href="/MyPortfolio/categories">Categories</a></li>
+        
+        
+        <li><a href="/MyPortfolio/tags">Tags</a></li>
+        
+        
+        <li><a href="/MyPortfolio/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://avatars.githubusercontent.com/u/23355295?v=4"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/MyPortfolio/archives" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="/MyPortfolio/archives"
+           class="header-toolbar-right"> 57 </a>
+      </li>
+      <li>
+        <a href="/MyPortfolio/tags" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="/MyPortfolio/tags"
+           class="header-toolbar-right"> 0 </a>
+      </li>
+      <li>
+        <a href="/MyPortfolio/categories" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="/MyPortfolio/categories"
+           class="header-toolbar-right"> 30 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/MyPortfolio/">BeomLog</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    bmpark
+
+    <span class="post-date float-right" title="{{moment(1686151380000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      <i class="fa fa-pencil-square-o"></i>
+      {{moment(1686151380000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>웹워커와 서비스워커</h1>
+    <blockquote>
+<p>Web Worker와 Service Worker는 Web API 중 하나이다.<br>Web Worker와 Service Worker는 웹 애플리케이션에서 백그라운드 작업을 수행하기 위한 기술이다.</p>
+</blockquote>
+<img src="/assets/web/web-worker-and-service-worker.avif">
+
+<p>출처: <a target="_blank" rel="noopener" href="https://web.dev/workers-overview/">web.dev</a></p>
+<h2 id="Web-Worker-API"><a href="#Web-Worker-API" class="headerlink" title="Web Worker API"></a>Web Worker API</h2><blockquote>
+<p>웹 워커(Web worker)는 스크립트 연산을 웹 어플리케이션의 주 실행 스레드와 분리된 별도의 백그라운드 스레드에서 실행할 수 있는 기술입니다. 웹 워커를 통해 무거운 작업을 분리된 스레드에서 처리하면 주 스레드(보통 UI 스레드)가 멈추거나 느려지지 않고 동작할 수 있습니다.<br>- MDN web docs -</p>
+</blockquote>
+<h3 id="웹-애플리케이션의-반응성-향상에-도움을-주는-Web-Worker"><a href="#웹-애플리케이션의-반응성-향상에-도움을-주는-Web-Worker" class="headerlink" title="웹 애플리케이션의 반응성 향상에 도움을 주는 Web Worker"></a>웹 애플리케이션의 반응성 향상에 도움을 주는 Web Worker</h3><p>자바스크립트는 싱글 스레드이며 call stack에 task를 담아 one by one으로 처리하기 때문에 부하가 많은 작업에 취약합니다.</p>
+<p>브라우저 런타임 시 이러한 취약점을 보완하기 위해 Web Worker API가 등장하게 되었습니다. Web Worker는 주 스레드와 별도의 백그라운드 스레드에서 실행되어, 주 스레드가 차단되지 않고 다른 작업을 수행할 수 있어 웹 애플리케이션의 반응성 향상에 도움을 줍니다.</p>
+<p>그리고 Web Worker는 메시지 전달을 통해 주 스레드와 통신하고 작업 결과를 반환할 수 있어서 웹 애플리케이션의 다른 부분과 상호작용할 수 있습니다.</p>
+<p>Web Worker도 자바스크립트 실행환경을 제공하는 런타임 스레드이기에 어떠한 작업이든 수행할 수 있습니다. 다만 DOM을 직접 조작을 하거나 window객체의 일부 메서드와 속성은 사용이 불가합니다.</p>
+<h2 id="Service-Worker-API"><a href="#Service-Worker-API" class="headerlink" title="Service Worker API"></a>Service Worker API</h2><blockquote>
+<p>서비스 워커는 웹 응용 프로그램, 브라우저, 그리고 (사용 가능한 경우) 네트워크 사이의 프록시 서버 역할을 합니다. 서비스 워커의 개발 의도는 여러가지가 있지만, 그 중에서도 효과적인 오프라인 경험을 생성하고, 네트워크 요청을 가로채서 네트워크 사용 가능 여부에 따라 적절한 행동을 취하고, 서버의 자산을 업데이트할 수 있습니다. 또한 푸시 알림과 백그라운드 동기화 API로의 접근도 제공합니다.<br>- MDN web docs -</p>
+</blockquote>
+<h3 id="캐싱을-통한-효과적인-오프라인-경험을-주는-Service-Worker"><a href="#캐싱을-통한-효과적인-오프라인-경험을-주는-Service-Worker" class="headerlink" title="캐싱을 통한 효과적인 오프라인 경험을 주는 Service Worker"></a>캐싱을 통한 효과적인 오프라인 경험을 주는 Service Worker</h3><p>Service Worker는 이벤트 기반 워커로서 Javscript 파일의 형태로 존재합니다.</p>
+<p>네트워크 요청을 가로채서 수정하고 컨트롤할 수 있으며, 캐싱을 통해 오프라인 환경에서도 앱이 동작할 수 있도록 컨트롤할 수 있습니다.</p>
+<p>Service Worker는 DOM에 접근할 수 없으며, 자바스크립트의 메인 스레드와 다른 스레드에서 동작하기 때문에 블락되지 않습니다.(no-blocking)</p>
+<p>비동기적으로 동작하도록 설계되었으며, 동기처리API와 같은 XHR, Web Storage등은 Service Worker에서 사용할 수 없습니다.</p>
+<p>자바스크립트 모듈을 동적으로 import할 수 없기때문에 global scope로 선언하여 사용해야합니다.</p>
+<p>Service Worker는 네트워크 요청을 가로채 처리할 수 있기때문에 중간자 공격등에 취약할 수 있어서 보안상의 이유로 HTTPS에서만 동작합니다. 일부 브라우저에서는 private mode에서도 동작하지 않을 수 있습니다.</p>
+<h2 id="Web-Worker-vs-Service-Worker"><a href="#Web-Worker-vs-Service-Worker" class="headerlink" title="Web Worker vs Service Worker"></a>Web Worker vs Service Worker</h2><p>Web Worker와 Service Worker는 둘 다 웹앱의 사용성을 증가시키기 위한 API입니다.<br>메인 스레드를 블록하지 않고 추가 스레드에서 실행되는 공통점을 갖고 있습니다.</p>
+<p>Web Worker는 한 페이지 내에서 여러개를 생성하여 활용할 수 있지만, Service Worker는 하나의 도메인에 등록된 scope내에서 활용가능합니다.<br>Web Worker의 수명은 웹페이지가 닫히면 끝나지만, Service Worker는 웹페이지가 닫혀도 백그라운드에서 유지됩니다.</p>
+<h2 id="참고-자료"><a href="#참고-자료" class="headerlink" title="참고 자료"></a>참고 자료</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://velog.io/@oneook/Web-Worker%EC%99%80-Service-Worker%EC%97%90-%EB%8C%80%ED%95%B4-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0">블로그</a></li>
+<li><a target="_blank" rel="noopener" href="https://velog.io/@yrnana/Web-Worker%EC%99%80-Service-Worker">블로그</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API">MDN Web Worker API</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API">MDN Service Worker API</a></li>
+</ul>
+
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <a href="https://parkbeommin.github.io/MyPortfolio" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2025 bmpark</li>
+      <li><a href="https://parkbeommin.github.io/MyPortfolio">Home</a></li>
+      
+      <li><a target="_blank" rel="noopener" href="https://github.com/parkbeommin">Github</a></li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Theme <a target="_blank" rel="noopener" href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+      by <a target="_blank" rel="noopener" href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+    </div>
+  </footer>
+</div>
+
+
+
+
+<script src="/MyPortfolio/js/main.js"></script>
+
+</body>
+</html>

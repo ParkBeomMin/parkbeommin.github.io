@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    자바 변수&amp;상수 | BeomLog
+  </title>
+  <meta name="description" content="범민의 기술블로그입니다.">
+  
+  <meta name="keywords" content="
+  
+  ">
+  
+  <meta name="author" content="bmpark">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/MyPortfolio/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+  <script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7426857657290789" crossorigin="anonymous" async></script>
+<meta name="generator" content="Hexo 8.0.0"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/MyPortfolio/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/MyPortfolio/archives">Archives</a></li>
+        
+        
+        <li><a href="/MyPortfolio/categories">Categories</a></li>
+        
+        
+        <li><a href="/MyPortfolio/tags">Tags</a></li>
+        
+        
+        <li><a href="/MyPortfolio/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://avatars.githubusercontent.com/u/23355295?v=4"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/MyPortfolio/archives" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="/MyPortfolio/archives"
+           class="header-toolbar-right"> 57 </a>
+      </li>
+      <li>
+        <a href="/MyPortfolio/tags" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="/MyPortfolio/tags"
+           class="header-toolbar-right"> 0 </a>
+      </li>
+      <li>
+        <a href="/MyPortfolio/categories" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="/MyPortfolio/categories"
+           class="header-toolbar-right"> 30 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/MyPortfolio/">BeomLog</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    bmpark
+
+    <span class="post-date float-right" title="{{moment(1560763980000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      <i class="fa fa-pencil-square-o"></i>
+      {{moment(1560763980000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>자바 변수&amp;상수</h1>
+    <p>프로그래밍을 처음 시작하면서 접하게 되는 개념이 바로 <strong>변수</strong> 입니다.  </p>
+<h2 id="변수-vs-상수"><a href="#변수-vs-상수" class="headerlink" title="변수 vs 상수"></a>변수 vs 상수</h2><p>변수와 상수는 항상 붙어다니는 개념입니다.</p>
+<ul>
+<li>변수</li>
+</ul>
+<p>변수란, 프로그램이 실행되는 동안에 언제든지 저장된 값이 변경될 수 있는 공간입니다.<br>다시 말해서 값을 저장할 수 있는 메모리 공간입니다.<br>예) 두 점간의 거리 distance는 프로그램이 실행되는 도중에 변경될 수 있다</p>
+<ul>
+<li>상수</li>
+</ul>
+<p>상수란, 한 번 정해지면 값을 변경할 필요가 없는 데이터입니다.<br>예) 원주율 3.141592는 프로그램에 저장되어 변경될 필요가 없다.</p>
+<blockquote>
+<p>값을 변경할 수 있으면 변수 &#x2F; 값을 변경할 수 없으면 상수</p>
+</blockquote>
+<h2 id="선언하기"><a href="#선언하기" class="headerlink" title="선언하기"></a>선언하기</h2><p>변수, 상수를 사용하기 위해서는 먼저 선언을 해야합니다.<br>선언을 하기 위해서는 어떤 형태로 선언할 것인지 먼저 정해야합니다.<br>그 형태를 <strong>자료형</strong> 이라고 합니다.<br>여기서는 간단하게 정수형, 실수형, 문자열로 예시를 들겠습니다.  </p>
+<blockquote>
+<p>정수형 : int<br>실수형 : double<br>문자열 : String</p>
+</blockquote>
+<p>변수 선언 방법은 <strong>자료형 + 변수명 (&#x3D; 초기값);</strong> 으로 선언합니다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">int intType;  </span><br><span class="line">int intType = 10;  </span><br><span class="line">double doubleType;  </span><br><span class="line">double doubleType = 10.5;  </span><br><span class="line">String stringType;  </span><br><span class="line">String stringType = &quot;string&quot;;</span><br></pre></td></tr></table></figure>
+
+<p>상수 선언 방법은 <strong>final + 자료형 + 상수명 &#x3D; 값;</strong> 으로 선언합니다.<br>상수를 선언할 때는 함수 바깥쪽에서 선언하고 클래스 내에서 공유하는 자원이므로 static을 붙여줍니다.<br>그리고 상수명은 일반적 관례로 대문자의 명사로 지어줍니다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">final static int INT_CONSTANT = 10;  </span><br><span class="line">final static double DOUBLE_CONSTANT = 10.5;  </span><br><span class="line">final static String STRING_CONSTANT = &quot;string&quot;;</span><br></pre></td></tr></table></figure>
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <a href="https://parkbeommin.github.io/MyPortfolio" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2025 bmpark</li>
+      <li><a href="https://parkbeommin.github.io/MyPortfolio">Home</a></li>
+      
+      <li><a target="_blank" rel="noopener" href="https://github.com/parkbeommin">Github</a></li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Theme <a target="_blank" rel="noopener" href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+      by <a target="_blank" rel="noopener" href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+    </div>
+  </footer>
+</div>
+
+
+
+
+<script src="/MyPortfolio/js/main.js"></script>
+
+</body>
+</html>
