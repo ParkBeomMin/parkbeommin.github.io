@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    BOJ 2579[백준 2579] | BeomLog
+  </title>
+  <meta name="description" content="범민의 기술블로그입니다.">
+  
+  <meta name="keywords" content="
+  
+  ">
+  
+  <meta name="author" content="bmpark">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+  <script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7426857657290789" crossorigin="anonymous" async></script>
+<meta name="generator" content="Hexo 8.0.0"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/archives">Archives</a></li>
+        
+        
+        <li><a href="/categories">Categories</a></li>
+        
+        
+        <li><a href="/tags">Tags</a></li>
+        
+        
+        <li><a href="/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://avatars.githubusercontent.com/u/23355295?v=4"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/archives" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="/archives"
+           class="header-toolbar-right"> 57 </a>
+      </li>
+      <li>
+        <a href="/tags" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="/tags"
+           class="header-toolbar-right"> 0 </a>
+      </li>
+      <li>
+        <a href="/categories" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="/categories"
+           class="header-toolbar-right"> 30 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/">BeomLog</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    bmpark
+
+    <span class="post-date float-right" title="{{moment(1560156900000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      <i class="fa fa-pencil-square-o"></i>
+      {{moment(1560156900000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>BOJ 2579[백준 2579]</h1>
+    <p><a target="_blank" rel="noopener" href="https://www.acmicpc.net/problem/2579">계단 오르기</a></p>
+<p>이제 막 알고리즘 문제 풀기를 시작한지라.. 문제 유형 파악을 하기 위해 분류된 문제를 풀어보고 있습니다..<br>이미 다이나믹 프로그래밍 문제라는 것을 알기 때문에, 먼저 점화식을 찾으려고 생각했습니다.<br>주어진 조건이</p>
+<ol>
+<li>3계단 연속 불가</li>
+<li>1칸 또는 2칸씩 이동 가능</li>
+<li>마지막 칸은 무조건 밟아야 함</li>
+</ol>
+<p>이기 때문에, 마지막 칸을 밟았다고 했을 때 가능한 경우가 두 가지 존재합니다.</p>
+<ol>
+<li>전 칸을 밟고 왔을 때</li>
+<li>전전 칸을 밟고 왔을 때</li>
+</ol>
+<p>따라서, 점화식을 만들어 보겠습니다.</p>
+<ol>
+<li>dp[n] &#x3D; score[n-1] + score[n] + dp[n-3]</li>
+<li>dp[n] &#x3D; score[n] + dp[n-2]</li>
+</ol>
+<p>이와 같은 식이 나오게 됩니다.(score는 계단의 점수, dp는 총 점수의 최댓값)  </p>
+<ol>
+<li>입력 값의 크기로 배열을 두개 만듭니다. (계단의 각 점수가 담긴 배열, 해당 계단을 밟았을 때 점수의 최댓값이 담긴 배열)</li>
+<li>0~2까지는 점화식이 성립되지 않기 때문에, 알맞게 계산하여 값을 넣어줍니다.</li>
+<li>dp[i]에 위 점화식 중 큰 값을 넣어줍니다.</li>
+<li>3번을 n까지 반복합니다.</li>
+<li>dp[n-1]을 출력합니다.</li>
+</ol>
+<p>핵심코드는 다음과 같습니다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">result[1] = Math.max(score[1], score[0] + score[1]);</span><br><span class="line">result[2] = Math.max(score[0] + score[2], score[1] + score[2]);</span><br><span class="line">for(int i = 3; i &lt; stairs; i++) &#123;</span><br><span class="line">	result[i] = Math.max(result[i-3] + score[i-1] + score[i], result[i-2] + score[i]);</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(result[stairs-1]);</span><br></pre></td></tr></table></figure>
+
+<p>전체 소스 코드는 <a target="_blank" rel="noopener" href="https://github.com/ParkBeomMin/Algorithm/blob/master/Backjoon/src/B_2579.java">여기서</a> 확인하실 수 있습니다.</p>
+
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <a href="https://parkbeommin.github.io" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2025 bmpark</li>
+      <li><a href="https://parkbeommin.github.io">Home</a></li>
+      
+      <li><a target="_blank" rel="noopener" href="https://github.com/parkbeommin">Github</a></li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Theme <a target="_blank" rel="noopener" href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+      by <a target="_blank" rel="noopener" href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+    </div>
+  </footer>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
+</body>
+</html>

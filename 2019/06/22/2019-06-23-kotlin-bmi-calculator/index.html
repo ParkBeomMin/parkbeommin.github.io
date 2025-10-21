@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    안드로이드 코틀린 개발하기 - BMI 계산기 | BeomLog
+  </title>
+  <meta name="description" content="범민의 기술블로그입니다.">
+  
+  <meta name="keywords" content="
+  
+  ">
+  
+  <meta name="author" content="bmpark">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+  <script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7426857657290789" crossorigin="anonymous" async></script>
+<meta name="generator" content="Hexo 8.0.0"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/archives">Archives</a></li>
+        
+        
+        <li><a href="/categories">Categories</a></li>
+        
+        
+        <li><a href="/tags">Tags</a></li>
+        
+        
+        <li><a href="/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://avatars.githubusercontent.com/u/23355295?v=4"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/archives" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="/archives"
+           class="header-toolbar-right"> 57 </a>
+      </li>
+      <li>
+        <a href="/tags" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="/tags"
+           class="header-toolbar-right"> 0 </a>
+      </li>
+      <li>
+        <a href="/categories" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="/categories"
+           class="header-toolbar-right"> 30 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/">BeomLog</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    bmpark
+
+    <span class="post-date float-right" title="{{moment(1561200420000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      <i class="fa fa-pencil-square-o"></i>
+      {{moment(1561200420000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>안드로이드 코틀린 개발하기 - BMI 계산기</h1>
+    <h2 id="사전-설정"><a href="#사전-설정" class="headerlink" title="사전 설정"></a>사전 설정</h2><h3 id="Anko라이브러리-추가하기"><a href="#Anko라이브러리-추가하기" class="headerlink" title="Anko라이브러리 추가하기"></a>Anko라이브러리 추가하기</h3><p>Anko라이브러리를 사용하기 위해서 아래와 같이 코드를 삽입해줍니다.<br>이번 예제에서는 Anko commons 라이브러리만 사용합니다.</p>
+<blockquote>
+<p>build.gradle (Module: app)</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ext.anko_version = &#x27;0.10.8&#x27;</span><br></pre></td></tr></table></figure>
+
+<img src="/assets/anko_project.png" width="100%" >
+
+<blockquote>
+<p>build.gradle (Project)</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">implementation &quot;org.jetbrains.anko:anko-commons:$anko_version&quot;</span><br></pre></td></tr></table></figure>
+
+<img src="/assets/anko_app.png" width="100%" >
+
+
+<ul>
+<li>Anko 라이브러리란?</li>
+</ul>
+<p>젯브레인에서 개발한 코드 작성을 편리하게 도와주는 라이브러리.<br>Anko 라이브러리는 총 4개로 구성됩니다.  </p>
+<ol>
+<li>Anko Commons : 인텐트, 다이얼로그, 로그 등을 편리하게 사용하는 라이브러리</li>
+<li>Anko Layouts : 안드로이드 레이아웃을 코드로 쉽게 작성하는 라이브러리</li>
+<li>Anko SQLite : SQLite를 쉽게 사용하는 라이브러리</li>
+<li>Anko Coroutines : 코루틴을 쉽게 사용하는 라이브러리</li>
+</ol>
+<h3 id="벡터-드로어블-사용-환경-설정하기"><a href="#벡터-드로어블-사용-환경-설정하기" class="headerlink" title="벡터 드로어블 사용 환경 설정하기"></a>벡터 드로어블 사용 환경 설정하기</h3><blockquote>
+<p>build.gradle (Module: app)</p>
+</blockquote>
+<p>버전 5.0미만의 기기에서 벡터 이미지를 사용하기 위해서 아래와 같은 코드를 삽입해줍니다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vectorDrawables.useSupportLibrary = true</span><br></pre></td></tr></table></figure>
+
+<img src="/assets/vector_drawable.png" width="100%" >
+
+
+
+<h2 id="레이아웃-만들기"><a href="#레이아웃-만들기" class="headerlink" title="레이아웃 만들기"></a>레이아웃 만들기</h2><p>값을 입력받는 액티비티와 결과를 보여주는 액티비티를 만듭니다.  </p>
+<p>가장 최근에 등장했고, 현재 안드로이드 기본 레이아웃인 <strong>Constrain Layout</strong>을 사용합니다.<br>몸무게와 키를 입력받을 <strong>EditText</strong>를 사용합니다.<br>몸무게와 키를 결과 화면으로 넘겨주는 이벤트를 발생시킬 <strong>Button</strong>을 사용합니다.<br>결과 내용을 보여줄 <strong>TextView</strong>를 사용합니다.<br>결과를 이미지로 표시해줄 <strong>ImageView</strong>를 사용합니다.</p>
+<p>결과 이미지는 <strong>에셋 스튜디오</strong>에서 벡터 이미지를 생성하여 사용합니다. </p>
+<blockquote>
+<p>activity_main.xml</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;android.support.constraint.ConstraintLayout</span><br><span class="line">    xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">    xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;</span><br><span class="line">    xmlns:tools=&quot;http://schemas.android.com/tools&quot;</span><br><span class="line">    android:layout_width=&quot;match_parent&quot;</span><br><span class="line">    android:layout_height=&quot;match_parent&quot;</span><br><span class="line">    android:padding=&quot;8dp&quot;</span><br><span class="line">    tools:context=&quot;.MainActivity&quot;&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &lt;EditText</span><br><span class="line">        android:id=&quot;@+id/weightEdt&quot;</span><br><span class="line">        android:layout_width=&quot;0dp&quot;</span><br><span class="line">        android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">        android:inputType=&quot;numberDecimal&quot;</span><br><span class="line">        android:hint=&quot;@string/weight&quot;</span><br><span class="line">        app:layout_constraintBottom_toTopOf=&quot;@+id/heightEdt&quot;</span><br><span class="line">        app:layout_constraintEnd_toEndOf=&quot;parent&quot;</span><br><span class="line">        app:layout_constraintStart_toStartOf=&quot;parent&quot;</span><br><span class="line">        app:layout_constraintTop_toTopOf=&quot;parent&quot;/&gt;</span><br><span class="line"></span><br><span class="line">    &lt;EditText</span><br><span class="line">        android:id=&quot;@+id/heightEdt&quot;</span><br><span class="line">        android:layout_width=&quot;0dp&quot;</span><br><span class="line">        android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">        android:inputType=&quot;numberDecimal&quot;</span><br><span class="line">        android:hint=&quot;@string/height&quot;</span><br><span class="line">        app:layout_constraintBottom_toTopOf=&quot;@+id/button&quot;</span><br><span class="line">        app:layout_constraintEnd_toEndOf=&quot;parent&quot;</span><br><span class="line">        app:layout_constraintStart_toStartOf=&quot;parent&quot;</span><br><span class="line">        app:layout_constraintTop_toBottomOf=&quot;@+id/weightEdt&quot;/&gt;</span><br><span class="line"></span><br><span class="line">    &lt;Button</span><br><span class="line">        android:id=&quot;@+id/button&quot;</span><br><span class="line">        android:layout_width=&quot;0dp&quot;</span><br><span class="line">        android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">        android:text=&quot;@string/click&quot;</span><br><span class="line">        app:layout_constraintBottom_toBottomOf=&quot;parent&quot;</span><br><span class="line">        app:layout_constraintEnd_toEndOf=&quot;parent&quot;</span><br><span class="line">        app:layout_constraintStart_toStartOf=&quot;parent&quot;</span><br><span class="line">        app:layout_constraintTop_toBottomOf=&quot;@+id/heightEdt&quot;/&gt;</span><br><span class="line">&lt;/android.support.constraint.ConstraintLayout&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>activity_result.xml</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;android.support.constraint.ConstraintLayout</span><br><span class="line">    xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">    xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;</span><br><span class="line">    xmlns:tools=&quot;http://schemas.android.com/tools&quot;</span><br><span class="line">    android:layout_width=&quot;match_parent&quot;</span><br><span class="line">    android:layout_height=&quot;match_parent&quot;</span><br><span class="line">    tools:context=&quot;.ResultActivity&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;ImageView</span><br><span class="line">        android:id=&quot;@+id/resultIv&quot;</span><br><span class="line">        android:layout_width=&quot;100dp&quot;</span><br><span class="line">        android:layout_height=&quot;100dp&quot;</span><br><span class="line">        app:layout_constraintBottom_toTopOf=&quot;@+id/resultTv&quot;</span><br><span class="line">        app:layout_constraintEnd_toEndOf=&quot;parent&quot;</span><br><span class="line">        app:layout_constraintStart_toStartOf=&quot;parent&quot;</span><br><span class="line">        app:layout_constraintTop_toTopOf=&quot;parent&quot;</span><br><span class="line">        app:srcCompat=&quot;@drawable/ic_sentiment_satisfied_black_24dp&quot;/&gt;</span><br><span class="line"></span><br><span class="line">    &lt;TextView</span><br><span class="line">        android:id=&quot;@+id/resultTv&quot;</span><br><span class="line">        android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">        android:text=&quot;TextView&quot;</span><br><span class="line">        app:layout_constraintBottom_toBottomOf=&quot;parent&quot;</span><br><span class="line">        app:layout_constraintEnd_toEndOf=&quot;parent&quot;</span><br><span class="line">        app:layout_constraintStart_toStartOf=&quot;parent&quot;</span><br><span class="line">        app:layout_constraintTop_toBottomOf=&quot;@+id/resultIv&quot;/&gt;</span><br><span class="line">&lt;/android.support.constraint.ConstraintLayout&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="화면-전환하기-Intent"><a href="#화면-전환하기-Intent" class="headerlink" title="화면 전환하기(Intent)"></a>화면 전환하기(Intent)</h2><h3 id="기본적인-방법"><a href="#기본적인-방법" class="headerlink" title="기본적인 방법"></a>기본적인 방법</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">val intent = Intent(this, ResultActivity::class.java)</span><br><span class="line">startActivity(intent)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Anko-Commons-라이브러리-방법"><a href="#Anko-Commons-라이브러리-방법" class="headerlink" title="Anko Commons 라이브러리 방법"></a>Anko Commons 라이브러리 방법</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">startActivity&lt;ResultActivity&gt;()</span><br></pre></td></tr></table></figure>
+
+<p><em>코드가 확실하게 짧아짐을 볼 수 있습니다.</em>  </p>
+<p>여기서 우리는 결과 화면으로 몸무게와 키 값을 넘겨주어야 하기 때문에, 액티비티간 데이터 전송을 추가하도록 하겠습니다.  </p>
+<h3 id="기본적인-방법-데이터-전송"><a href="#기본적인-방법-데이터-전송" class="headerlink" title="기본적인 방법 - 데이터 전송"></a>기본적인 방법 - 데이터 전송</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">val intent = Intent(this, ResultActivity::class.java)</span><br><span class="line">intent.putExtra(&quot;weight&quot;, weightEdt.text.toString())</span><br><span class="line">intent.putExtra(&quot;height&quot;, heightEdt.text.toString())</span><br><span class="line">startActivity(intent)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Anko-Commons-라이브러리-방법-데이터-전송"><a href="#Anko-Commons-라이브러리-방법-데이터-전송" class="headerlink" title="Anko Commons 라이브러리 방법 - 데이터 전송"></a>Anko Commons 라이브러리 방법 - 데이터 전송</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">startActivity&lt;ResultActivity&gt;(</span><br><span class="line">        &quot;weight&quot; to weightEdt.text.toString(),</span><br><span class="line">        &quot;height&quot; to heightEdt.text.toString()</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>이제 결과 화면에서 값을 받아와야 합니다.</p>
+<h3 id="값-받아오기"><a href="#값-받아오기" class="headerlink" title="값 받아오기"></a>값 받아오기</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">val weight = intent.getStringExtra(&quot;weight&quot;).toInt()</span><br><span class="line">val height = intent.getStringExtra(&quot;height&quot;).toInt()</span><br></pre></td></tr></table></figure>
+
+<p>값을 넘겨줄 때, 지정했던 <strong>키 값</strong>으로 가지고 옵니다.</p>
+<h3 id="부모-액티비티-설정하기"><a href="#부모-액티비티-설정하기" class="headerlink" title="부모 액티비티 설정하기"></a>부모 액티비티 설정하기</h3><p>부모 액티비티를 설정하면 상단에 위치한 네비게이션바에 자동으로 뒤로가기 버튼이 생겨납니다.  </p>
+<blockquote>
+<p>AndroidManifest.xml</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;activity android:name=&quot;.ResultActivity&quot;</span><br><span class="line">    android:parentActivityName=&quot;.MainActivity&quot;&gt;</span><br><span class="line">&lt;/activity&gt;</span><br></pre></td></tr></table></figure>
+
+<img src="/assets/manifest.png" width="100%" >
+
+
+<h2 id="계산하기"><a href="#계산하기" class="headerlink" title="계산하기"></a>계산하기</h2><p>몸무게와 키를 받아왔기 때문에 BMI를 계산해야 합니다.  </p>
+<blockquote>
+<p>BMI &#x3D; 몸무게 &#x2F; (키&#x2F;100)^2</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">val bmi = weight / Math.pow(height / 100.0, 2.0)</span><br></pre></td></tr></table></figure>
+
+<p>그리고 bmi의 결과 값에 따라 결과 문구와 이미지가 다르게 나타나야합니다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">when &#123;</span><br><span class="line">    bmi &gt;= 35 -&gt; resultTv.text = &quot;고도 비만&quot;</span><br><span class="line">    bmi &gt;= 30 -&gt; resultTv.text = &quot;2단계 비만&quot;</span><br><span class="line">    bmi &gt;= 25 -&gt; resultTv.text = &quot;1단계 비만&quot;</span><br><span class="line">    bmi &gt;= 13 -&gt; resultTv.text = &quot;과체중&quot;</span><br><span class="line">    bmi &gt;= 18.5 -&gt; resultTv.text = &quot;정상&quot;</span><br><span class="line">    else -&gt; resultTv.text = &quot;저체중&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">when &#123;</span><br><span class="line">    bmi &gt;= 23 -&gt; resultIv.setImageResource(R.drawable.ic_sentiment_very_dissatisfied_black_24dp)</span><br><span class="line">    bmi &gt;= 18.5 -&gt; resultIv.setImageResource(R.drawable.ic_sentiment_satisfied_black_24dp)</span><br><span class="line">    else -&gt; resultIv.setImageResource(R.drawable.ic_sentiment_dissatisfied_black_24dp)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="데이터-저장하기-SharedPreference"><a href="#데이터-저장하기-SharedPreference" class="headerlink" title="데이터 저장하기 (SharedPreference)"></a>데이터 저장하기 (SharedPreference)</h2><p>몸무게와 키에 입력했던 값이 앱을 다시 실행했을 때 남아있도록 합니다.  </p>
+<h3 id="데이터-저장하기"><a href="#데이터-저장하기" class="headerlink" title="데이터 저장하기"></a>데이터 저장하기</h3><p>값을 입력하고 버튼을 누르면 저장이 됩니다.  </p>
+<blockquote>
+<p>MainActivity.kt</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">private fun saveData(weight: Int, height: Int) &#123;</span><br><span class="line">    val pref = PreferenceManager.getDefaultSharedPreferences(this)</span><br><span class="line">    val editor = pref.edit()</span><br><span class="line"></span><br><span class="line">    editor.putInt(&quot;KEY_WEIGHT&quot;, weight)</span><br><span class="line">            .putInt(&quot;KEY_HEIGHT&quot;, height)</span><br><span class="line">            .apply()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="데이터-불러오기"><a href="#데이터-불러오기" class="headerlink" title="데이터 불러오기"></a>데이터 불러오기</h3><p>앱이 실행되었을 때, 값을 불러옵니다.<br>초기값은 0으로 설정합니다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">private fun loadData() &#123;</span><br><span class="line">    val pref = PreferenceManager.getDefaultSharedPreferences(this)</span><br><span class="line">    val weight = pref.getInt(&quot;KEY_WEIGHT&quot;, 0)</span><br><span class="line">    val height = pref.getInt(&quot;KEY_HEIGHT&quot;, 0)</span><br><span class="line"></span><br><span class="line">    if( weight != 0 &amp;&amp; height != 0) &#123;</span><br><span class="line">        weightEdt.setText(weight.toString())</span><br><span class="line">        heightEdt.setText(height.toString())</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="소스-코드"><a href="#소스-코드" class="headerlink" title="소스 코드"></a>소스 코드</h2><p><a target="_blank" rel="noopener" href="https://github.com/ParkBeomMin/Kotlin_BMI_Calculator">Kotlin_BMI_Calculator</a></p>
+<h2 id="레퍼런스"><a href="#레퍼런스" class="headerlink" title="레퍼런스"></a>레퍼런스</h2><p>오준석의 안드로이드 생존코딩 코틀린 편 ( 오준석 저 &#x2F; 한빛미디어 &#x2F; 2018.10.01 )</p>
+
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <a href="https://parkbeommin.github.io" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2025 bmpark</li>
+      <li><a href="https://parkbeommin.github.io">Home</a></li>
+      
+      <li><a target="_blank" rel="noopener" href="https://github.com/parkbeommin">Github</a></li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Theme <a target="_blank" rel="noopener" href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+      by <a target="_blank" rel="noopener" href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+    </div>
+  </footer>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
+</body>
+</html>

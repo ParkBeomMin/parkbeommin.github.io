@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    [안드로이드] Widget 만들기 | BeomLog
+  </title>
+  <meta name="description" content="범민의 기술블로그입니다.">
+  
+  <meta name="keywords" content="
+  
+  ">
+  
+  <meta name="author" content="bmpark">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+  <script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7426857657290789" crossorigin="anonymous" async></script>
+<meta name="generator" content="Hexo 8.0.0"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/archives">Archives</a></li>
+        
+        
+        <li><a href="/categories">Categories</a></li>
+        
+        
+        <li><a href="/tags">Tags</a></li>
+        
+        
+        <li><a href="/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://avatars.githubusercontent.com/u/23355295?v=4"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/archives" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="/archives"
+           class="header-toolbar-right"> 57 </a>
+      </li>
+      <li>
+        <a href="/tags" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="/tags"
+           class="header-toolbar-right"> 0 </a>
+      </li>
+      <li>
+        <a href="/categories" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="/categories"
+           class="header-toolbar-right"> 30 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/">BeomLog</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    bmpark
+
+    <span class="post-date float-right" title="{{moment(1562187360000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      <i class="fa fa-pencil-square-o"></i>
+      {{moment(1562187360000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>[안드로이드] Widget 만들기</h1>
+    <h2 id="위젯이란"><a href="#위젯이란" class="headerlink" title="위젯이란?"></a>위젯이란?</h2><p>안드로이드에서 위젯이라고 하면, TextView, EditText와 같은 위젯이 있고, 스마트폰 홈 스크린 화면에 표시되는 위젯이 있습니다.<br>여기서는 후자에 해당하는 위젯에 대해서 설명하도록 하겠습니다.</p>
+<p>공식 문서에서 위젯은 <strong>홈 화면에서 바로 쓸 수 있도록 앱에서 가장 중요한 자료와 기능을 한 곳에 모아주는 역할</strong>을 한다고 합니다.</p>
+<p>위젯은 일반적으로 4가지 종류가 있습니다.</p>
+<ol>
+<li>정보 위젯</li>
+<li>모음 위젯</li>
+<li>제어 위젯</li>
+<li>혼합 위젯</li>
+</ol>
+<p>그리고 위젯을 만들 때, 제약 사항이 있습니다.</p>
+<ul>
+<li>제스처</li>
+</ul>
+<p><strong>터치</strong>와 <strong>세로로 스와이프</strong>만 가능합니다.<br>가로로 스와이프의 경우에는 홈화면간 전환이 되는 제스처와 겹치기 때문에 불가합니다.<br>요즘엔 홈화면에서 세로로 스와이프하여서 모든 앱을 볼 수 있는 기능이 있는데, 이 경우는 고려되는지 잘 모르겠습니다.. 아직 공식문서에서는 따로 언급이 없는 걸로 보아서 가능한 것 같습니다.</p>
+<ul>
+<li>구성 요소 및 레이아웃</li>
+</ul>
+<p>위젯의 레이아웃은 RemoteViews를 기반으로 하기 때문에, 모든 종류의 레이아웃이 가능하지 않습니다.</p>
+<p>가능한 레이아웃은 <strong>FrameLayout, LinearLayout, RelativeLayout, GridLayout</strong> 입니다.</p>
+<p>그리고 구성 요소 또한 제한이 있습니다.</p>
+<p>가능한 구성 요소는 <strong>AnalogClock, Button, Chronometer, ImageButton, ImageView, ProgressBar, TextView, ViewFlipper, ListView, GridView, StackView, AdapterViewFlipper</strong> 입니다.</p>
+<h2 id="위젯-만들기"><a href="#위젯-만들기" class="headerlink" title="위젯 만들기"></a>위젯 만들기</h2><p>위젯을 만들기 위해서는 다음과 같은 절차를 거쳐야 합니다.</p>
+<ol>
+<li>widget 레이아웃 만들기</li>
+<li>widget 속성(meta data) 만들기</li>
+<li>AppWidgetProvider 클래스를 상속받은 ProviderClass 만들기</li>
+<li>AndroidManifest에 widget과 receiver 등록하기</li>
+</ol>
+<p>이렇게 4가지 과정을 거치면 위젯을 만들 수 있습니다.<br>그런데 최근 안드로이드 스튜디오에서는 New &gt; Widget &gt; AppWidget으로 4가지 과정을 한 번에 할 수 있더라구요.<br>일단 이번 포스팅에서는 4가지 과정을 차례 차례 진행해보도록 하겠습니다.</p>
+<h3 id="widget-레이아웃-만들기"><a href="#widget-레이아웃-만들기" class="headerlink" title="widget 레이아웃 만들기"></a>widget 레이아웃 만들기</h3><p>일반적인 레이아웃 파일을 만드는 것과 동일하게 만들어줍니다.</p>
+<blockquote>
+<p>res&#x2F;layout &gt; New &gt; Layout Resource File</p>
+</blockquote>
+<p>여기서 주의할 점은 위젯의 제약사항 중 구성 요소 및 레이아웃을 고려해야한다는 점입니다.<br>처음에 저는 제약 사항의 존재를 모르고, Constrain Layout으로 했다가 계속 위젯 설정에 문제가 있었습니다… ㅠ<br>저는 파일 이름을 widget.xml로 했습니다.<br>그리고 버튼을 두 개 띄우도록 하겠습니다.</p>
+<blockquote>
+<p>widget.xml</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;LinearLayout</span><br><span class="line">    xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">    xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;</span><br><span class="line">    xmlns:tools=&quot;http://schemas.android.com/tools&quot;</span><br><span class="line">    android:layout_width=&quot;match_parent&quot;</span><br><span class="line">    android:layout_height=&quot;match_parent&quot;</span><br><span class="line">    android:orientation=&quot;horizontal&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;Button</span><br><span class="line">        android:id=&quot;@+id/button&quot;</span><br><span class="line">        android:layout_width=&quot;0dp&quot;</span><br><span class="line">        android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_marginStart=&quot;16dp&quot;</span><br><span class="line">        android:layout_marginTop=&quot;16dp&quot;</span><br><span class="line">        android:layout_weight=&quot;1&quot;</span><br><span class="line">        android:text=&quot;Button&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;Button</span><br><span class="line">        android:id=&quot;@+id/button2&quot;</span><br><span class="line">        android:layout_width=&quot;0dp&quot;</span><br><span class="line">        android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_marginEnd=&quot;16dp&quot;</span><br><span class="line">        android:layout_marginTop=&quot;16dp&quot;</span><br><span class="line">        android:layout_weight=&quot;1&quot;</span><br><span class="line">        android:text=&quot;Button&quot; /&gt;</span><br><span class="line">&lt;/LinearLayout&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="widget-속성-meta-data-만들기"><a href="#widget-속성-meta-data-만들기" class="headerlink" title="widget 속성(meta data) 만들기"></a>widget 속성(meta data) 만들기</h3><p>위젯의 속성을 기술하는 파일을 만들어야 합니다.<br>위젯의 속성으로는 <strong>최소 가로, 세로, 업데이트 시간, 초기 레이아웃, 리사이즈 모드 등</strong>이 있습니다.</p>
+<p>최소 가로, 세로의 단위는 dp 이며, 위젯은 셀 단위로 표시되기 때문에 셀 크기에 따른 최소 단위 값을 구하는 공식은 다음과 같습니다.</p>
+<blockquote>
+<p>(셀 개수 * 74) - 2</p>
+</blockquote>
+<p>업데이트 시간의 경우는 얼마나 자주 onUpdate()를 호출할 것인지에 대한 값입니다.<br>최소 값은 30분(86400000밀리초)이며, 이 값보다 작게 지정을 해도 30분으로 됩니다.<br>30분보다 적은 시간에 업데이트를 하고 싶다면, 사용자에게 업데이트를 요청하는 버튼을 만들거나, AppWidgetManager.ACTION_APPWIDGET_UPDATE로 전달되는 intent를 이용하여 AlarmManager를 이용하여 처리하면 될 것 같습니다.</p>
+<p>초기 레이아웃은 onUpdate()가 호출될 때 레이아웃에 변경이 있을 수 있기 때문에, 초기 레이아웃을 설정합니다.</p>
+<p>리사이즈 모드는 위젯의 크기를 가로, 세로로 변경할 수 있는지에 대한 값을 지정해줍니다.</p>
+<p>이 외에도 다른 속성들이 있는데 필수사항은 아니기 때문에, 문서를 참고해주시면 될 것 같습니다.</p>
+<blockquote>
+<p>widget_provider.xml</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;appwidget-provider</span><br><span class="line">    android:initialLayout=&quot;@layout/widget&quot;</span><br><span class="line">    android:minWidth=&quot;146dp&quot;</span><br><span class="line">    android:minHeight=&quot;72dp&quot;</span><br><span class="line">    android:updatePeriodMillis=&quot;86400000&quot;</span><br><span class="line">    android:resizeMode=&quot;horizontal|vertical&quot;</span><br><span class="line">    xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot; /&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="AppWidgetProvider-클래스를-상속받은-ProviderClass-만들기"><a href="#AppWidgetProvider-클래스를-상속받은-ProviderClass-만들기" class="headerlink" title="AppWidgetProvider 클래스를 상속받은 ProviderClass 만들기"></a>AppWidgetProvider 클래스를 상속받은 ProviderClass 만들기</h3><p>이제 위젯의 동작 및 생명주기 관리를 위해 AppWidgetProvider를 상속받는 클래스 파일을 만듭니다.<br>그리고 다음과 같은 메서드들을 오버라이드합니다.</p>
+<ul>
+<li>onEnabled() : 위젯이 처음 생성될때 호출되며, 동일한 위젯의 경우 처음에만 호출</li>
+<li>onUpdate() : 위젯 갱신 주기에 따라 위젯을 갱신할때 호출, 처음 위젯이 화면에 붙을 때 호출(Configuration activity를 따로 두었다면, 처음 붙을 때 불리지는 않음)</li>
+<li>onDeleted() : 위젯이 사용자에 의해 제거될때 호출</li>
+<li>onDisabled() : 위젯의 마지막 인스턴스가 제거될때 호출</li>
+<li>onReceive() : 일반적인 브로드캐스팅 receiver, 위젯이 붙었을 때, 위젯이 삭제되었을 때 호출</li>
+</ul>
+<blockquote>
+<p>WidgetProvider.kt</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">package com.beomji.parkbeommin.soundreservation</span><br><span class="line"></span><br><span class="line">import android.app.PendingIntent</span><br><span class="line">import android.appwidget.AppWidgetManager</span><br><span class="line">import android.appwidget.AppWidgetProvider</span><br><span class="line">import android.content.Context</span><br><span class="line">import android.content.Intent</span><br><span class="line">import android.media.AudioManager</span><br><span class="line">import android.net.Uri</span><br><span class="line">import android.support.v4.content.ContextCompat.getSystemService</span><br><span class="line">import android.util.Log</span><br><span class="line">import android.widget.RemoteViews</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class WidgetProvider : AppWidgetProvider() &#123;</span><br><span class="line">    private val MY_ACTION = &quot;android.action.MY_ACTION&quot;</span><br><span class="line"></span><br><span class="line">    //    위젯 갱신 주기에 따라 위젯을 갱신할때 호출</span><br><span class="line">    override fun onUpdate(context: Context?, appWidgetManager: AppWidgetManager?, appWidgetIds: IntArray?) &#123;</span><br><span class="line">        super.onUpdate(context, appWidgetManager, appWidgetIds)</span><br><span class="line">        appWidgetIds?.forEach &#123; appWidgetId -&gt;</span><br><span class="line">            val views: RemoteViews = addViews(context)</span><br><span class="line">            appWidgetManager?.updateAppWidget(appWidgetId, views)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    override fun onReceive(context: Context?, intent: Intent?) &#123;</span><br><span class="line">        super.onReceive(context, intent)</span><br><span class="line">        var action = intent?.action</span><br><span class="line">        if (action == MY_ACTION) &#123;</span><br><span class="line">            // TODO</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //    위젯이 처음 생성될때 호출되며, 동일한 위젯의 경우 처음 호출</span><br><span class="line">    override fun onEnabled(context: Context?) &#123;</span><br><span class="line">        super.onEnabled(context)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //    위젯의 마지막 인스턴스가 제거될때 호출</span><br><span class="line">    override fun onDisabled(context: Context?) &#123;</span><br><span class="line">        super.onDisabled(context)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //    위젯이 사용자에 의해 제거될때 호출</span><br><span class="line">    override fun onDeleted(context: Context?, appWidgetIds: IntArray?) &#123;</span><br><span class="line">        super.onDeleted(context, appWidgetIds)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private fun setMyAction(context: Context?): PendingIntent &#123;</span><br><span class="line">        val intent = Intent(MY_ACTION)</span><br><span class="line">        return PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private fun buildURIIntent(context: Context?): PendingIntent &#123;</span><br><span class="line">        val intent = Intent(Intent.ACTION_VIEW).setData(Uri.parse(&quot;http://parkbeommin.github.io&quot;))</span><br><span class="line">        return PendingIntent.getActivity(context, 0, intent, 0)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private fun addViews(context: Context?): RemoteViews &#123;</span><br><span class="line">        val views = RemoteViews(context?.packageName, R.layout.widget)</span><br><span class="line">        views.setOnClickPendingIntent(R.id.button, setMyAction(context))</span><br><span class="line">        views.setOnClickPendingIntent(R.id.button2, buildURIIntent(context))</span><br><span class="line">        return views</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>위의 코드를 보면, RemoteViews를 이용해서 레이아웃을 만들고, 버튼에 클릭이벤트를 만들어줬습니다.<br>button에는 커스텀 액션을 만들어서 버튼을 클릭했을 때, 브로드캐스트로 이벤트가 보내지고, onReceive에서 받아서 처리합니다.(이 경우, 오레오버전부터는 백그라운드 정책이 바뀌어서 조금 다르게 구현을 해야합니다. 추후에 추가하도록 하겠습니다.)<br>button2에는 웹사이트로 이동하게 됩니다.</p>
+<h3 id="AndroidManifest에-widget과-receiver-등록하기"><a href="#AndroidManifest에-widget과-receiver-등록하기" class="headerlink" title="AndroidManifest에 widget과 receiver 등록하기"></a>AndroidManifest에 widget과 receiver 등록하기</h3><p>이제 모든 준비가 끝나고, manifest에 등록을 해줘야합니다.</p>
+<blockquote>
+<p>AndroidManifest.xml</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">          package=&quot;com.beomji.parkbeommin.soundreservation&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;application</span><br><span class="line">        android:allowBackup=&quot;true&quot;</span><br><span class="line">        android:icon=&quot;@mipmap/ic_launcher&quot;</span><br><span class="line">        android:label=&quot;@string/app_name&quot;</span><br><span class="line">        android:roundIcon=&quot;@mipmap/ic_launcher_round&quot;</span><br><span class="line">        android:supportsRtl=&quot;true&quot;</span><br><span class="line">        android:theme=&quot;@style/AppTheme&quot;&gt;</span><br><span class="line">        &lt;activity android:name=&quot;.MainActivity&quot;&gt;</span><br><span class="line">            &lt;intent-filter&gt;</span><br><span class="line">                &lt;action android:name=&quot;android.intent.action.MAIN&quot;/&gt;</span><br><span class="line"></span><br><span class="line">                &lt;category android:name=&quot;android.intent.category.LAUNCHER&quot;/&gt;</span><br><span class="line">            &lt;/intent-filter&gt;</span><br><span class="line">        &lt;/activity&gt;</span><br><span class="line"></span><br><span class="line">        &lt;receiver</span><br><span class="line">            android:name=&quot;.WidgetProvider&quot;&gt;</span><br><span class="line">            &lt;intent-filter&gt;</span><br><span class="line">                &lt;action android:name=&quot;android.appwidget.action.APPWIDGET_UPDATE&quot;/&gt;</span><br><span class="line">                &lt;action android:name=&quot;android.action.MY_ACTION&quot;/&gt;</span><br><span class="line">            &lt;/intent-filter&gt;</span><br><span class="line"></span><br><span class="line">            &lt;meta-data</span><br><span class="line">                android:name=&quot;android.appwidget.provider&quot;</span><br><span class="line">                android:resource=&quot;@xml/widget_provider&quot;/&gt;</span><br><span class="line">        &lt;/receiver&gt;</span><br><span class="line">    &lt;/application&gt;</span><br><span class="line">&lt;/manifest&gt;</span><br></pre></td></tr></table></figure>
+
+<p>이제 완성이 되어서, 위젯을 만들어서 잘 동작하는 것을 확인하시면 됩니다.</p>
+<p>감사합니다.</p>
+<h2 id="레퍼런스"><a href="#레퍼런스" class="headerlink" title="레퍼런스"></a>레퍼런스</h2><p>[<a target="_blank" rel="noopener" href="https://developer.android.com/guide/topics/appwidgets/overview][ref-url-1]">https://developer.android.com/guide/topics/appwidgets/overview][ref-url-1]</a><br>[<a target="_blank" rel="noopener" href="http://klutzy.nanabi.org/android-design-ko/patterns/widgets.html][ref-url-2]">http://klutzy.nanabi.org/android-design-ko/patterns/widgets.html][ref-url-2]</a><br>[<a target="_blank" rel="noopener" href="https://tech.wanted.co.kr/android/2018/02/12/android-widget.html][ref-url-3]">https://tech.wanted.co.kr/android/2018/02/12/android-widget.html][ref-url-3]</a><br>[<a target="_blank" rel="noopener" href="https://arabiannight.tistory.com/entry/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9CAndroid-App-widget%EC%9D%84-%EB%A7%8C%EB%93%A4%EC%96%B4-%EB%B3%B4%EC%9E%90-2][ref-url-4]">https://arabiannight.tistory.com/entry/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9CAndroid-App-widget%EC%9D%84-%EB%A7%8C%EB%93%A4%EC%96%B4-%EB%B3%B4%EC%9E%90-2][ref-url-4]</a></p>
+<!-- [ref-url-1]: "https://developer.android.com/guide/topics/appwidgets/overview"
+[ref-url-2]: "http://klutzy.nanabi.org/android-design-ko/patterns/widgets.html"
+[ref-url-3]: "https://tech.wanted.co.kr/android/2018/02/12/android-widget.html"
+[ref-url-4]: "https://arabiannight.tistory.com/entry/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9CAndroid-App-widget%EC%9D%84-%EB%A7%8C%EB%93%A4%EC%96%B4-%EB%B3%B4%EC%9E%90-2" -->
+
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <a href="https://parkbeommin.github.io" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2025 bmpark</li>
+      <li><a href="https://parkbeommin.github.io">Home</a></li>
+      
+      <li><a target="_blank" rel="noopener" href="https://github.com/parkbeommin">Github</a></li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Theme <a target="_blank" rel="noopener" href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+      by <a target="_blank" rel="noopener" href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+    </div>
+  </footer>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
+</body>
+</html>

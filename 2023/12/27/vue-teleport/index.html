@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    Vue3 Teleport, Pinia랑 찰떡궁합?! | BeomLog
+  </title>
+  <meta name="description" content="범민의 기술블로그입니다.">
+  
+  <meta name="keywords" content="
+  
+  ">
+  
+  <meta name="author" content="bmpark">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+  <script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7426857657290789" crossorigin="anonymous" async></script>
+<meta name="generator" content="Hexo 8.0.0"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/archives">Archives</a></li>
+        
+        
+        <li><a href="/categories">Categories</a></li>
+        
+        
+        <li><a href="/tags">Tags</a></li>
+        
+        
+        <li><a href="/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://avatars.githubusercontent.com/u/23355295?v=4"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/archives" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="/archives"
+           class="header-toolbar-right"> 57 </a>
+      </li>
+      <li>
+        <a href="/tags" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="/tags"
+           class="header-toolbar-right"> 0 </a>
+      </li>
+      <li>
+        <a href="/categories" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="/categories"
+           class="header-toolbar-right"> 30 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/">BeomLog</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    bmpark
+
+    <span class="post-date float-right" title="{{moment(1703627400000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      <i class="fa fa-pencil-square-o"></i>
+      {{moment(1703627400000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>Vue3 Teleport, Pinia랑 찰떡궁합?!</h1>
+    <blockquote>
+<p>🙋🏻‍♂️: wrapper 하위로 레이어 형태로 된 다양한 알럿이 떴으면 좋겠어요.<br>👨🏻‍💻: 매 컴포넌트마다 불러와서 해야하나..?</p>
+</blockquote>
+<img src="/images/vue/cat_teleport.jpg" />
+
+<p>Vue에는 어디서 붙여도 원하는 곳으로 보낼 수 있는 <code>Teleport</code>가 있습니다!!</p>
+<h2 id="🌟-요약"><a href="#🌟-요약" class="headerlink" title="🌟 요약"></a>🌟 요약</h2><ol>
+<li>텔레포트 레이어 컴포넌트를 만든다.</li>
+<li>레이어 내 데이터들은 pinia로 관리한다.</li>
+<li>최상위 컴포넌트에 레이어 컴포넌트를 등록해놓는다.</li>
+<li>필요한 곳에서 pinia를 통해 호출한다.</li>
+</ol>
+<h2 id="😋-Vue-Teleport-만들기"><a href="#😋-Vue-Teleport-만들기" class="headerlink" title="😋 Vue Teleport 만들기"></a>😋 Vue Teleport 만들기</h2><p>먼저 공통으로 쓰일 레이어를 만들어 줍니다.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;popWrapper&quot;</span> <span class="attr">class</span>=<span class="string">&quot;toast-popup&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;popContainer&quot;</span> <span class="attr">class</span>=<span class="string">&quot;popup-box&quot;</span> <span class="attr">role</span>=<span class="string">&quot;dialog&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span> <span class="attr">class</span>=<span class="string">&quot;title-popup&quot;</span>&gt;</span>&#123;&#123; title &#125;&#125;<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;text-popup&quot;</span> <span class="attr">v-html</span>=<span class="string">&quot;content&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;btn-area02&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">&quot;btnType === 2&quot;</span> <span class="attr">class</span>=<span class="string">&quot;btn-unit04&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> @<span class="attr">click</span>=<span class="string">&quot;onCancel?.(), store.closeLayer?.()&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">strong</span>&gt;</span>&#123;&#123; cancel &#125;&#125;<span class="tag">&lt;/<span class="name">strong</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;btn-unit01&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> @<span class="attr">click</span>=<span class="string">&quot;onConfirm?.(), store.closeLayer?.()&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">strong</span>&gt;</span>&#123;&#123; confirm &#125;&#125;<span class="tag">&lt;/<span class="name">strong</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>위 마크업에 쓰인 함수 및 변수는 pinia를 통해 컨트롤하는 값들이 될 것입니다.</p>
+<p>이제 위 마크업을 <code>&lt;Teleport&gt;</code>컴포넌트로 감싸줍니다.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Teleport</span> <span class="attr">v-if</span>=<span class="string">&quot;isOpen&quot;</span> <span class="attr">to</span>=<span class="string">&quot;#container&quot;</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">Teleport</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>to 속성에 어느 element에 붙을지 지정을 해줍니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line"><span class="keyword">import</span> &#123; useLayerStore &#125; <span class="keyword">from</span> <span class="string">&#x27;@/stores/useLayerStore&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; storeToRefs &#125; <span class="keyword">from</span> <span class="string">&#x27;pinia&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> store = <span class="title function_">useLayerStore</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123;</span><br><span class="line">  isOpen,</span><br><span class="line">  title,</span><br><span class="line">  content,</span><br><span class="line">  btnType,</span><br><span class="line">  confirm,</span><br><span class="line">  cancel,</span><br><span class="line">  onConfirm,</span><br><span class="line">  onCancel,</span><br><span class="line">&#125; = <span class="title function_">storeToRefs</span>(store);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>storeToRefs는 반응성을 살려주는 역할을 합니다.</p>
+<h2 id="🐣-Pinia로-상태관리-만들기"><a href="#🐣-Pinia로-상태관리-만들기" class="headerlink" title="🐣 Pinia로 상태관리 만들기"></a>🐣 Pinia로 상태관리 만들기</h2><p><code>stores/useLayerStore.js</code>파일을 만들고 다음과 같이 작성해줍니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; defineStore &#125; <span class="keyword">from</span> <span class="string">&quot;pinia&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; computed, ref &#125; <span class="keyword">from</span> <span class="string">&quot;vue&quot;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> useLayerStore = <span class="title function_">defineStore</span>(<span class="string">&quot;layer&quot;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> state = <span class="title function_">ref</span>(&#123;</span><br><span class="line">    <span class="attr">isOpen</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="attr">title</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">    <span class="attr">content</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">    <span class="attr">confirm</span>: <span class="string">&quot;확인&quot;</span>,</span><br><span class="line">    <span class="attr">cancel</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">    <span class="attr">btnType</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">onConfirm</span>: <span class="literal">null</span>,</span><br><span class="line">    <span class="attr">onCancel</span>: <span class="literal">null</span>,</span><br><span class="line">    <span class="attr">typeClass</span>: <span class="string">&quot;toast-popup&quot;</span>,</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// getter</span></span><br><span class="line">  <span class="keyword">const</span> isOpen = <span class="title function_">computed</span>(<span class="function">() =&gt;</span> state.<span class="property">value</span>.<span class="property">isOpen</span>);</span><br><span class="line">  <span class="keyword">const</span> title = <span class="title function_">computed</span>(<span class="function">() =&gt;</span> state.<span class="property">value</span>.<span class="property">title</span>);</span><br><span class="line">  <span class="keyword">const</span> content = <span class="title function_">computed</span>(<span class="function">() =&gt;</span> state.<span class="property">value</span>.<span class="property">content</span>);</span><br><span class="line">  <span class="keyword">const</span> btnType = <span class="title function_">computed</span>(<span class="function">() =&gt;</span> state.<span class="property">value</span>.<span class="property">btnType</span>);</span><br><span class="line">  <span class="keyword">const</span> confirm = <span class="title function_">computed</span>(<span class="function">() =&gt;</span> state.<span class="property">value</span>.<span class="property">confirm</span>);</span><br><span class="line">  <span class="keyword">const</span> cancel = <span class="title function_">computed</span>(<span class="function">() =&gt;</span> state.<span class="property">value</span>.<span class="property">cancel</span>);</span><br><span class="line">  <span class="keyword">const</span> onConfirm = <span class="title function_">computed</span>(<span class="function">() =&gt;</span> state.<span class="property">value</span>.<span class="property">onConfirm</span>);</span><br><span class="line">  <span class="keyword">const</span> onCancel = <span class="title function_">computed</span>(<span class="function">() =&gt;</span> state.<span class="property">value</span>.<span class="property">onCancel</span>);</span><br><span class="line">  <span class="keyword">const</span> typeClass = <span class="title function_">computed</span>(<span class="function">() =&gt;</span> state.<span class="property">value</span>.<span class="property">typeClass</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// action</span></span><br><span class="line">  <span class="keyword">function</span> <span class="title function_">openLayer</span>(<span class="params">data</span>) &#123;</span><br><span class="line">    state.<span class="property">value</span>.<span class="property">isOpen</span> = !state.<span class="property">value</span>.<span class="property">isOpen</span>;</span><br><span class="line">    state.<span class="property">value</span>.<span class="property">title</span> = data.<span class="property">title</span>;</span><br><span class="line">    state.<span class="property">value</span>.<span class="property">content</span> = data.<span class="property">content</span>;</span><br><span class="line">    state.<span class="property">value</span>.<span class="property">confirm</span> = data.<span class="property">confirm</span> ?? state.<span class="property">value</span>.<span class="property">confirm</span>;</span><br><span class="line">    state.<span class="property">value</span>.<span class="property">cancel</span> = data.<span class="property">cancel</span> ?? state.<span class="property">value</span>.<span class="property">cancel</span>;</span><br><span class="line">    state.<span class="property">value</span>.<span class="property">btnType</span> = data.<span class="property">btnType</span> || <span class="number">1</span>;</span><br><span class="line">    state.<span class="property">value</span>.<span class="property">onConfirm</span> = data.<span class="property">onConfirm</span>;</span><br><span class="line">    state.<span class="property">value</span>.<span class="property">onCancel</span> = data.<span class="property">onCancel</span>;</span><br><span class="line">    state.<span class="property">value</span>.<span class="property">typeClass</span> = data.<span class="property">typeClass</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">function</span> <span class="title function_">closeLayer</span>(<span class="params"></span>) &#123;</span><br><span class="line">    state.<span class="property">value</span>.<span class="property">isOpen</span> = <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    isOpen,</span><br><span class="line">    title,</span><br><span class="line">    content,</span><br><span class="line">    btnType,</span><br><span class="line">    confirm,</span><br><span class="line">    cancel,</span><br><span class="line">    onConfirm,</span><br><span class="line">    onCancel,</span><br><span class="line">    typeClass,</span><br><span class="line">    openLayer,</span><br><span class="line">    closeLayer,</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>이제 어느 컴포넌트에서든 <code>openLayer</code>함수를 호출하여 레이어를 띄울 수 있습니다!</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useLayerStore &#125; <span class="keyword">from</span> <span class="string">&quot;@/stores/useLayerStore&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; openLayer &#125; = <span class="title function_">useLayerStore</span>();</span><br><span class="line"></span><br><span class="line"><span class="title function_">openLayer</span>(&#123;</span><br><span class="line">  <span class="attr">title</span>: <span class="string">&quot;안내&quot;</span>,</span><br><span class="line">  <span class="attr">content</span>: <span class="string">`내용`</span>,</span><br><span class="line">  <span class="attr">btnType</span>: <span class="number">2</span>,</span><br><span class="line">  <span class="attr">confirm</span>: <span class="string">&quot;회원가입&quot;</span>,</span><br><span class="line">  <span class="attr">onConfirm</span>: <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    router.<span class="title function_">push</span>(<span class="string">&quot;/signup&quot;</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">cancel</span>: <span class="string">&quot;취소&quot;</span>,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <a href="https://parkbeommin.github.io" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2025 bmpark</li>
+      <li><a href="https://parkbeommin.github.io">Home</a></li>
+      
+      <li><a target="_blank" rel="noopener" href="https://github.com/parkbeommin">Github</a></li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Theme <a target="_blank" rel="noopener" href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+      by <a target="_blank" rel="noopener" href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+    </div>
+  </footer>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
+</body>
+</html>
