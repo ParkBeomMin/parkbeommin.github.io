@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    [DX] 팀즈 WebHook으로 에러 알림받기 | BeomLog
+  </title>
+  <meta name="description" content="범민의 기술블로그입니다.">
+  
+  <meta name="keywords" content="
+  
+  ">
+  
+  <meta name="author" content="bmpark">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+  <link rel="icon" type="image/x-icon" href="">
+  <link rel="stylesheet" href="/MyPortfolio/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+  <script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7426857657290789" crossorigin="anonymous" async></script>
+<meta name="generator" content="Hexo 8.0.0"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/MyPortfolio/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/MyPortfolio/archives">Archives</a></li>
+        
+        
+        <li><a href="/MyPortfolio/categories">Categories</a></li>
+        
+        
+        <li><a href="/MyPortfolio/tags">Tags</a></li>
+        
+        
+        <li><a href="/MyPortfolio/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://avatars.githubusercontent.com/u/23355295?v=4"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/MyPortfolio/archives" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="/MyPortfolio/archives"
+           class="header-toolbar-right"> 57 </a>
+      </li>
+      <li>
+        <a href="/MyPortfolio/tags" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="/MyPortfolio/tags"
+           class="header-toolbar-right"> 0 </a>
+      </li>
+      <li>
+        <a href="/MyPortfolio/categories" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="/MyPortfolio/categories"
+           class="header-toolbar-right"> 30 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/MyPortfolio/">BeomLog</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    bmpark
+
+    <span class="post-date float-right" title="{{moment(1689287580000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      <i class="fa fa-pencil-square-o"></i>
+      {{moment(1689287580000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>[DX] 팀즈 WebHook으로 에러 알림받기</h1>
+    <img src='/assets/dx/banner.png'>
+
+<blockquote>
+<p>개발자님 A페이지에서 오류가 났나봐요.<br>확인해보겠습니다.<br>내부망 &gt; 서버 &gt; 로그 찾기</p>
+</blockquote>
+<p>서버 에러가 나는 경우 500 상태 값을 리턴해주고 console.error()를 찍어놓는 방식으로 관리가 되고 있었습니다.<br>사이트에 오류가 났을 경우, 대개 서버에러인 경우가 많고 그러면 내부망에서 서버에 접근해서 로그를 찾아봐야했습니다.<br>오류가 발생했을 때 확인하는 과정도 귀찮음이 있고, 오류가 발생하더라도 서버 로그를 모니터링하지 않으면 모르고 지나가는 경우도 있었습니다.</p>
+<h2 id="🔑에러가-났을-때-바로-알게-할-수-있지-않을까"><a href="#🔑에러가-났을-때-바로-알게-할-수-있지-않을까" class="headerlink" title="🔑에러가 났을 때 바로 알게 할 수 있지 않을까?"></a>🔑에러가 났을 때 바로 알게 할 수 있지 않을까?</h2><p>저희 팀은 팀즈로 소통을 하고 있고, 팀즈 알림에 반응하도록 적응이 되어있어서 팀즈 알림을 활용하면 어떨까 했습니다.<br>팀즈에는 각 채널별로 웹훅을 설정할 수 있는 기능이 있습니다.</p>
+<blockquote>
+<p>팀즈의 웹훅을 활용해 오류가 났을 때 알람이 가도록 하면 되겠다!</p>
+</blockquote>
+<h2 id="🎊에러-핸들링에-팀즈-웹훅-추가하기"><a href="#🎊에러-핸들링에-팀즈-웹훅-추가하기" class="headerlink" title="🎊에러 핸들링에 팀즈 웹훅 추가하기"></a>🎊에러 핸들링에 팀즈 웹훅 추가하기</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">const axios = require(&#x27;axios&#x27;);</span><br><span class="line">const config = require(&#x27;./config/index.js&#x27;);</span><br><span class="line"></span><br><span class="line">let errorMiddleware = (err, req, res, next) =&gt; &#123;</span><br><span class="line">   ...</span><br><span class="line">    if (process.env.NODE_ENV === &#x27;production&#x27;) &#123;</span><br><span class="line">        teamsWebHook(err.stack);</span><br><span class="line">    &#125;</span><br><span class="line">    console.error(`SERVER ERROR ($&#123;new Date().toISOString()&#125;) - $&#123;req.originalUrl&#125;\n$&#123;err.stack&#125;`);</span><br><span class="line">    res.status(500).end(&#x27;Server Error&#x27;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">const teamsWebHook = (errMsg) =&gt; &#123;</span><br><span class="line">    try &#123;</span><br><span class="line">        const $axios = axios.create(&#123;</span><br><span class="line">            baseURL: config.teamsWebHook,</span><br><span class="line">            headers: &#123;</span><br><span class="line">                &#x27;Content-Type&#x27;: &#x27;application/json&#x27;,</span><br><span class="line">            &#125;,</span><br><span class="line">            timeout: 5000,</span><br><span class="line">        &#125;);</span><br><span class="line">        $axios.post(&#x27;/&#x27;, &#123;</span><br><span class="line">            type: &#x27;message&#x27;,</span><br><span class="line">            attachments: [</span><br><span class="line">                &#123;</span><br><span class="line">                    contentType: &#x27;application/vnd.microsoft.card.adaptive&#x27;,</span><br><span class="line">                    content: &#123;</span><br><span class="line">                        type: &#x27;AdaptiveCard&#x27;,</span><br><span class="line">                        body: [</span><br><span class="line">                            &#123;</span><br><span class="line">                                type: &#x27;TextBlock&#x27;,</span><br><span class="line">                                size: &#x27;Large&#x27;,</span><br><span class="line">                                weight: &#x27;Bolder&#x27;,</span><br><span class="line">                                text: &#x27;Server Error&#x27;,</span><br><span class="line">                            &#125;,</span><br><span class="line">                            &#123;</span><br><span class="line">                                type: &#x27;TextBlock&#x27;,</span><br><span class="line">                                text: &#x27;&lt;at&gt;mention&lt;/at&gt;&#x27;,</span><br><span class="line">                            &#125;,</span><br><span class="line">                            &#123;</span><br><span class="line">                                type: &#x27;TextBlock&#x27;,</span><br><span class="line">                                text: errMsg,</span><br><span class="line">                                wrap: true,</span><br><span class="line">                            &#125;,</span><br><span class="line">                        ],</span><br><span class="line">                        $schema: &#x27;http://adaptivecards.io/schemas/adaptive-card.json&#x27;,</span><br><span class="line">                        version: &#x27;1.0&#x27;,</span><br><span class="line">                        msteams: &#123;</span><br><span class="line">                            width: &#x27;Full&#x27;,</span><br><span class="line">                            entities: [</span><br><span class="line">                                &#123;</span><br><span class="line">                                    type: &#x27;mention&#x27;,</span><br><span class="line">                                    text: &#x27;&lt;at&gt;mention&lt;/at&gt;&#x27;,</span><br><span class="line">                                    mentioned: &#123;</span><br><span class="line">                                        id: &#x27;abc@def.com&#x27;,</span><br><span class="line">                                        name: &#x27;name&#x27;,</span><br><span class="line">                                    &#125;,</span><br><span class="line">                                &#125;,</span><br><span class="line">                            ],</span><br><span class="line">                        &#125;,</span><br><span class="line">                    &#125;,</span><br><span class="line">                &#125;,</span><br><span class="line">            ],</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125; catch (e) &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>console.error()로만 에러 로그를 남기고 있던 <code>errorMiddleware</code>에 teamsWebHook 함수를 만들어서 알람이 가도록 추가했습니다.<br>웹훅을 통해 메세지를 보내는 것은 더 간단하지만, 멘션기능을 사용하려면 AdaptiveCard으로만 가능합니다.<br>멘션이 표현될 부분을 <code>&lt;at&gt;&lt;/at&gt;</code>으로 감싸주고 msteams &gt; entities에서 type을 mention으로 설정하고 text에는 멘션이 표현될 부분과 동일하게 지정해줍니다.(변수에 값을 할당하는 느낌)<br>mentioned에는 팀즈에서 사용중인 이메일과 이름을 지정해줍니다. 이메일기반으로 멘션이 진행되기에 이메일을 정확하게 입력해주셔야합니다.<br>TextBlock에 <code>wrap: true</code>를 주지 않으면 자동으로 텍스트를 생략시키기때문에 추가해줍니다.<br>msteams에 <code>width: &#39;Full&#39;</code>이 부분도 넣어주어야 가로로 꽉찬 알림을 받아보실 수 있습니다.</p>
+
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <a href="https://parkbeommin.github.io/MyPortfolio" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2025 bmpark</li>
+      <li><a href="https://parkbeommin.github.io/MyPortfolio">Home</a></li>
+      
+      <li><a target="_blank" rel="noopener" href="https://github.com/parkbeommin">Github</a></li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Theme <a target="_blank" rel="noopener" href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+      by <a target="_blank" rel="noopener" href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+    </div>
+  </footer>
+</div>
+
+
+
+
+<script src="/MyPortfolio/js/main.js"></script>
+
+</body>
+</html>

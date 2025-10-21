@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    안드로이드 코틀린 개발하기 - StopWatch | BeomLog
+  </title>
+  <meta name="description" content="범민의 기술블로그입니다.">
+  
+  <meta name="keywords" content="
+  
+  ">
+  
+  <meta name="author" content="bmpark">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+  <link rel="icon" type="image/x-icon" href="">
+  <link rel="stylesheet" href="/MyPortfolio/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+  <script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7426857657290789" crossorigin="anonymous" async></script>
+<meta name="generator" content="Hexo 8.0.0"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/MyPortfolio/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/MyPortfolio/archives">Archives</a></li>
+        
+        
+        <li><a href="/MyPortfolio/categories">Categories</a></li>
+        
+        
+        <li><a href="/MyPortfolio/tags">Tags</a></li>
+        
+        
+        <li><a href="/MyPortfolio/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://avatars.githubusercontent.com/u/23355295?v=4"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/MyPortfolio/archives" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="/MyPortfolio/archives"
+           class="header-toolbar-right"> 57 </a>
+      </li>
+      <li>
+        <a href="/MyPortfolio/tags" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="/MyPortfolio/tags"
+           class="header-toolbar-right"> 0 </a>
+      </li>
+      <li>
+        <a href="/MyPortfolio/categories" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="/MyPortfolio/categories"
+           class="header-toolbar-right"> 30 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/MyPortfolio/">BeomLog</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    bmpark
+
+    <span class="post-date float-right" title="{{moment(1561515360000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      <i class="fa fa-pencil-square-o"></i>
+      {{moment(1561515360000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>안드로이드 코틀린 개발하기 - StopWatch</h1>
+    <h2 id="사전-설정"><a href="#사전-설정" class="headerlink" title="사전 설정"></a>사전 설정</h2><h3 id="Design-라이브러리-추가하기"><a href="#Design-라이브러리-추가하기" class="headerlink" title="Design 라이브러리 추가하기"></a>Design 라이브러리 추가하기</h3><p>FloatingActioinButton을 사용하기 위해 design 라이브러리를 추가해야 합니다.<br>다음과 같은 코드를 삽입해줍니다.</p>
+<blockquote>
+<p>build.gradle (Module: app)</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">implementation &#x27;com.android.support:design:28.0.0&#x27;</span><br></pre></td></tr></table></figure>
+
+<img src="/assets/stop-watch/design_library.png" width="100%" >
+
+<h3 id="벡터-드로어블-사용-환경-설정하기"><a href="#벡터-드로어블-사용-환경-설정하기" class="headerlink" title="벡터 드로어블 사용 환경 설정하기"></a>벡터 드로어블 사용 환경 설정하기</h3><blockquote>
+<p>build.gradle (Module: app)</p>
+</blockquote>
+<p>버전 5.0미만의 기기에서 벡터 이미지를 사용하기 위해서 아래와 같은 코드를 삽입해줍니다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vectorDrawables.useSupportLibrary = true</span><br></pre></td></tr></table></figure>
+
+<img src="/assets/vector_drawable.png" width="100%" >
+
+<h2 id="레이아웃-만들기"><a href="#레이아웃-만들기" class="headerlink" title="레이아웃 만들기"></a>레이아웃 만들기</h2><p>가장 최근에 등장했고, 현재 안드로이드 기본 레이아웃인 <strong>Constrain Layout</strong>을 사용합니다.<br>초 단위와 밀리초 단위를 보여줄 <strong>TextView</strong>를 사용합니다.<br>랩 타임을 기록할 이벤트를 발생시킬 <strong>Button</strong>을 사용합니다.<br>스탑워치의 시작, 정지, 리셋 이벤트를 발생시킬 <strong>FloatingActionButton</strong>을 사용합니다.<br>랩 타임이 기록되어 보여질 <strong>ScrollView</strong>를 사용합니다.</p>
+<p>FloatingActionButton에 사용될 이미지는 <strong>에셋 스튜디오</strong>에서 벡터 이미지를 생성하여 사용합니다. </p>
+<blockquote>
+<p>activity_main.xml</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;android.support.constraint.ConstraintLayout</span><br><span class="line">    xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">    xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;</span><br><span class="line">    xmlns:tools=&quot;http://schemas.android.com/tools&quot;</span><br><span class="line">    android:layout_width=&quot;match_parent&quot;</span><br><span class="line">    android:layout_height=&quot;match_parent&quot;</span><br><span class="line">    tools:context=&quot;.MainActivity&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;TextView</span><br><span class="line">        android:id=&quot;@+id/secondTv&quot;</span><br><span class="line">        android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">        android:text=&quot;0&quot;</span><br><span class="line">        android:textAppearance=&quot;@style/TextAppearance.AppCompat.Large&quot;</span><br><span class="line">        android:textSize=&quot;100sp&quot;</span><br><span class="line">        app:layout_constraintBottom_toBottomOf=&quot;parent&quot;</span><br><span class="line">        app:layout_constraintLeft_toLeftOf=&quot;parent&quot;</span><br><span class="line">        app:layout_constraintRight_toRightOf=&quot;parent&quot;</span><br><span class="line">        app:layout_constraintTop_toTopOf=&quot;parent&quot;</span><br><span class="line">        app:layout_constraintVertical_bias=&quot;0.1&quot;/&gt;</span><br><span class="line"></span><br><span class="line">    &lt;TextView</span><br><span class="line">        android:id=&quot;@+id/milliSecondTv&quot;</span><br><span class="line">        android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_marginStart=&quot;8dp&quot;</span><br><span class="line">        android:text=&quot;00&quot;</span><br><span class="line">        android:textAppearance=&quot;@style/TextAppearance.AppCompat.Large&quot;</span><br><span class="line">        android:textSize=&quot;22sp&quot;</span><br><span class="line">        app:layout_constraintBaseline_toBaselineOf=&quot;@+id/secondTv&quot;</span><br><span class="line">        app:layout_constraintStart_toEndOf=&quot;@+id/secondTv&quot;/&gt;</span><br><span class="line"></span><br><span class="line">    &lt;android.support.design.widget.FloatingActionButton</span><br><span class="line">        android:id=&quot;@+id/playFab&quot;</span><br><span class="line">        android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_marginBottom=&quot;16dp&quot;</span><br><span class="line">        android:clickable=&quot;true&quot;</span><br><span class="line">        android:tint=&quot;@android:color/white&quot;</span><br><span class="line">        app:backgroundTint=&quot;@color/colorPrimary&quot;</span><br><span class="line">        app:layout_constraintBottom_toBottomOf=&quot;parent&quot;</span><br><span class="line">        app:layout_constraintEnd_toEndOf=&quot;parent&quot;</span><br><span class="line">        app:layout_constraintStart_toStartOf=&quot;parent&quot;</span><br><span class="line">        app:srcCompat=&quot;@drawable/ic_play_arrow_black_24dp&quot;/&gt;</span><br><span class="line"></span><br><span class="line">    &lt;android.support.design.widget.FloatingActionButton</span><br><span class="line">        android:id=&quot;@+id/refreshFab&quot;</span><br><span class="line">        android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_marginBottom=&quot;16dp&quot;</span><br><span class="line">        android:layout_marginStart=&quot;16dp&quot;</span><br><span class="line">        android:clickable=&quot;true&quot;</span><br><span class="line">        app:backgroundTint=&quot;@color/colorPrimary&quot;</span><br><span class="line">        android:tint=&quot;@android:color/white&quot;</span><br><span class="line">        app:layout_constraintBottom_toBottomOf=&quot;parent&quot;</span><br><span class="line">        app:layout_constraintStart_toStartOf=&quot;parent&quot;</span><br><span class="line">        app:srcCompat=&quot;@drawable/ic_refresh_black_24dp&quot;/&gt;</span><br><span class="line"></span><br><span class="line">    &lt;Button</span><br><span class="line">        android:id=&quot;@+id/lapBtn&quot;</span><br><span class="line">        android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_marginBottom=&quot;16dp&quot;</span><br><span class="line">        android:layout_marginEnd=&quot;16dp&quot;</span><br><span class="line">        android:text=&quot;랩 타임&quot;</span><br><span class="line">        app:layout_constraintBottom_toBottomOf=&quot;parent&quot;</span><br><span class="line">        app:layout_constraintEnd_toEndOf=&quot;parent&quot;/&gt;</span><br><span class="line"></span><br><span class="line">    &lt;ScrollView</span><br><span class="line">        android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_height=&quot;0dp&quot;</span><br><span class="line">        android:layout_marginBottom=&quot;8dp&quot;</span><br><span class="line">        android:layout_marginTop=&quot;8dp&quot;</span><br><span class="line">        app:layout_constraintBottom_toTopOf=&quot;@+id/lapBtn&quot;</span><br><span class="line">        app:layout_constraintEnd_toEndOf=&quot;parent&quot;</span><br><span class="line">        app:layout_constraintStart_toStartOf=&quot;parent&quot;</span><br><span class="line">        app:layout_constraintTop_toBottomOf=&quot;@+id/secondTv&quot;&gt;</span><br><span class="line"></span><br><span class="line">        &lt;LinearLayout</span><br><span class="line">            android:id=&quot;@+id/lapLayout&quot;</span><br><span class="line">            android:layout_width=&quot;match_parent&quot;</span><br><span class="line">            android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">            android:orientation=&quot;vertical&quot;/&gt;</span><br><span class="line">    &lt;/ScrollView&gt;</span><br><span class="line"></span><br><span class="line">&lt;/android.support.constraint.ConstraintLayout&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="타이머-구현하기-Timer"><a href="#타이머-구현하기-Timer" class="headerlink" title="타이머 구현하기(Timer)"></a>타이머 구현하기(Timer)</h2><h3 id="timer-사용하기"><a href="#timer-사용하기" class="headerlink" title="timer 사용하기"></a>timer 사용하기</h3><p>코틀린에서 타이머를 구현하는 방법은 다음과 같습니다.<br>타이머는 일정한 시간을 주기로 반복하는 동작을 수행할 때 사용합니다.  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">timer(period = 1000) &#123; // 1초(1000ms)마다</span><br><span class="line">    // 수행할 동작</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="UI-변경하기"><a href="#UI-변경하기" class="headerlink" title="UI 변경하기"></a>UI 변경하기</h3><p>시간이 흘러감에 따라 흘러간 시간을 사용자에게 보여줘야합니다.  </p>
+<p>안드로이드에서 UI를 조작하는 것은 메인 스레드에서 해야 합니다.<br>오래 걸리는 작업을 할 때에는 보이지 않는 곳에서 처리하는 워커 스레드에서 합니다.<br>워커 스레드에서는 UI를 조작할 수 없습니다.<br>그리고 timer는 워커 스레드에서 수행되기 때문에 UI를 조작할 수 없습니다.<br>따라서, timer내부에 <strong>runOnUiThread()</strong> 메소드를 사용해서 UI를 조작해야 합니다.  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">timer(period = 1000) &#123;</span><br><span class="line">    runOnUiThread &#123;</span><br><span class="line">        // UI 조작</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="타이머-시작"><a href="#타이머-시작" class="headerlink" title="타이머 시작"></a>타이머 시작</h3><p>타이머가 시작이 되면, 시작 버튼의 이미지가 바뀌게 됩니다.<br>그리고 0.01초 단위로 타이머를 작동시킵니다.<br>초와 밀리초 단위에 맞게 계산을 합니다.<br>UI를 조작하기 위해, runOnUiThread 안에서 TextView에 값을 뿌려줍니다.  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">private fun start() &#123;</span><br><span class="line">    playFab.setImageResource(R.drawable.ic_pause_black_24dp)</span><br><span class="line">    timerTask = timer(period = 10) &#123;</span><br><span class="line">        time++</span><br><span class="line">        val sec = time / 100</span><br><span class="line">        val milli = time % 100</span><br><span class="line">        runOnUiThread &#123;</span><br><span class="line">            secondTv.text = &quot;$sec&quot;</span><br><span class="line">            milliSecondTv.text = &quot;$milli&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="타이머-일시정지"><a href="#타이머-일시정지" class="headerlink" title="타이머 일시정지"></a>타이머 일시정지</h3><p>시작과 반대로, 일시정지가 되면 버튼의 이미지가 바뀌게 됩니다.<br>그리고 실행중인 타이머가 있다면, 타이머를 취소시킵니다.  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">private fun pause() &#123;</span><br><span class="line">    playFab.setImageResource(R.drawable.ic_play_arrow_black_24dp)</span><br><span class="line">    timerTask?.cancel() // 실행중인 타이머가 있다면, 종료</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="타이머-초기화"><a href="#타이머-초기화" class="headerlink" title="타이머 초기화"></a>타이머 초기화</h3><p>타이머에 사용했던 모든 변수를 초기화해줍니다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">private fun reset() &#123;</span><br><span class="line">    timerTask?.cancel()</span><br><span class="line">    time = 0</span><br><span class="line">    isRunning = false</span><br><span class="line">    playFab.setImageResource(R.drawable.ic_play_arrow_black_24dp)</span><br><span class="line">    secondTv.text = &quot;0&quot;</span><br><span class="line">    milliSecondTv.text = &quot;00&quot;</span><br><span class="line">    lapLayout.removeAllViews()</span><br><span class="line">    lap = 1</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="랩-타임-기록하기"><a href="#랩-타임-기록하기" class="headerlink" title="랩 타임 기록하기"></a>랩 타임 기록하기</h2><h3 id="동적으로-뷰-추가하기"><a href="#동적으로-뷰-추가하기" class="headerlink" title="동적으로 뷰 추가하기"></a>동적으로 뷰 추가하기</h3><p>랩 타임을 기록하는 버튼을 누르면, 스크롤뷰 내부에 있는 리니어 레이아웃 안에 텍스트 뷰가 추가가 되어야 합니다.<br>텍스트뷰 객체를 생성하고, 레이아웃에 추가해주면 됩니다.<br>리니어 레이아웃에 addView() 메서드를 사용하면 됩니다.<br>첫 번째 인자로 추가할 뷰를 넣습니다.<br>첫 번째 인자만 넣어도 되지만, 추가될 뷰가 레이아웃의 어느 위치에 위치할지 지정해주는 두 번째 인자도 설정할 수 있습니다.<br>두 번째 인자에 0을 넣으면, 레이아웃의 항상 최상단에 추가가 됩니다.  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">val textView = TextView(this)</span><br><span class="line">textView.text = &quot;글자&quot;</span><br><span class="line">lapLayout.addView(textView, 0)</span><br></pre></td></tr></table></figure>
+
+<h3 id="랩-타임-표시하기"><a href="#랩-타임-표시하기" class="headerlink" title="랩 타임 표시하기"></a>랩 타임 표시하기</h3><p>랩 타임을 표시하기 위해 버튼을 누르면, 시간을 받아옵니다.<br>그리고 텍스트뷰 객체를 생성하고, 받아온 시간을 설정해줍니다.<br>레이아웃에 텍스트뷰를 추가해줍니다.  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">private fun recordLapTime() &#123;</span><br><span class="line">    val lapTime = this.time</span><br><span class="line">    val lapTv = TextView(this)</span><br><span class="line">    lapTv.text = &quot;$lap LAB : $&#123;lapTime / 100&#125;.$&#123;lapTime % 100&#125;&quot;</span><br><span class="line"></span><br><span class="line">    lapLayout.addView(lapTv, 0) // 맨 위에 뷰를 추가한다.</span><br><span class="line">    lap++</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="소스-코드"><a href="#소스-코드" class="headerlink" title="소스 코드"></a>소스 코드</h2><p><a target="_blank" rel="noopener" href="https://github.com/ParkBeomMin/Kotlin_Stop_Watch">Kotlin_Stop_Watch</a></p>
+<h2 id="레퍼런스"><a href="#레퍼런스" class="headerlink" title="레퍼런스"></a>레퍼런스</h2><p>오준석의 안드로이드 생존코딩 코틀린 편 ( 오준석 저 &#x2F; 한빛미디어 &#x2F; 2018.10.01 )</p>
+
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <a href="https://parkbeommin.github.io/MyPortfolio" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2025 bmpark</li>
+      <li><a href="https://parkbeommin.github.io/MyPortfolio">Home</a></li>
+      
+      <li><a target="_blank" rel="noopener" href="https://github.com/parkbeommin">Github</a></li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Theme <a target="_blank" rel="noopener" href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+      by <a target="_blank" rel="noopener" href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+    </div>
+  </footer>
+</div>
+
+
+
+
+<script src="/MyPortfolio/js/main.js"></script>
+
+</body>
+</html>

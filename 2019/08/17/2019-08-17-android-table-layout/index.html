@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    [안드로이드] 테이블 레이아웃(TableLayout) | BeomLog
+  </title>
+  <meta name="description" content="범민의 기술블로그입니다.">
+  
+  <meta name="keywords" content="
+  
+  ">
+  
+  <meta name="author" content="bmpark">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+  <link rel="icon" type="image/x-icon" href="">
+  <link rel="stylesheet" href="/MyPortfolio/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+  <script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7426857657290789" crossorigin="anonymous" async></script>
+<meta name="generator" content="Hexo 8.0.0"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/MyPortfolio/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/MyPortfolio/archives">Archives</a></li>
+        
+        
+        <li><a href="/MyPortfolio/categories">Categories</a></li>
+        
+        
+        <li><a href="/MyPortfolio/tags">Tags</a></li>
+        
+        
+        <li><a href="/MyPortfolio/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://avatars.githubusercontent.com/u/23355295?v=4"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/MyPortfolio/archives" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="/MyPortfolio/archives"
+           class="header-toolbar-right"> 57 </a>
+      </li>
+      <li>
+        <a href="/MyPortfolio/tags" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="/MyPortfolio/tags"
+           class="header-toolbar-right"> 0 </a>
+      </li>
+      <li>
+        <a href="/MyPortfolio/categories" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="/MyPortfolio/categories"
+           class="header-toolbar-right"> 30 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/MyPortfolio/">BeomLog</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    bmpark
+
+    <span class="post-date float-right" title="{{moment(1565979540000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      <i class="fa fa-pencil-square-o"></i>
+      {{moment(1565979540000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>[안드로이드] 테이블 레이아웃(TableLayout)</h1>
+    <h2 id="0"><a href="#0" class="headerlink" title="0."></a>0.</h2><p>우리는 안드로이드에서 대표적인 레이아웃인 LinearLayout, RelativeLayout, ConstrainLayout을 활용해서 다양한 화면을 만들 수 있습니다.</p>
+<p>하지만 특정한 모양의 레이아웃이 제공된다면 더 쉽게 만들 수 있겠죠?</p>
+<p>이번에는 테이블 형태의 모양을 제공해주는 테이블 레이아웃에 대해서 알아보도록 하겠습니다.</p>
+<h2 id="1-구조"><a href="#1-구조" class="headerlink" title="1. 구조"></a>1. 구조</h2><p>테이블 레이아웃의 구조는 다음과 같습니다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;TableLayout&gt;</span><br><span class="line">  &lt;TableRow&gt;&lt;/TableRow&gt;</span><br><span class="line">  &lt;TableRow&gt;&lt;/TableRow&gt;</span><br><span class="line">  ...</span><br><span class="line">&lt;/TableLayout&gt;</span><br></pre></td></tr></table></figure>
+
+ <img src="https://postfiles.pstatic.net/MjAxOTA3MjRfMTYz/MDAxNTYzOTQ2NTQwMzEx.ehbF-a5zKKs16GDTMRX-ea84MJ3ZGUSGXgMfvAl3Apog.GW9TPdE5JrlIrCpblZQZp4hdJsv25Hw0iUlMfbpqPIYg.PNG.club1294/image.png?type=w773">
+
+<p>TableLayout으로 전체를 감싸고 그 안에 한 행(row)이 TableRow가 됩니다.</p>
+<p>그리고 그 행안에 필요한 위젯들을 추가해줍니다.</p>
+<h2 id="2-속성"><a href="#2-속성" class="headerlink" title="2. 속성"></a>2. 속성</h2><p>속성에 대해 설명하기에 앞서 기본적으로 테이블 레이아웃을 구성하고, 속성을 하나씩 추가해가면서 변화하는 모습으로 설명을 드리겠습니다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;TableLayout</span><br><span class="line">        xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">        android:layout_width=&quot;match_parent&quot;</span><br><span class="line">        android:layout_height=&quot;match_parent&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;TableRow</span><br><span class="line">            android:layout_width=&quot;match_parent&quot;</span><br><span class="line">            android:layout_height=&quot;match_parent&quot;&gt;</span><br><span class="line">        &lt;Button</span><br><span class="line">                android:text=&quot;1&quot;</span><br><span class="line">                android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">                android:layout_width=&quot;wrap_content&quot;/&gt;</span><br><span class="line">        &lt;Button</span><br><span class="line">                android:text=&quot;2&quot;</span><br><span class="line">                android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">                android:layout_width=&quot;wrap_content&quot;/&gt;</span><br><span class="line">    &lt;/TableRow&gt;</span><br><span class="line">    &lt;TableRow android:layout_width=&quot;match_parent&quot;</span><br><span class="line">              android:layout_height=&quot;match_parent&quot;&gt;</span><br><span class="line">        &lt;Button</span><br><span class="line">                android:text=&quot;3&quot;</span><br><span class="line">                android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">                android:layout_width=&quot;wrap_content&quot;/&gt;</span><br><span class="line">        &lt;Button</span><br><span class="line">                android:text=&quot;4&quot;</span><br><span class="line">                android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">                android:layout_width=&quot;wrap_content&quot;/&gt;</span><br><span class="line">    &lt;/TableRow&gt;</span><br><span class="line"></span><br><span class="line">&lt;/TableLayout&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://postfiles.pstatic.net/MjAxOTA3MjRfMTIg/MDAxNTYzOTQ4MzQ2OTgz.kpGUdeipNxivzCgyxPoS1cKpOMdkh0Sleaxc5C8PkaEg.4qVsZW_6C3OPvYhHr3z_J2dD32FZu50Ci-Nib2PiGLEg.PNG.club1294/image.png?type=w773">​</p>
+<h3 id="2-1-테이블-레이아웃-속성-TableLayout-Attribute"><a href="#2-1-테이블-레이아웃-속성-TableLayout-Attribute" class="headerlink" title="2.1 테이블 레이아웃 속성(TableLayout Attribute)"></a>2.1 테이블 레이아웃 속성(TableLayout Attribute)</h3><p>영상에서는 stretchColumns에 대한 속성만 언급이 되어있지만, 안드로이드 공식문서에 보면 이것 외에 두가지 속성이 더 있습니다.</p>
+<blockquote>
+<p>collapseColumns &#x2F; shrinkColumns &#x2F; stretchColumns</p>
+</blockquote>
+<p>테이블 레이아웃에는 위와 같이 세 가지 속성을 지정할 수 있습니다.</p>
+<p>세 가지 모두 값으로 열(column)의 인덱스 값을 받습니다.</p>
+<h4 id="2-1-1-collapseColumns"><a href="#2-1-1-collapseColumns" class="headerlink" title="2.1.1 collapseColumns"></a>2.1.1 collapseColumns</h4><p>collapseColumns는 지정한 열을 없애줍니다.</p>
+<p>테이블 레이아웃 태그에 collapseColumns 속성으로 0 인덱스를 지정했습니다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;TableLayout</span><br><span class="line">        android:collapseColumns=&quot;0&quot;</span><br><span class="line">        xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">        android:layout_width=&quot;match_parent&quot;</span><br><span class="line">        android:layout_height=&quot;match_parent&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+ <img src="https://postfiles.pstatic.net/MjAxOTA3MjRfMjc2/MDAxNTYzOTQ4NTM2ODQ3.L4yAdSkFEBu-Nunx8F6MceeCljSBBD1R2fCFA4NA6oIg.jVdPGkTBR2o-xOnD-q5hNbxTnEGH5_Ds0-TE9C7kb6Yg.PNG.club1294/image.png?type=w773">
+
+<p>첫번째 열이 사라진 것을 볼 수 있습니다.<br>​<br>속성의 값으로 여러 개의 열을 지정할 수 있습니다.</p>
+<p>콤마(‘,’)로 구분을 해줍니다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;TableLayout</span><br><span class="line">        android:collapseColumns=&quot;0, 1&quot;</span><br><span class="line">        xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">        android:layout_width=&quot;match_parent&quot;</span><br><span class="line">        android:layout_height=&quot;match_parent&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+ <img src="https://postfiles.pstatic.net/MjAxOTA3MjRfMTgy/MDAxNTYzOTQ4NjU1Mzc5.IR2DQUIuHrPbReW9LQS36EjTTahR3DsXPYkyX63YGC0g.CF7xQqP8IkbWbY0fg2buM21HSfbl3hFV9dn6s3WYkwQg.PNG.club1294/image.png?type=w773">
+
+<p>속성 값이 테이블 열의 인덱스 값을 벗어나게 되면, 무시하게 됩니다.</p>
+<h4 id="2-1-2-shrinkColumns"><a href="#2-1-2-shrinkColumns" class="headerlink" title="2.1.2 shrinkColumns"></a>2.1.2 shrinkColumns</h4><p>shrinkColumns는 지정한 열을 축소해줍니다.</p>
+<p>shrinkColumns의 경우 화면을 벗어날 경우 해당 인덱스를 축소시켜주는 것이기 때문에, 기본 레이아웃에 버튼을 여러개 더 추가한 상태에서 설명드리도록 하겠습니다.</p>
+<p>테이블 레이아웃 태그에 shrinkColumns 속성으로 0 인덱스를 지정했습니다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;TableLayout</span><br><span class="line">        xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">        android:shrinkColumns=&quot;0&quot;</span><br><span class="line">        android:layout_width=&quot;match_parent&quot;</span><br><span class="line">        android:layout_height=&quot;match_parent&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+ <img src="https://postfiles.pstatic.net/MjAxOTA3MjRfMjIg/MDAxNTYzOTQ5Mzg1NzQ4.RIseIecXDYjNMpp4-XUBIWi7fY3OdW4-Fyhzu3bPSIEg.kVrVTQbA_B1_olwpHl7rgzek99SRwACXzKMupfsMqKUg.PNG.club1294/image.png?type=w773">
+
+<p>첫번째 열에 있는 버튼이 사라진 것처럼 보입니다.</p>
+<p>1~5열에 있는 버튼들의 크기가 아직도 화면을 벗어나 있기 때문입니다.</p>
+<p>여러개의 속성을 지정해보겠습니다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;TableLayout</span><br><span class="line">        xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">        android:shrinkColumns=&quot;0, 1, 2&quot;</span><br><span class="line">        android:layout_width=&quot;match_parent&quot;</span><br><span class="line">        android:layout_height=&quot;match_parent&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+ <img src="https://postfiles.pstatic.net/MjAxOTA3MjRfNDUg/MDAxNTYzOTQ5NTIyNTkx.0qWmhodZdUmxE2J-Nt5kfqSlMwOlGsOJvyTdwZ7zJ7gg.YCX1iSWdi4a6jbX6Pn68QepqXQJJAZK8d8z2oQCYW4Yg.PNG.club1294/image.png?type=w773">
+
+<p>지정된 인덱스에 해당되는 열이 축소된 것을 볼 수 있습니다.</p>
+<p>모든 열에 똑같이 지정하고 싶을 때는 ‘*‘을 넣어주면 됩니다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;TableLayout</span><br><span class="line">        xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">        android:shrinkColumns=&quot;*&quot;</span><br><span class="line">        android:layout_width=&quot;match_parent&quot;</span><br><span class="line">        android:layout_height=&quot;match_parent&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+ <img src="https://postfiles.pstatic.net/MjAxOTA3MjRfMTUz/MDAxNTYzOTQ5NjMwNTcz.4UXgUuUkOjtG-KfG83DIqqAp4NtpegzihPfrjLI5cdQg.pU0qQ7Uu0qSrH6cCtz4HsofVO1VsEjoUDEZxGKpxAQ8g.PNG.club1294/image.png?type=w773">
+
+<p>모든 열이 화면에 맞게 축소된 것을 볼 수 있습니다.</p>
+<h4 id="2-1-3-stretchColumns"><a href="#2-1-3-stretchColumns" class="headerlink" title="2.1.3 stretchColumns"></a>2.1.3 stretchColumns</h4><p>stretchColumns는 지정한 열을 늘려줍니다.</p>
+<p>테이블 레이아웃 태그에 stretchColumns 속성으로 0 인덱스를 지정했습니다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;TableLayout</span><br><span class="line">        xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">        android:stretchColumns=&quot;0&quot;</span><br><span class="line">        android:layout_width=&quot;match_parent&quot;</span><br><span class="line">        android:layout_height=&quot;match_parent&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+ <img src="https://postfiles.pstatic.net/MjAxOTA3MjRfODAg/MDAxNTYzOTQ5OTQ5Nzk0.PNfjklwvoGkftBdZ6bm6bs85VILeEssOoY-0nBMXZfMg.feQI33Fh6DG97hLt1VimQK-86gMlx1cu82N71ImXVK4g.PNG.club1294/image.png?type=w773">
+
+<p>해당하는 열이 화면에 맞게 늘어나는 것을 볼 수 있습니다.</p>
+<p>다른 속성과 마찬가지로 여러 개의 열을 지정할 수 있고,</p>
+<p>shrink 속성과 마찬가지로 모든 열에 지정하고 싶을 때는 ‘*‘을 넣어줍니다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;TableLayout</span><br><span class="line">        xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">        android:stretchColumns=&quot;*&quot;</span><br><span class="line">        android:layout_width=&quot;match_parent&quot;</span><br><span class="line">        android:layout_height=&quot;match_parent&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+ <img src="https://postfiles.pstatic.net/MjAxOTA3MjRfMzgg/MDAxNTYzOTUwMDc1ODkz.m9dw-WoF1iQav72IFYIjFhd4BKwAwAdp5MZfUHFVh8Yg.qiey47SEiGhbDAjmhShbZz47Lgkpay_cQLLKeKL7zFUg.PNG.club1294/image.png?type=w773">
+
+<h3 id="2-2-테이블레이아웃-내-위젯-속성"><a href="#2-2-테이블레이아웃-내-위젯-속성" class="headerlink" title="2.2 테이블레이아웃 내 위젯 속성"></a>2.2 테이블레이아웃 내 위젯 속성</h3><p>테이블 레이아웃 내에 위치한 위젯들에는 layout_column이란 속성을 지정할 수 있습니다.</p>
+<p>layout_column의 값은 마찬가지로 열(column)의 인덱스 값이고 해당하는 인덱스에 위치하게 됩니다.</p>
+<p>하지만 주의할 사항이 있습니다.</p>
+<p>순서상 앞에 있는 위젯의 열의 위치를 뒤로 옮기면 뒤에 있던 위젯들은 그대로 따라서 뒤로 옮겨지게 됩니다.</p>
+<p>즉, 뒤에 있는 위젯에 인덱스 값을 다른 위젯의 앞의 값으로 변경하여도 적용되지 않습니다.<br>​</p>
+<p>2번 버튼을 3번째 열(인덱스 값&#x3D;2)로 옮겨보도록 하겠습니다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;Button</span><br><span class="line">                android:layout_column=&quot;2&quot;</span><br><span class="line">                android:text=&quot;2&quot;</span><br><span class="line">                android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">                android:layout_width=&quot;wrap_content&quot;/&gt;</span><br></pre></td></tr></table></figure>
+
+ <img src="https://postfiles.pstatic.net/MjAxOTA3MjRfMjEw/MDAxNTYzOTUwNzQwNTQ3.z8Gr-Mb7bvtQLl3mN2n2zAJgtxpYMWBRpdJxop3OltUg.QC_kM58DRn177w2UMcOKHA1Pj2nnRcL1YWOro0UBXpMg.PNG.club1294/image.png?type=w773">
+
+<p>2열에 있던 2번 버튼이 3열로 잘 옮겨졌습니다.</p>
+<p>그러면 1번 버튼을 2열(1번 인덱스)로 옮기고, 2번 버튼을 1열(0번 인덱스)로 지정을 해보겠습니다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;Button</span><br><span class="line">                android:layout_column=&quot;1&quot;</span><br><span class="line">                android:text=&quot;1&quot;</span><br><span class="line">                android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">                android:layout_width=&quot;wrap_content&quot;/&gt;</span><br><span class="line">        &lt;Button</span><br><span class="line">                android:layout_column=&quot;0&quot;</span><br><span class="line">                android:text=&quot;2&quot;</span><br><span class="line">                android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">                android:layout_width=&quot;wrap_content&quot;/&gt;</span><br></pre></td></tr></table></figure>
+
+<img src ="https://postfiles.pstatic.net/MjAxOTA3MjRfMjI0/MDAxNTYzOTU3NjM0ODgw.qmmUifiJs3So_RJotioio4ugRfrv7G_VM6I2x-DbjzEg.d7cDKaAAS0AX0DwSg5fQgyM8eDYaYYb7TZIUO39vOHsg.PNG.club1294/image.png?type=w773">
+
+<p>1번 버튼은 잘 옮겨졌지만, 2번 버튼은 제대로 동작하지 않습니다.</p>
+<p>순서상 1번 버튼이 앞에 있어서 그런 것 같습니다.</p>
+<p>​</p>
+<h2 id="3-생각해보기"><a href="#3-생각해보기" class="headerlink" title="3. 생각해보기"></a>3. 생각해보기</h2><img src="https://postfiles.pstatic.net/MjAxOTA3MjRfMTQx/MDAxNTYzOTU3Nzg4NjU3.-gA2d_wflwGBsYqQBmgXP8MwfIYA9Kf8vfOlU7jmFuMg.vNULTjr02-_2AqCTX2I3mYptSuef9qLspdCSDuqlKz8g.PNG.club1294/image.png?type=w773">
+
+<p>A) 유지 보수에 더 불편함이 많을 것 같다.</p>
+<p>테이블 레이아웃에서 제공되는 속성들을 활용하여서 모양을 잡기가 훨씬 편리하다.</p>
+<p>리니어 레이아웃으로 구성을 한다면, 각 행 마다 수정을 해줘야한다.<br>감사합니다.</p>
+<h2 id="레퍼런스"><a href="#레퍼런스" class="headerlink" title="레퍼런스"></a>레퍼런스</h2><p>[#부스트코스][ref-url-1]</p>
+<!-- [ref-url-1]: "https://www.edwith.org/boostcourse-android/lecture/17050/" -->
+
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <a href="https://parkbeommin.github.io/MyPortfolio" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2025 bmpark</li>
+      <li><a href="https://parkbeommin.github.io/MyPortfolio">Home</a></li>
+      
+      <li><a target="_blank" rel="noopener" href="https://github.com/parkbeommin">Github</a></li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Theme <a target="_blank" rel="noopener" href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+      by <a target="_blank" rel="noopener" href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+    </div>
+  </footer>
+</div>
+
+
+
+
+<script src="/MyPortfolio/js/main.js"></script>
+
+</body>
+</html>

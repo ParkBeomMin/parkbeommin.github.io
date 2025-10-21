@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    [안드로이드 스튜디오] 함수 오버라이드 시 의미 있는 이름 인자 값 설정하기 | BeomLog
+  </title>
+  <meta name="description" content="범민의 기술블로그입니다.">
+  
+  <meta name="keywords" content="
+  
+  ">
+  
+  <meta name="author" content="bmpark">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+  <link rel="icon" type="image/x-icon" href="">
+  <link rel="stylesheet" href="/MyPortfolio/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+  <script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7426857657290789" crossorigin="anonymous" async></script>
+<meta name="generator" content="Hexo 8.0.0"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/MyPortfolio/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/MyPortfolio/archives">Archives</a></li>
+        
+        
+        <li><a href="/MyPortfolio/categories">Categories</a></li>
+        
+        
+        <li><a href="/MyPortfolio/tags">Tags</a></li>
+        
+        
+        <li><a href="/MyPortfolio/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://avatars.githubusercontent.com/u/23355295?v=4"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/MyPortfolio/archives" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="/MyPortfolio/archives"
+           class="header-toolbar-right"> 57 </a>
+      </li>
+      <li>
+        <a href="/MyPortfolio/tags" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="/MyPortfolio/tags"
+           class="header-toolbar-right"> 0 </a>
+      </li>
+      <li>
+        <a href="/MyPortfolio/categories" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="/MyPortfolio/categories"
+           class="header-toolbar-right"> 30 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/MyPortfolio/">BeomLog</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    bmpark
+
+    <span class="post-date float-right" title="{{moment(1561938780000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      <i class="fa fa-pencil-square-o"></i>
+      {{moment(1561938780000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>[안드로이드 스튜디오] 함수 오버라이드 시 의미 있는 이름 인자 값 설정하기</h1>
+    <p>안드로이드 스튜디오를 사용하면서 <strong>자동완성 기능</strong>이 있어서 정말 정말 편리하고 좋게 사용하고 있습니다.  </p>
+<p>그런데 콜백 함수를 구현하거나 할 때, 함수도 자동으로 생성이 되는데 인자 값이 의미 없는 변수명으로 되어있는 경우가 있습니다.  </p>
+<img src="/assets/match-sdk/no-mean.png" style="width: 100%">
+
+<p>사진과 같이 변수 이름이 p0, p1 처럼 의미 없는 값들로 이루어져있습니다.<br>큰 문제가 되는건 아니지만, 의미있는 변수로 되어있다면 좀 더 보기 좋은 코드가 될 것이고 유지보수에도 좋을 것 같습니다.  </p>
+<p>이렇게 의미 없는 값으로 나오는 경우는 안드로이드 스튜디오의 <strong>컴파일sdk버전에 맞는 sdk 소스가 설치되어 있지 않은 경우</strong>입니다.  </p>
+<h2 id="compileSdkVersion-확인하기"><a href="#compileSdkVersion-확인하기" class="headerlink" title="compileSdkVersion 확인하기"></a>compileSdkVersion 확인하기</h2><p>가장 먼저 본인의 안드로이드 스튜디오의 compileSdkVersion을 확인합니다.<br>저의 경우는 28입니다.  </p>
+<blockquote>
+<p>build.gradle (Module: app)</p>
+</blockquote>
+<img src="/assets/match-sdk/sdk-version.png" style="width: 100%">
+
+<h2 id="SDK-Manager-실행하기"><a href="#SDK-Manager-실행하기" class="headerlink" title="SDK Manager 실행하기"></a>SDK Manager 실행하기</h2><p>안드로이드 스튜디오 상단 툴바에 있는 아이콘을 클릭하여서 SDK Manager를 실행합니다.  </p>
+<img src="/assets/match-sdk/sdk-manager.png" style="width: 100%">
+
+<h2 id="Sources-for-Android-version-설치하기"><a href="#Sources-for-Android-version-설치하기" class="headerlink" title="Sources for Android (version) 설치하기"></a>Sources for Android (version) 설치하기</h2><p>이제 compileSdkVersion에 맞는 Sources for Android를 설치합니다.<br>저의 경우는 Sources for Android 28을 설치했습니다.  </p>
+<img src="/assets/match-sdk/set-sdk.png" style="width: 100%">
+
+<h2 id="안드로이드-스튜디오-재-실행하기"><a href="#안드로이드-스튜디오-재-실행하기" class="headerlink" title="안드로이드 스튜디오 재 실행하기"></a>안드로이드 스튜디오 재 실행하기</h2><p>이제 안드로이드 스튜디오를 재 실행하여서 다시 오버라이드합니다.  </p>
+<img src="/assets/match-sdk/mean.png" style="width: 100%">
+
+<p>변수 이름이 sensor, accuracy, event와 같이 의미있는 이름으로 변한 것을 확인할 수 있습니다.</p>
+<h2 id="레퍼런스"><a href="#레퍼런스" class="headerlink" title="레퍼런스"></a>레퍼런스</h2><p>오준석의 안드로이드 생존코딩 코틀린 편 ( 오준석 저 &#x2F; 한빛미디어 &#x2F; 2018.10.01 )</p>
+
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <a href="https://parkbeommin.github.io/MyPortfolio" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2025 bmpark</li>
+      <li><a href="https://parkbeommin.github.io/MyPortfolio">Home</a></li>
+      
+      <li><a target="_blank" rel="noopener" href="https://github.com/parkbeommin">Github</a></li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Theme <a target="_blank" rel="noopener" href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+      by <a target="_blank" rel="noopener" href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+    </div>
+  </footer>
+</div>
+
+
+
+
+<script src="/MyPortfolio/js/main.js"></script>
+
+</body>
+</html>
