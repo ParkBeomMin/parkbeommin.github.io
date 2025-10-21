@@ -2,6 +2,12 @@ description: '범민의 기술블로그입니다.'
 
 email: club20608@gmail.com
 
+
+archive_dir: archives
+category_dir: categories
+tag_dir: tags
+rss_dir: atom.xml
+
 social:
   github: https://github.com/parkbeommin
   

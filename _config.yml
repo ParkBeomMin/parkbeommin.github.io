@@ -15,7 +15,7 @@ favicon: /favicon.ico
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://parkbeommin.github.io/MyPortfolio
+url: https://parkbeommin.github.io
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -110,4 +110,4 @@ theme_config:
 deploy:
   type: git
   repo: https://github.com/parkbeommin/parkbeommin.github.io
-  branch: main
+  branch: release
