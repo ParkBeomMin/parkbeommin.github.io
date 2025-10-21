@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    BOJ 15953[백준 15953] | BeomLog
+  </title>
+  <meta name="description" content="범민의 기술블로그입니다.">
+  
+  <meta name="keywords" content="
+  
+  ">
+  
+  <meta name="author" content="bmpark">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+  <link rel="icon" type="image/x-icon" href="">
+  <link rel="stylesheet" href="/MyPortfolio/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+  <script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7426857657290789" crossorigin="anonymous" async></script>
+<meta name="generator" content="Hexo 8.0.0"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/MyPortfolio/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/MyPortfolio/archives">Archives</a></li>
+        
+        
+        <li><a href="/MyPortfolio/categories">Categories</a></li>
+        
+        
+        <li><a href="/MyPortfolio/tags">Tags</a></li>
+        
+        
+        <li><a href="/MyPortfolio/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://avatars.githubusercontent.com/u/23355295?v=4"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/MyPortfolio/archives" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="/MyPortfolio/archives"
+           class="header-toolbar-right"> 57 </a>
+      </li>
+      <li>
+        <a href="/MyPortfolio/tags" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="/MyPortfolio/tags"
+           class="header-toolbar-right"> 0 </a>
+      </li>
+      <li>
+        <a href="/MyPortfolio/categories" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="/MyPortfolio/categories"
+           class="header-toolbar-right"> 30 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/MyPortfolio/">BeomLog</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    bmpark
+
+    <span class="post-date float-right" title="{{moment(1567077120000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      <i class="fa fa-pencil-square-o"></i>
+      {{moment(1567077120000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>BOJ 15953[백준 15953]</h1>
+    <p><a target="_blank" rel="noopener" href="https://www.acmicpc.net/problem/15953">상금 헌터</a></p>
+<h2 id="조건"><a href="#조건" class="headerlink" title="조건"></a>조건</h2><ol>
+<li>가정한 횟수 T(1 &lt;&#x3D; T &lt;&#x3D; 1000)가 주어진다.</li>
+<li>각 가정별 1회 등수(a)와 2회 등수(b)가 주어진다. (0 &lt;&#x3D; a &lt;&#x3D; 100, 0 &lt;&#x3D; b &lt;&#x3D; 64)</li>
+<li>1회와 2회의 순위별 상금과 상금 부여 인원이 주어진다.</li>
+</ol>
+<h2 id="결과"><a href="#결과" class="headerlink" title="결과"></a>결과</h2><ul>
+<li>각 가정별 획득 상금.</li>
+</ul>
+<h2 id="해결-방법"><a href="#해결-방법" class="headerlink" title="해결 방법"></a>해결 방법</h2><ul>
+<li>가정한 등수가 받을 수 있는 상금을 찾아야 한다.</li>
+</ul>
+<ol>
+<li>각 가정별 1회와 2회의 등수에 대해서 상금을 받을 수 있는지 비교한다.</li>
+<li>1회와 2회에서 받을 수 있는 상금을 합한다.</li>
+<li>합한 상금을 출력한다.</li>
+</ol>
+<h2 id="핵심-코드"><a href="#핵심-코드" class="headerlink" title="핵심 코드"></a>핵심 코드</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">for(int i = 0; i &lt; T; i++) &#123;</span><br><span class="line">	int a = input[i][0];</span><br><span class="line">	int b = input[i][1];</span><br><span class="line">	if(a &lt;= 21 &amp;&amp; a &gt; 0) &#123;</span><br><span class="line">		if( a == 1) &#123;</span><br><span class="line">			result[i] += first[0];</span><br><span class="line">		&#125;else if( a &gt; 1 &amp;&amp; a &lt;= 3 ) &#123;</span><br><span class="line">			result[i] += first[1];</span><br><span class="line">		&#125;else if( a &gt; 3 &amp;&amp; a &lt;= 6 ) &#123;</span><br><span class="line">			result[i] += first[2];</span><br><span class="line">		&#125;else if( a &gt; 6 &amp;&amp; a &lt;= 10 ) &#123;</span><br><span class="line">			result[i] += first[3];</span><br><span class="line">		&#125;else if( a &gt; 10 &amp;&amp; a &lt;= 15 ) &#123;</span><br><span class="line">			result[i] += first[4];</span><br><span class="line">		&#125;else if( a &gt; 15 &amp;&amp; a &lt;= 21 ) &#123;</span><br><span class="line">			result[i] += first[5];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	if(b &lt;= 31 &amp;&amp; b &gt; 0) &#123;</span><br><span class="line">		if( b == 1) &#123;</span><br><span class="line">			result[i] += second[0];</span><br><span class="line">		&#125;else if( b &gt; 1 &amp;&amp; b &lt;= 3 ) &#123;</span><br><span class="line">			result[i] += second[1];</span><br><span class="line">		&#125;else if( b &gt; 3 &amp;&amp; b &lt;= 7 ) &#123;</span><br><span class="line">			result[i] += second[2];</span><br><span class="line">		&#125;else if( b &gt; 7 &amp;&amp; b &lt;= 15 ) &#123;</span><br><span class="line">			result[i] += second[3];</span><br><span class="line">		&#125;else if( b &gt; 15 &amp;&amp; b &lt;= 31 ) &#123;</span><br><span class="line">			result[i] += second[4];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">for(int i = 0; i &lt; T; i++) &#123;</span><br><span class="line">	System.out.println(result[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>전체 소스 코드는 <a target="_blank" rel="noopener" href="https://github.com/ParkBeomMin/BaekJoonAlgorithm/blob/15953/src/Main.java">여기서</a> 확인하실 수 있습니다.</p>
+
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <a href="https://parkbeommin.github.io/MyPortfolio" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2025 bmpark</li>
+      <li><a href="https://parkbeommin.github.io/MyPortfolio">Home</a></li>
+      
+      <li><a target="_blank" rel="noopener" href="https://github.com/parkbeommin">Github</a></li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Theme <a target="_blank" rel="noopener" href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+      by <a target="_blank" rel="noopener" href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+    </div>
+  </footer>
+</div>
+
+
+
+
+<script src="/MyPortfolio/js/main.js"></script>
+
+</body>
+</html>
