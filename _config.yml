@@ -11,6 +11,7 @@ author: bmpark
 language: kr
 timezone: 'Asia/Seoul'
 location: 'Seoul, South Korea'
+favicon: /favicon.ico
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
@@ -107,6 +108,6 @@ theme_config:
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: 'git'
+  type: git
   repo: https://github.com/parkbeommin/parkbeommin.github.io
   branch: main
