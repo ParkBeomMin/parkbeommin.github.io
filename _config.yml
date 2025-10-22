@@ -114,6 +114,16 @@ gitalk:
   admin: ParkBeomMin
 ga: G-44YWDK9DBE
 
+sitemap:
+    path: sitemap.xml
+
+feed:
+  type: atom
+  path: atom.xml
+  limit: false
+  hub:
+  content: true
+
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
