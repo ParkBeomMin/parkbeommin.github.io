@@ -106,12 +106,11 @@ theme_config:
   tag_dir: tags
   rss_dir: atom.xml
 
-gitalk: 
-  client_id: Ov23liRM1tBkguIjv9gn
-  client_secret: 3839e8d5894b90df68f18fe77d3394206b969bab
-  repo: parkbeommin.github.io
-  owner: ParkBeomMin
-  admin: ParkBeomMin
+utteranc:
+  repo: ParkBeomMin/parkbeommin.github.io
+  issue_term: title
+  theme: github-light
+  label: ✨💬✨
 ga: G-44YWDK9DBE
 
 sitemap:
