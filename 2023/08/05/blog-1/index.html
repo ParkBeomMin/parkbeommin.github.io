@@ -193,23 +193,12 @@
   </article>
 </div>
 
-
-    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-<div class='container' id="gitalk-container"></div>
-<script>
-    var gitalk = new Gitalk({
-        clientID: 'Ov23liRM1tBkguIjv9gn',
-        clientSecret: '3839e8d5894b90df68f18fe77d3394206b969bab',
-        repo: 'parkbeommin.github.io',
-        owner: 'ParkBeomMin',
-        admin: ['ParkBeomMin'],
-        id: location.pathname.slice(0, 49),  // 50자 미만
-        title: (document.title || location.pathname).slice(0, 80),  // 256자 미만 권장
-        labels: ['Gitalk'],
-        distractionFreeMode: true,
-    })
-    gitalk.render('gitalk-container')
+    <script src="https://utteranc.es/client.js" async defer 
+    repo="ParkBeomMin/parkbeommin.github.io" 
+    issue-term="title" 
+    theme="github-light" 
+    label="✨💬✨" 
+    crossorigin="anonymous">
 </script>
 
 
