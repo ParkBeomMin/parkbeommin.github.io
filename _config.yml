@@ -118,5 +118,5 @@ ga: G-44YWDK9DBE
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://github.com/parkbeommin/parkbeommin.github.io
+  repo: https://github.com/ParkBeomMin/parkbeommin.github.io
   branch: release
