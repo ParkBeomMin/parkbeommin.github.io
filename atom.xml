@@ -18,8 +18,8 @@
   
   <entry>
     <title>MAC nginx 설치하기</title>
-    <link href="https://parkbeommin.github.io/2024/01/03/mac-nginx/"/>
-    <id>https://parkbeommin.github.io/2024/01/03/mac-nginx/</id>
+    <link href="https://parkbeommin.github.io/posts/mac-nginx/"/>
+    <id>https://parkbeommin.github.io/posts/mac-nginx/</id>
     <published>2024-01-02T16:50:00.000Z</published>
     <updated>2025-10-21T07:33:47.080Z</updated>
     
@@ -37,8 +37,8 @@
   
   <entry>
     <title>Vue3 Teleport, Pinia랑 찰떡궁합?!</title>
-    <link href="https://parkbeommin.github.io/2023/12/27/vue-teleport/"/>
-    <id>https://parkbeommin.github.io/2023/12/27/vue-teleport/</id>
+    <link href="https://parkbeommin.github.io/posts/vue-teleport/"/>
+    <id>https://parkbeommin.github.io/posts/vue-teleport/</id>
     <published>2023-12-26T21:50:00.000Z</published>
     <updated>2025-10-21T07:33:47.104Z</updated>
     
@@ -56,8 +56,8 @@
   
   <entry>
     <title>MAC 루트 경로에 폴더 만들기</title>
-    <link href="https://parkbeommin.github.io/2023/12/26/mac-root-symbolic-link/"/>
-    <id>https://parkbeommin.github.io/2023/12/26/mac-root-symbolic-link/</id>
+    <link href="https://parkbeommin.github.io/posts/mac-root-symbolic-link/"/>
+    <id>https://parkbeommin.github.io/posts/mac-root-symbolic-link/</id>
     <published>2023-12-25T20:26:00.000Z</published>
     <updated>2025-10-21T07:33:47.089Z</updated>
     
@@ -81,8 +81,8 @@
   
   <entry>
     <title>블로그 개편기 EP.3</title>
-    <link href="https://parkbeommin.github.io/2023/09/06/blog-3/"/>
-    <id>https://parkbeommin.github.io/2023/09/06/blog-3/</id>
+    <link href="https://parkbeommin.github.io/posts/blog-3/"/>
+    <id>https://parkbeommin.github.io/posts/blog-3/</id>
     <published>2023-09-05T15:47:00.000Z</published>
     <updated>2025-10-21T07:33:47.075Z</updated>
     
@@ -108,8 +108,8 @@
   
   <entry>
     <title>Placeholder 줄바꿈 적용하기</title>
-    <link href="https://parkbeommin.github.io/2023/08/24/placeholder-line-breaking/"/>
-    <id>https://parkbeommin.github.io/2023/08/24/placeholder-line-breaking/</id>
+    <link href="https://parkbeommin.github.io/posts/placeholder-line-breaking/"/>
+    <id>https://parkbeommin.github.io/posts/placeholder-line-breaking/</id>
     <published>2023-08-24T04:15:00.000Z</published>
     <updated>2025-10-21T07:33:47.094Z</updated>
     
@@ -134,8 +134,8 @@
   
   <entry>
     <title>블로그 개편기 EP.2</title>
-    <link href="https://parkbeommin.github.io/2023/08/11/blog-2/"/>
-    <id>https://parkbeommin.github.io/2023/08/11/blog-2/</id>
+    <link href="https://parkbeommin.github.io/posts/blog-2/"/>
+    <id>https://parkbeommin.github.io/posts/blog-2/</id>
     <published>2023-08-10T17:19:00.000Z</published>
     <updated>2025-10-21T07:33:47.064Z</updated>
     
@@ -161,8 +161,8 @@
   
   <entry>
     <title>블로그 개편기 EP.1</title>
-    <link href="https://parkbeommin.github.io/2023/08/05/blog-1/"/>
-    <id>https://parkbeommin.github.io/2023/08/05/blog-1/</id>
+    <link href="https://parkbeommin.github.io/posts/blog-1/"/>
+    <id>https://parkbeommin.github.io/posts/blog-1/</id>
     <published>2023-08-04T17:19:00.000Z</published>
     <updated>2025-10-21T07:33:47.052Z</updated>
     
@@ -186,8 +186,8 @@
   
   <entry>
     <title>블로그 개편기 EP.0</title>
-    <link href="https://parkbeommin.github.io/2023/08/03/blog-0/"/>
-    <id>https://parkbeommin.github.io/2023/08/03/blog-0/</id>
+    <link href="https://parkbeommin.github.io/posts/blog-0/"/>
+    <id>https://parkbeommin.github.io/posts/blog-0/</id>
     <published>2023-08-02T17:19:00.000Z</published>
     <updated>2025-10-21T07:33:47.027Z</updated>
     
@@ -211,8 +211,8 @@
   
   <entry>
     <title>[WEB] web push, 이렇게 쉬운거였어?</title>
-    <link href="https://parkbeommin.github.io/2023/07/28/2023-07-28-web-push/"/>
-    <id>https://parkbeommin.github.io/2023/07/28/2023-07-28-web-push/</id>
+    <link href="https://parkbeommin.github.io/posts/2023-07-28-web-push/"/>
+    <id>https://parkbeommin.github.io/posts/2023-07-28-web-push/</id>
     <published>2023-07-27T15:43:00.000Z</published>
     <updated>2025-10-21T07:33:47.016Z</updated>
     
@@ -238,8 +238,8 @@
   
   <entry>
     <title>[DX] git actions로 ssh 접속하여 자동 배포 하기</title>
-    <link href="https://parkbeommin.github.io/2023/07/21/2023-07-21-git-action-ssh/"/>
-    <id>https://parkbeommin.github.io/2023/07/21/2023-07-21-git-action-ssh/</id>
+    <link href="https://parkbeommin.github.io/posts/2023-07-21-git-action-ssh/"/>
+    <id>https://parkbeommin.github.io/posts/2023-07-21-git-action-ssh/</id>
     <published>2023-07-20T16:34:00.000Z</published>
     <updated>2025-10-21T07:33:46.988Z</updated>
     
@@ -265,8 +265,8 @@
   
   <entry>
     <title>[DX] 팀즈 WebHook으로 에러 알림받기</title>
-    <link href="https://parkbeommin.github.io/2023/07/14/2023-07-14-teams-webhook-error/"/>
-    <id>https://parkbeommin.github.io/2023/07/14/2023-07-14-teams-webhook-error/</id>
+    <link href="https://parkbeommin.github.io/posts/2023-07-14-teams-webhook-error/"/>
+    <id>https://parkbeommin.github.io/posts/2023-07-14-teams-webhook-error/</id>
     <published>2023-07-13T22:33:00.000Z</published>
     <updated>2025-10-21T07:33:46.964Z</updated>
     
@@ -292,8 +292,8 @@
   
   <entry>
     <title>[DX] 다수의 프로젝트 병렬로 빌드&amp;배포하기</title>
-    <link href="https://parkbeommin.github.io/2023/07/14/2023-07-14-projects-build-with-parallel/"/>
-    <id>https://parkbeommin.github.io/2023/07/14/2023-07-14-projects-build-with-parallel/</id>
+    <link href="https://parkbeommin.github.io/posts/2023-07-14-projects-build-with-parallel/"/>
+    <id>https://parkbeommin.github.io/posts/2023-07-14-projects-build-with-parallel/</id>
     <published>2023-07-13T16:48:00.000Z</published>
     <updated>2025-10-21T07:33:46.945Z</updated>
     
@@ -317,8 +317,8 @@
   
   <entry>
     <title>[Vanilla JS] About Me 프로젝트 - 라우터 구성하기</title>
-    <link href="https://parkbeommin.github.io/2023/07/10/2023-06-27-vanillajs-project_3/"/>
-    <id>https://parkbeommin.github.io/2023/07/10/2023-06-27-vanillajs-project_3/</id>
+    <link href="https://parkbeommin.github.io/posts/2023-06-27-vanillajs-project_3/"/>
+    <id>https://parkbeommin.github.io/posts/2023-06-27-vanillajs-project_3/</id>
     <published>2023-07-09T16:16:00.000Z</published>
     <updated>2025-10-21T07:33:46.931Z</updated>
     
@@ -342,8 +342,8 @@
   
   <entry>
     <title>[Vanilla JS] About Me 프로젝트 - 페이지 구성하기</title>
-    <link href="https://parkbeommin.github.io/2023/06/27/2023-06-27-vanillajs-project_2/"/>
-    <id>https://parkbeommin.github.io/2023/06/27/2023-06-27-vanillajs-project_2/</id>
+    <link href="https://parkbeommin.github.io/posts/2023-06-27-vanillajs-project_2/"/>
+    <id>https://parkbeommin.github.io/posts/2023-06-27-vanillajs-project_2/</id>
     <published>2023-06-26T15:16:00.000Z</published>
     <updated>2025-10-21T07:33:46.923Z</updated>
     
@@ -367,8 +367,8 @@
   
   <entry>
     <title>[Vanilla JS] About Me 프로젝트 - SPA 구조 만들기</title>
-    <link href="https://parkbeommin.github.io/2023/06/23/2023-06-23-vanillajs-project_1/"/>
-    <id>https://parkbeommin.github.io/2023/06/23/2023-06-23-vanillajs-project_1/</id>
+    <link href="https://parkbeommin.github.io/posts/2023-06-23-vanillajs-project_1/"/>
+    <id>https://parkbeommin.github.io/posts/2023-06-23-vanillajs-project_1/</id>
     <published>2023-06-22T16:04:00.000Z</published>
     <updated>2025-10-21T07:33:46.913Z</updated>
     
@@ -392,8 +392,8 @@
   
   <entry>
     <title>[GIT] Push 정책 설정하기</title>
-    <link href="https://parkbeommin.github.io/2023/06/15/2023-06-15-git-pre-push/"/>
-    <id>https://parkbeommin.github.io/2023/06/15/2023-06-15-git-pre-push/</id>
+    <link href="https://parkbeommin.github.io/posts/2023-06-15-git-pre-push/"/>
+    <id>https://parkbeommin.github.io/posts/2023-06-15-git-pre-push/</id>
     <published>2023-06-14T21:04:00.000Z</published>
     <updated>2025-10-21T07:33:46.900Z</updated>
     
@@ -417,8 +417,8 @@
   
   <entry>
     <title>a태그의 target 속성을 전부 변경하기</title>
-    <link href="https://parkbeommin.github.io/2023/06/15/2023-06-15-nuxt-link-change/"/>
-    <id>https://parkbeommin.github.io/2023/06/15/2023-06-15-nuxt-link-change/</id>
+    <link href="https://parkbeommin.github.io/posts/2023-06-15-nuxt-link-change/"/>
+    <id>https://parkbeommin.github.io/posts/2023-06-15-nuxt-link-change/</id>
     <published>2023-06-14T21:04:00.000Z</published>
     <updated>2025-10-21T07:33:46.908Z</updated>
     
@@ -443,8 +443,8 @@
   
   <entry>
     <title>웹워커와 서비스워커</title>
-    <link href="https://parkbeommin.github.io/2023/06/08/2023-06-08-web-worker/"/>
-    <id>https://parkbeommin.github.io/2023/06/08/2023-06-08-web-worker/</id>
+    <link href="https://parkbeommin.github.io/posts/2023-06-08-web-worker/"/>
+    <id>https://parkbeommin.github.io/posts/2023-06-08-web-worker/</id>
     <published>2023-06-07T15:23:00.000Z</published>
     <updated>2025-10-21T07:33:46.892Z</updated>
     
@@ -467,8 +467,8 @@
   
   <entry>
     <title>BOJ 2206[백준 2206]</title>
-    <link href="https://parkbeommin.github.io/2019/11/07/2019-11-07-baekjoon-algorithm-2206/"/>
-    <id>https://parkbeommin.github.io/2019/11/07/2019-11-07-baekjoon-algorithm-2206/</id>
+    <link href="https://parkbeommin.github.io/posts/2019-11-07-baekjoon-algorithm-2206/"/>
+    <id>https://parkbeommin.github.io/posts/2019-11-07-baekjoon-algorithm-2206/</id>
     <published>2019-11-07T00:58:00.000Z</published>
     <updated>2025-10-21T07:33:46.888Z</updated>
     
@@ -490,8 +490,8 @@
   
   <entry>
     <title>BOJ 1966[백준 1966]</title>
-    <link href="https://parkbeommin.github.io/2019/10/11/2019-10-11-baekjoon-algorithm-1966/"/>
-    <id>https://parkbeommin.github.io/2019/10/11/2019-10-11-baekjoon-algorithm-1966/</id>
+    <link href="https://parkbeommin.github.io/posts/2019-10-11-baekjoon-algorithm-1966/"/>
+    <id>https://parkbeommin.github.io/posts/2019-10-11-baekjoon-algorithm-1966/</id>
     <published>2019-10-11T04:01:00.000Z</published>
     <updated>2025-10-21T07:33:46.878Z</updated>
     
@@ -513,8 +513,8 @@
   
   <entry>
     <title>BOJ 11053[백준 11053]</title>
-    <link href="https://parkbeommin.github.io/2019/10/09/2019-10-09-baekjoon-algorithm-11053/"/>
-    <id>https://parkbeommin.github.io/2019/10/09/2019-10-09-baekjoon-algorithm-11053/</id>
+    <link href="https://parkbeommin.github.io/posts/2019-10-09-baekjoon-algorithm-11053/"/>
+    <id>https://parkbeommin.github.io/posts/2019-10-09-baekjoon-algorithm-11053/</id>
     <published>2019-10-08T21:30:00.000Z</published>
     <updated>2025-10-21T07:33:46.851Z</updated>
     
@@ -536,8 +536,8 @@
   
   <entry>
     <title>BOJ 17298[백준 17298]</title>
-    <link href="https://parkbeommin.github.io/2019/10/08/2019-10-08-baekjoon-algorithm-17298/"/>
-    <id>https://parkbeommin.github.io/2019/10/08/2019-10-08-baekjoon-algorithm-17298/</id>
+    <link href="https://parkbeommin.github.io/posts/2019-10-08-baekjoon-algorithm-17298/"/>
+    <id>https://parkbeommin.github.io/posts/2019-10-08-baekjoon-algorithm-17298/</id>
     <published>2019-10-08T04:40:00.000Z</published>
     <updated>2025-10-21T07:33:46.777Z</updated>
     
@@ -559,8 +559,8 @@
   
   <entry>
     <title>BOJ 1157[백준 1157]</title>
-    <link href="https://parkbeommin.github.io/2019/10/08/2019-10-08-baekjoon-algorithm-1157/"/>
-    <id>https://parkbeommin.github.io/2019/10/08/2019-10-08-baekjoon-algorithm-1157/</id>
+    <link href="https://parkbeommin.github.io/posts/2019-10-08-baekjoon-algorithm-1157/"/>
+    <id>https://parkbeommin.github.io/posts/2019-10-08-baekjoon-algorithm-1157/</id>
     <published>2019-10-07T22:08:00.000Z</published>
     <updated>2025-10-21T07:33:46.733Z</updated>
     
@@ -582,8 +582,8 @@
   
   <entry>
     <title>BOJ 2675[백준 2675]</title>
-    <link href="https://parkbeommin.github.io/2019/10/08/2019-10-08-baekjoon-algorithm-2675/"/>
-    <id>https://parkbeommin.github.io/2019/10/08/2019-10-08-baekjoon-algorithm-2675/</id>
+    <link href="https://parkbeommin.github.io/posts/2019-10-08-baekjoon-algorithm-2675/"/>
+    <id>https://parkbeommin.github.io/posts/2019-10-08-baekjoon-algorithm-2675/</id>
     <published>2019-10-07T15:41:00.000Z</published>
     <updated>2025-10-21T07:33:46.746Z</updated>
     
@@ -605,8 +605,8 @@
   
   <entry>
     <title>BOJ 1874[백준 1874]</title>
-    <link href="https://parkbeommin.github.io/2019/10/07/2019-10-07-baekjoon-algorithm-1874/"/>
-    <id>https://parkbeommin.github.io/2019/10/07/2019-10-07-baekjoon-algorithm-1874/</id>
+    <link href="https://parkbeommin.github.io/posts/2019-10-07-baekjoon-algorithm-1874/"/>
+    <id>https://parkbeommin.github.io/posts/2019-10-07-baekjoon-algorithm-1874/</id>
     <published>2019-10-07T03:29:00.000Z</published>
     <updated>2025-10-21T07:33:46.704Z</updated>
     
@@ -628,8 +628,8 @@
   
   <entry>
     <title>BOJ 1003[백준 1003]</title>
-    <link href="https://parkbeommin.github.io/2019/09/26/2019-09-26-baekjoon-algorithm-1003/"/>
-    <id>https://parkbeommin.github.io/2019/09/26/2019-09-26-baekjoon-algorithm-1003/</id>
+    <link href="https://parkbeommin.github.io/posts/2019-09-26-baekjoon-algorithm-1003/"/>
+    <id>https://parkbeommin.github.io/posts/2019-09-26-baekjoon-algorithm-1003/</id>
     <published>2019-09-25T16:19:00.000Z</published>
     <updated>2025-10-21T07:33:46.664Z</updated>
     
@@ -652,8 +652,8 @@
   
   <entry>
     <title>BOJ 2748[백준 2748]</title>
-    <link href="https://parkbeommin.github.io/2019/09/26/2019-09-26-baekjoon-algorithm-2748/"/>
-    <id>https://parkbeommin.github.io/2019/09/26/2019-09-26-baekjoon-algorithm-2748/</id>
+    <link href="https://parkbeommin.github.io/posts/2019-09-26-baekjoon-algorithm-2748/"/>
+    <id>https://parkbeommin.github.io/posts/2019-09-26-baekjoon-algorithm-2748/</id>
     <published>2019-09-25T15:13:00.000Z</published>
     <updated>2025-10-21T07:33:46.679Z</updated>
     
@@ -676,8 +676,8 @@
   
   <entry>
     <title>BOJ 15953[백준 15953]</title>
-    <link href="https://parkbeommin.github.io/2019/08/29/2019-08-30-baekjoon-algorithm-15953/"/>
-    <id>https://parkbeommin.github.io/2019/08/29/2019-08-30-baekjoon-algorithm-15953/</id>
+    <link href="https://parkbeommin.github.io/posts/2019-08-30-baekjoon-algorithm-15953/"/>
+    <id>https://parkbeommin.github.io/posts/2019-08-30-baekjoon-algorithm-15953/</id>
     <published>2019-08-29T11:12:00.000Z</published>
     <updated>2025-10-21T07:33:46.643Z</updated>
     
@@ -700,8 +700,8 @@
   
   <entry>
     <title>BOJ 7568[백준 7568]</title>
-    <link href="https://parkbeommin.github.io/2019/08/29/2019-08-30-baekjoon-algorithm-7568/"/>
-    <id>https://parkbeommin.github.io/2019/08/29/2019-08-30-baekjoon-algorithm-7568/</id>
+    <link href="https://parkbeommin.github.io/posts/2019-08-30-baekjoon-algorithm-7568/"/>
+    <id>https://parkbeommin.github.io/posts/2019-08-30-baekjoon-algorithm-7568/</id>
     <published>2019-08-29T10:32:00.000Z</published>
     <updated>2025-10-21T07:33:46.620Z</updated>
     
@@ -724,8 +724,8 @@
   
   <entry>
     <title>BOJ 2231[백준 2231]</title>
-    <link href="https://parkbeommin.github.io/2019/08/24/2019-08-25-baekjoon-algorithm-2231/"/>
-    <id>https://parkbeommin.github.io/2019/08/24/2019-08-25-baekjoon-algorithm-2231/</id>
+    <link href="https://parkbeommin.github.io/posts/2019-08-25-baekjoon-algorithm-2231/"/>
+    <id>https://parkbeommin.github.io/posts/2019-08-25-baekjoon-algorithm-2231/</id>
     <published>2019-08-24T09:50:00.000Z</published>
     <updated>2025-10-21T07:33:46.601Z</updated>
     
@@ -748,8 +748,8 @@
   
   <entry>
     <title>BOJ 2798[백준 2798]</title>
-    <link href="https://parkbeommin.github.io/2019/08/22/2019-08-23-baekjoon-algorithm-2798/"/>
-    <id>https://parkbeommin.github.io/2019/08/22/2019-08-23-baekjoon-algorithm-2798/</id>
+    <link href="https://parkbeommin.github.io/posts/2019-08-23-baekjoon-algorithm-2798/"/>
+    <id>https://parkbeommin.github.io/posts/2019-08-23-baekjoon-algorithm-2798/</id>
     <published>2019-08-22T10:24:00.000Z</published>
     <updated>2025-10-21T07:33:46.574Z</updated>
     
@@ -772,8 +772,8 @@
   
   <entry>
     <title>[안드로이드] 테이블 레이아웃(TableLayout)</title>
-    <link href="https://parkbeommin.github.io/2019/08/17/2019-08-17-android-table-layout/"/>
-    <id>https://parkbeommin.github.io/2019/08/17/2019-08-17-android-table-layout/</id>
+    <link href="https://parkbeommin.github.io/posts/2019-08-17-android-table-layout/"/>
+    <id>https://parkbeommin.github.io/posts/2019-08-17-android-table-layout/</id>
     <published>2019-08-16T18:19:00.000Z</published>
     <updated>2025-10-21T07:33:46.564Z</updated>
     
@@ -794,8 +794,8 @@
   
   <entry>
     <title>[React Native] React Native 시작하기 - React Native CLI</title>
-    <link href="https://parkbeommin.github.io/2019/07/15/2019-07-15-react-native-setting-react-native-cli/"/>
-    <id>https://parkbeommin.github.io/2019/07/15/2019-07-15-react-native-setting-react-native-cli/</id>
+    <link href="https://parkbeommin.github.io/posts/2019-07-15-react-native-setting-react-native-cli/"/>
+    <id>https://parkbeommin.github.io/posts/2019-07-15-react-native-setting-react-native-cli/</id>
     <published>2019-07-15T04:29:00.000Z</published>
     <updated>2025-10-21T07:33:46.545Z</updated>
     
@@ -816,8 +816,8 @@
   
   <entry>
     <title>[React Native] React Native 시작하기 - Expo</title>
-    <link href="https://parkbeommin.github.io/2019/07/13/2019-07-14-react-native-setting-expo/"/>
-    <id>https://parkbeommin.github.io/2019/07/13/2019-07-14-react-native-setting-expo/</id>
+    <link href="https://parkbeommin.github.io/posts/2019-07-14-react-native-setting-expo/"/>
+    <id>https://parkbeommin.github.io/posts/2019-07-14-react-native-setting-expo/</id>
     <published>2019-07-13T08:21:00.000Z</published>
     <updated>2025-10-21T07:33:46.527Z</updated>
     
@@ -840,8 +840,8 @@
   
   <entry>
     <title>[React Native] React Native 알아보기</title>
-    <link href="https://parkbeommin.github.io/2019/07/13/2019-07-14-react-native-start/"/>
-    <id>https://parkbeommin.github.io/2019/07/13/2019-07-14-react-native-start/</id>
+    <link href="https://parkbeommin.github.io/posts/2019-07-14-react-native-start/"/>
+    <id>https://parkbeommin.github.io/posts/2019-07-14-react-native-start/</id>
     <published>2019-07-13T07:16:00.000Z</published>
     <updated>2025-10-21T07:33:46.539Z</updated>
     
@@ -862,8 +862,8 @@
   
   <entry>
     <title>[안드로이드 스튜디오] 시간 절약을 위한 라이브 템플릿</title>
-    <link href="https://parkbeommin.github.io/2019/07/11/2019-07-12-android-studio-live-templates/"/>
-    <id>https://parkbeommin.github.io/2019/07/11/2019-07-12-android-studio-live-templates/</id>
+    <link href="https://parkbeommin.github.io/posts/2019-07-12-android-studio-live-templates/"/>
+    <id>https://parkbeommin.github.io/posts/2019-07-12-android-studio-live-templates/</id>
     <published>2019-07-11T08:16:00.000Z</published>
     <updated>2025-10-21T07:33:46.512Z</updated>
     
@@ -884,8 +884,8 @@
   
   <entry>
     <title>[안드로이드] 현재 시간 구하기, 시간 계산하기</title>
-    <link href="https://parkbeommin.github.io/2019/07/08/2019-07-08-android-current-time/"/>
-    <id>https://parkbeommin.github.io/2019/07/08/2019-07-08-android-current-time/</id>
+    <link href="https://parkbeommin.github.io/posts/2019-07-08-android-current-time/"/>
+    <id>https://parkbeommin.github.io/posts/2019-07-08-android-current-time/</id>
     <published>2019-07-08T00:18:00.000Z</published>
     <updated>2025-10-21T07:33:46.505Z</updated>
     
@@ -906,8 +906,8 @@
   
   <entry>
     <title>[안드로이드] Widget 만들기</title>
-    <link href="https://parkbeommin.github.io/2019/07/04/2019-07-04-android-widget/"/>
-    <id>https://parkbeommin.github.io/2019/07/04/2019-07-04-android-widget/</id>
+    <link href="https://parkbeommin.github.io/posts/2019-07-04-android-widget/"/>
+    <id>https://parkbeommin.github.io/posts/2019-07-04-android-widget/</id>
     <published>2019-07-03T20:56:00.000Z</published>
     <updated>2025-10-21T07:33:46.493Z</updated>
     
@@ -928,8 +928,8 @@
   
   <entry>
     <title>[안드로이드 스튜디오] 함수 오버라이드 시 의미 있는 이름 인자 값 설정하기</title>
-    <link href="https://parkbeommin.github.io/2019/07/01/2019-07-01-android-studio-match-sdk-version/"/>
-    <id>https://parkbeommin.github.io/2019/07/01/2019-07-01-android-studio-match-sdk-version/</id>
+    <link href="https://parkbeommin.github.io/posts/2019-07-01-android-studio-match-sdk-version/"/>
+    <id>https://parkbeommin.github.io/posts/2019-07-01-android-studio-match-sdk-version/</id>
     <published>2019-06-30T23:53:00.000Z</published>
     <updated>2025-10-21T07:33:46.489Z</updated>
     
@@ -951,8 +951,8 @@
   
   <entry>
     <title>안드로이드 코틀린 개발하기 - WebBrowser</title>
-    <link href="https://parkbeommin.github.io/2019/06/27/2019-06-28-kotlin-web-browser/"/>
-    <id>https://parkbeommin.github.io/2019/06/27/2019-06-28-kotlin-web-browser/</id>
+    <link href="https://parkbeommin.github.io/posts/2019-06-28-kotlin-web-browser/"/>
+    <id>https://parkbeommin.github.io/posts/2019-06-28-kotlin-web-browser/</id>
     <published>2019-06-27T07:19:00.000Z</published>
     <updated>2025-10-21T07:33:46.478Z</updated>
     
@@ -973,8 +973,8 @@
   
   <entry>
     <title>안드로이드 코틀린 개발하기 - StopWatch</title>
-    <link href="https://parkbeommin.github.io/2019/06/26/2019-06-26-kotlin-stop-watch/"/>
-    <id>https://parkbeommin.github.io/2019/06/26/2019-06-26-kotlin-stop-watch/</id>
+    <link href="https://parkbeommin.github.io/posts/2019-06-26-kotlin-stop-watch/"/>
+    <id>https://parkbeommin.github.io/posts/2019-06-26-kotlin-stop-watch/</id>
     <published>2019-06-26T02:16:00.000Z</published>
     <updated>2025-10-21T07:33:46.473Z</updated>
     
@@ -995,8 +995,8 @@
   
   <entry>
     <title>BOJ 10610[백준 10610]</title>
-    <link href="https://parkbeommin.github.io/2019/06/26/2019-06-26-baekjoon-algorithm-10610/"/>
-    <id>https://parkbeommin.github.io/2019/06/26/2019-06-26-baekjoon-algorithm-10610/</id>
+    <link href="https://parkbeommin.github.io/posts/2019-06-26-baekjoon-algorithm-10610/"/>
+    <id>https://parkbeommin.github.io/posts/2019-06-26-baekjoon-algorithm-10610/</id>
     <published>2019-06-25T21:34:00.000Z</published>
     <updated>2025-10-21T07:33:46.461Z</updated>
     
@@ -1019,8 +1019,8 @@
   
   <entry>
     <title>안드로이드 코틀린 개발하기 - BMI 계산기</title>
-    <link href="https://parkbeommin.github.io/2019/06/22/2019-06-23-kotlin-bmi-calculator/"/>
-    <id>https://parkbeommin.github.io/2019/06/22/2019-06-23-kotlin-bmi-calculator/</id>
+    <link href="https://parkbeommin.github.io/posts/2019-06-23-kotlin-bmi-calculator/"/>
+    <id>https://parkbeommin.github.io/posts/2019-06-23-kotlin-bmi-calculator/</id>
     <published>2019-06-22T10:47:00.000Z</published>
     <updated>2025-10-21T07:33:46.456Z</updated>
     
@@ -1041,8 +1041,8 @@
   
   <entry>
     <title>BOJ 2193[백준 2193]</title>
-    <link href="https://parkbeommin.github.io/2019/06/22/2019-06-23-baekjoon-algorithm-2193/"/>
-    <id>https://parkbeommin.github.io/2019/06/22/2019-06-23-baekjoon-algorithm-2193/</id>
+    <link href="https://parkbeommin.github.io/posts/2019-06-23-baekjoon-algorithm-2193/"/>
+    <id>https://parkbeommin.github.io/posts/2019-06-23-baekjoon-algorithm-2193/</id>
     <published>2019-06-22T07:27:00.000Z</published>
     <updated>2025-10-21T07:33:46.452Z</updated>
     
@@ -1065,8 +1065,8 @@
   
   <entry>
     <title>안드로이드 코틀린 시작하기 - Hello World</title>
-    <link href="https://parkbeommin.github.io/2019/06/20/2019-06-20-kotlin-hello-world/"/>
-    <id>https://parkbeommin.github.io/2019/06/20/2019-06-20-kotlin-hello-world/</id>
+    <link href="https://parkbeommin.github.io/posts/2019-06-20-kotlin-hello-world/"/>
+    <id>https://parkbeommin.github.io/posts/2019-06-20-kotlin-hello-world/</id>
     <published>2019-06-19T19:37:00.000Z</published>
     <updated>2025-10-21T07:33:46.442Z</updated>
     
@@ -1087,8 +1087,8 @@
   
   <entry>
     <title>BOJ 11052[백준 11052]</title>
-    <link href="https://parkbeommin.github.io/2019/06/20/2019-06-20-baekjoon-algorithm-11052/"/>
-    <id>https://parkbeommin.github.io/2019/06/20/2019-06-20-baekjoon-algorithm-11052/</id>
+    <link href="https://parkbeommin.github.io/posts/2019-06-20-baekjoon-algorithm-11052/"/>
+    <id>https://parkbeommin.github.io/posts/2019-06-20-baekjoon-algorithm-11052/</id>
     <published>2019-06-19T17:42:00.000Z</published>
     <updated>2025-10-21T07:33:46.437Z</updated>
     
@@ -1111,8 +1111,8 @@
   
   <entry>
     <title>코틀린 특징</title>
-    <link href="https://parkbeommin.github.io/2019/06/19/2019-06-19-kotlin-feature/"/>
-    <id>https://parkbeommin.github.io/2019/06/19/2019-06-19-kotlin-feature/</id>
+    <link href="https://parkbeommin.github.io/posts/2019-06-19-kotlin-feature/"/>
+    <id>https://parkbeommin.github.io/posts/2019-06-19-kotlin-feature/</id>
     <published>2019-06-19T00:42:00.000Z</published>
     <updated>2025-10-21T07:33:46.421Z</updated>
     
@@ -1135,8 +1135,8 @@
   
   <entry>
     <title>[안드로이드 프로젝트] 서비스 기획하기-1</title>
-    <link href="https://parkbeommin.github.io/2019/06/19/2019-06-19-project1-1/"/>
-    <id>https://parkbeommin.github.io/2019/06/19/2019-06-19-project1-1/</id>
+    <link href="https://parkbeommin.github.io/posts/2019-06-19-project1-1/"/>
+    <id>https://parkbeommin.github.io/posts/2019-06-19-project1-1/</id>
     <published>2019-06-19T00:29:00.000Z</published>
     <updated>2025-10-21T07:33:46.427Z</updated>
     
@@ -1157,8 +1157,8 @@
   
   <entry>
     <title>자바 변수&amp;상수</title>
-    <link href="https://parkbeommin.github.io/2019/06/17/2019-06-18-java-variable/"/>
-    <id>https://parkbeommin.github.io/2019/06/17/2019-06-18-java-variable/</id>
+    <link href="https://parkbeommin.github.io/posts/2019-06-18-java-variable/"/>
+    <id>https://parkbeommin.github.io/posts/2019-06-18-java-variable/</id>
     <published>2019-06-17T09:33:00.000Z</published>
     <updated>2025-10-21T07:33:46.398Z</updated>
     
@@ -1180,8 +1180,8 @@
   
   <entry>
     <title>BOJ 2217[백준 2217]</title>
-    <link href="https://parkbeommin.github.io/2019/06/17/2019-06-18-baekjoon-algorithm-2217/"/>
-    <id>https://parkbeommin.github.io/2019/06/17/2019-06-18-baekjoon-algorithm-2217/</id>
+    <link href="https://parkbeommin.github.io/posts/2019-06-18-baekjoon-algorithm-2217/"/>
+    <id>https://parkbeommin.github.io/posts/2019-06-18-baekjoon-algorithm-2217/</id>
     <published>2019-06-17T07:49:00.000Z</published>
     <updated>2025-10-21T07:33:46.383Z</updated>
     
@@ -1204,8 +1204,8 @@
   
   <entry>
     <title>BOJ 1931[백준 1931]</title>
-    <link href="https://parkbeommin.github.io/2019/06/13/2019-06-14-baekjoon-algorithm-1931/"/>
-    <id>https://parkbeommin.github.io/2019/06/13/2019-06-14-baekjoon-algorithm-1931/</id>
+    <link href="https://parkbeommin.github.io/posts/2019-06-14-baekjoon-algorithm-1931/"/>
+    <id>https://parkbeommin.github.io/posts/2019-06-14-baekjoon-algorithm-1931/</id>
     <published>2019-06-13T09:00:00.000Z</published>
     <updated>2025-10-21T07:33:46.360Z</updated>
     
@@ -1228,8 +1228,8 @@
   
   <entry>
     <title>BOJ 1427[백준 1427]</title>
-    <link href="https://parkbeommin.github.io/2019/06/12/2019-06-13-baekjoon-algorithm-1427/"/>
-    <id>https://parkbeommin.github.io/2019/06/12/2019-06-13-baekjoon-algorithm-1427/</id>
+    <link href="https://parkbeommin.github.io/posts/2019-06-13-baekjoon-algorithm-1427/"/>
+    <id>https://parkbeommin.github.io/posts/2019-06-13-baekjoon-algorithm-1427/</id>
     <published>2019-06-12T14:35:00.000Z</published>
     <updated>2025-10-21T07:33:46.347Z</updated>
     
@@ -1252,8 +1252,8 @@
   
   <entry>
     <title>BOJ 1149[백준 1149]</title>
-    <link href="https://parkbeommin.github.io/2019/06/11/2019-06-11-baekjoon-algorithm-1149/"/>
-    <id>https://parkbeommin.github.io/2019/06/11/2019-06-11-baekjoon-algorithm-1149/</id>
+    <link href="https://parkbeommin.github.io/posts/2019-06-11-baekjoon-algorithm-1149/"/>
+    <id>https://parkbeommin.github.io/posts/2019-06-11-baekjoon-algorithm-1149/</id>
     <published>2019-06-11T04:25:00.000Z</published>
     <updated>2025-10-21T07:33:46.275Z</updated>
     
@@ -1276,8 +1276,8 @@
   
   <entry>
     <title>왜 자바인가</title>
-    <link href="https://parkbeommin.github.io/2019/06/10/2019-06-11-why-java/"/>
-    <id>https://parkbeommin.github.io/2019/06/10/2019-06-11-why-java/</id>
+    <link href="https://parkbeommin.github.io/posts/2019-06-11-why-java/"/>
+    <id>https://parkbeommin.github.io/posts/2019-06-11-why-java/</id>
     <published>2019-06-10T10:18:00.000Z</published>
     <updated>2025-10-21T07:33:46.315Z</updated>
     
@@ -1300,8 +1300,8 @@
   
   <entry>
     <title>BOJ 2579[백준 2579]</title>
-    <link href="https://parkbeommin.github.io/2019/06/10/2019-06-11-baekjoon-algorithm-2579/"/>
-    <id>https://parkbeommin.github.io/2019/06/10/2019-06-11-baekjoon-algorithm-2579/</id>
+    <link href="https://parkbeommin.github.io/posts/2019-06-11-baekjoon-algorithm-2579/"/>
+    <id>https://parkbeommin.github.io/posts/2019-06-11-baekjoon-algorithm-2579/</id>
     <published>2019-06-10T08:55:00.000Z</published>
     <updated>2025-10-21T07:33:46.291Z</updated>
     
@@ -1323,8 +1323,8 @@
   
   <entry>
     <title>BOJ 1463[백준 1463]</title>
-    <link href="https://parkbeommin.github.io/2019/06/09/2019-06-10-baekjoon-algorithm-1463/"/>
-    <id>https://parkbeommin.github.io/2019/06/09/2019-06-10-baekjoon-algorithm-1463/</id>
+    <link href="https://parkbeommin.github.io/posts/2019-06-10-baekjoon-algorithm-1463/"/>
+    <id>https://parkbeommin.github.io/posts/2019-06-10-baekjoon-algorithm-1463/</id>
     <published>2019-06-09T11:20:00.000Z</published>
     <updated>2025-10-21T07:33:46.258Z</updated>
     
@@ -1346,8 +1346,8 @@
   
   <entry>
     <title>BOJ 14912[백준 14912]</title>
-    <link href="https://parkbeommin.github.io/2019/06/08/2019-06-09-baekjoon-algorithm-14912/"/>
-    <id>https://parkbeommin.github.io/2019/06/08/2019-06-09-baekjoon-algorithm-14912/</id>
+    <link href="https://parkbeommin.github.io/posts/2019-06-09-baekjoon-algorithm-14912/"/>
+    <id>https://parkbeommin.github.io/posts/2019-06-09-baekjoon-algorithm-14912/</id>
     <published>2019-06-08T08:30:00.000Z</published>
     <updated>2025-10-21T07:33:46.247Z</updated>
     
