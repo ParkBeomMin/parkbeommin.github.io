@@ -1071,6 +1071,10 @@ pre {
   padding-left: 5px;
   font-weight: bold;
 }
+.category-list-count {
+  padding-left: 5px;
+  font-weight: bold;
+}
 #google-search {
   display: table-cell;
   width: 100%;
