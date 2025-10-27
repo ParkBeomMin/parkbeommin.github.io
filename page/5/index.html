@@ -163,19 +163,35 @@
     <li class="selected">
       <a href="/">Overview</a></li>
     <li class="">
-      <a href="/archives">Posts <span class="counter">57</span></a>
+      <a href="/archives">Posts <span class="counter">58</span></a>
     </li>
     <li class="">
       <a href="/categories">Categories <span
                 class="counter">30</span></a></li>
     <li class="">
-      <a href="/tags">Tags <span class="counter">0</span></a></li>
+      <a href="/tags">Tags <span class="counter">1</span></a></li>
   </ul>
 </nav>
 
     <div class="body-secondary">
       <p class="right-title">Recent post</p>
       <ul class="recent-post clearfix">
+        
+        <li class="recent-post-item">
+          <div class="clearfix">
+            <h5 class="post-title text-ellipsis">
+              <i class="fa fa-bars"></i>
+              <a href="/posts/2019-06-28-kotlin-web-browser/">안드로이드 코틀린 개발하기 - WebBrowser</a>
+            </h5>
+            <p class="post-description text-ellipsis desktop-only">
+                 사전 설정    Anko라이브러리 추가하기  Anko라이브러리를 사용하기 위해서 아래
+            </p>
+            <p class="post-info desktop-only">
+              <span><i class="fa fa-folder-open"></i> android kotlin</span>
+              <span><i class="fa fa-tag"></i> 0 </span>
+            </p>
+          </div>
+        </li>
         
         <li class="recent-post-item">
           <div class="clearfix">
@@ -259,25 +275,6 @@
             </p>
             <p class="post-info desktop-only">
               <span><i class="fa fa-folder-open"></i> android kotlin</span>
-              <span><i class="fa fa-tag"></i> 0 </span>
-            </p>
-          </div>
-        </li>
-        
-        <li class="recent-post-item">
-          <div class="clearfix">
-            <h5 class="post-title text-ellipsis">
-              <i class="fa fa-bars"></i>
-              <a href="/posts/2019-06-20-baekjoon-algorithm-11052/">BOJ 11052[백준 11052]</a>
-            </h5>
-            <p class="post-description text-ellipsis desktop-only">
-                카드구매하기  
-   조건  
- 카드는 카드팩의 형태로만 구매할 수 있다. 
- 카드의 
-            </p>
-            <p class="post-info desktop-only">
-              <span><i class="fa fa-folder-open"></i> algorithm baekjoon dynamic-programming</span>
               <span><i class="fa fa-tag"></i> 0 </span>
             </p>
           </div>
@@ -370,7 +367,7 @@
 
 
 <script>
-  var posts = [];
+  var posts = [{"date":"2025-10-23","title":"서로 다른 도메인간 SSO 인증 구현","url":"https://parkbeommin.github.io/posts/sso/"}];
   var today = moment().format('YYYY-MM-DD');
   var oneYearAgo = moment(today).subtract(1, 'years');
   posts = posts.filter(function(post) {

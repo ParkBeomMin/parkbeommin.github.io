@@ -163,19 +163,36 @@
     <li class="selected">
       <a href="/">Overview</a></li>
     <li class="">
-      <a href="/archives">Posts <span class="counter">57</span></a>
+      <a href="/archives">Posts <span class="counter">58</span></a>
     </li>
     <li class="">
       <a href="/categories">Categories <span
                 class="counter">30</span></a></li>
     <li class="">
-      <a href="/tags">Tags <span class="counter">0</span></a></li>
+      <a href="/tags">Tags <span class="counter">1</span></a></li>
   </ul>
 </nav>
 
     <div class="body-secondary">
       <p class="right-title">Recent post</p>
       <ul class="recent-post clearfix">
+        
+        <li class="recent-post-item">
+          <div class="clearfix">
+            <h5 class="post-title text-ellipsis">
+              <i class="fa fa-bars"></i>
+              <a href="/posts/2019-10-11-baekjoon-algorithm-1966/">BOJ 1966[백준 1966]</a>
+            </h5>
+            <p class="post-description text-ellipsis desktop-only">
+                프린터 큐  
+   문제파악  일단 저는  여기 를 참고했습니다.. 어떻게든 큐를 활용
+            </p>
+            <p class="post-info desktop-only">
+              <span><i class="fa fa-folder-open"></i> algorithm baekjoon queue</span>
+              <span><i class="fa fa-tag"></i> 0 </span>
+            </p>
+          </div>
+        </li>
         
         <li class="recent-post-item">
           <div class="clearfix">
@@ -257,25 +274,6 @@
             </p>
             <p class="post-info desktop-only">
               <span><i class="fa fa-folder-open"></i> algorithm baekjoon stack</span>
-              <span><i class="fa fa-tag"></i> 0 </span>
-            </p>
-          </div>
-        </li>
-        
-        <li class="recent-post-item">
-          <div class="clearfix">
-            <h5 class="post-title text-ellipsis">
-              <i class="fa fa-bars"></i>
-              <a href="/posts/2019-09-26-baekjoon-algorithm-1003/">BOJ 1003[백준 1003]</a>
-            </h5>
-            <p class="post-description text-ellipsis desktop-only">
-                피보나치 함수  
-   조건  
- n은 40보다 작거나 같은 자연수이다. 
- 0번째 피
-            </p>
-            <p class="post-info desktop-only">
-              <span><i class="fa fa-folder-open"></i> algorithm baekjoon dynamic-programming</span>
               <span><i class="fa fa-tag"></i> 0 </span>
             </p>
           </div>
@@ -368,7 +366,7 @@
 
 
 <script>
-  var posts = [];
+  var posts = [{"date":"2025-10-23","title":"서로 다른 도메인간 SSO 인증 구현","url":"https://parkbeommin.github.io/posts/sso/"}];
   var today = moment().format('YYYY-MM-DD');
   var oneYearAgo = moment(today).subtract(1, 'years');
   posts = posts.filter(function(post) {

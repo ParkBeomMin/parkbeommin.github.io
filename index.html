@@ -163,19 +163,36 @@
     <li class="selected">
       <a href="/">Overview</a></li>
     <li class="">
-      <a href="/archives">Posts <span class="counter">57</span></a>
+      <a href="/archives">Posts <span class="counter">58</span></a>
     </li>
     <li class="">
       <a href="/categories">Categories <span
                 class="counter">30</span></a></li>
     <li class="">
-      <a href="/tags">Tags <span class="counter">0</span></a></li>
+      <a href="/tags">Tags <span class="counter">1</span></a></li>
   </ul>
 </nav>
 
     <div class="body-secondary">
       <p class="right-title">Recent post</p>
       <ul class="recent-post clearfix">
+        
+        <li class="recent-post-item">
+          <div class="clearfix">
+            <h5 class="post-title text-ellipsis">
+              <i class="fa fa-bars"></i>
+              <a href="/posts/sso/">서로 다른 도메인간 SSO 인증 구현</a>
+            </h5>
+            <p class="post-description text-ellipsis desktop-only">
+                 
+   🔐 SSO란?  SSO란 Single Sign-On(🔊 싱글 사인온)의 약
+            </p>
+            <p class="post-info desktop-only">
+              <span><i class="fa fa-folder-open"></i> Uncategorized</span>
+              <span><i class="fa fa-tag"></i> 1 </span>
+            </p>
+          </div>
+        </li>
         
         <li class="recent-post-item">
           <div class="clearfix">
@@ -268,27 +285,6 @@
           </div>
         </li>
         
-        <li class="recent-post-item">
-          <div class="clearfix">
-            <h5 class="post-title text-ellipsis">
-              <i class="fa fa-bars"></i>
-              <a href="/posts/blog-2/">블로그 개편기 EP.2</a>
-            </h5>
-            <p class="post-description text-ellipsis desktop-only">
-               
-
- 
- 깔끔하고 내 입맛대로 블로그를 꾸며보고 싶어 시작한 블로그 개편기..! 
- 
- 
-            </p>
-            <p class="post-info desktop-only">
-              <span><i class="fa fa-folder-open"></i> blog nuxt tailwindCSS</span>
-              <span><i class="fa fa-tag"></i> 0 </span>
-            </p>
-          </div>
-        </li>
-        
       </ul>
       <div class="calendar-container" id="calendar">
   <div class="calendar">
@@ -376,7 +372,7 @@
 
 
 <script>
-  var posts = [];
+  var posts = [{"date":"2025-10-23","title":"서로 다른 도메인간 SSO 인증 구현","url":"https://parkbeommin.github.io/posts/sso/"}];
   var today = moment().format('YYYY-MM-DD');
   var oneYearAgo = moment(today).subtract(1, 'years');
   posts = posts.filter(function(post) {
