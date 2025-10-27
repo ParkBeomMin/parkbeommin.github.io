@@ -6,7 +6,7 @@ categories:
 ---
 
 
-![SSO](/images/sso/1.jpeg)
+<p style="text-align:center;"><img src="/images/sso/1.jpeg" alt="SSO"></p>
 
 
 # 🔐 SSO란?
@@ -57,7 +57,8 @@ www.bbb.com (SP)
 위 내용이 표준이고 정석이지만, 제가 구현했던 서비스는 조금 다른 구조로 SSO를 구현하였습니다.
 > 즉, SAML 프로토콜 대신 JWT 기반 Token Relay 방식의 커스텀 SSO를 선택했습니다.
 
-![Token Relay 기반 SSO](/images/sso/2.jpeg)
+
+<p style="text-align:center;"><img src="/images/sso/2.jpeg" alt="SSO"></p>
 
 ## 🏗️ 배경
 - A도메인(www.a.com)과 B도메인(www.b.com)이 별도 회원 DB를 가진 상태로 운영 중
