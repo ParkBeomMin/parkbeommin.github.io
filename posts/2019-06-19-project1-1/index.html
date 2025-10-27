@@ -112,6 +112,14 @@
         <a href="/categories"
            class="header-toolbar-right"> 31 </a>
       </li>
+      <li>
+        <span class="header-toolbar-left"><i class="fa fa-eye"></i> Views </span>
+        <span class="header-toolbar-right">
+          <span id="busuanzi_container_site_pv" style="display:none">PV: <span id="busuanzi_value_site_pv"></span></span>
+          <span style="margin:0 6px;">/</span>
+          <span id="busuanzi_container_site_uv" style="display:none">UV: <span id="busuanzi_value_site_uv"></span></span>
+        </span>
+      </li>
     </ul>
     <h2 class="header-title">
       <i class="fa fa-book text-muted"></i>
@@ -146,6 +154,12 @@
 
   <article class="post-content">
     <h1>[안드로이드 프로젝트] 서비스 기획하기-1</h1>
+    <p class="post-info">
+      <span id="busuanzi_container_page_pv" style="display:none">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+      </span>
+    </p>
     <p>안드로이드 개인 프로젝트를 진행해보려 합니다.<br>최종 목표는 마켓에 배포하는 것입니다.<br>서비스 기획부터 배포까지 모든 과정을 포스팅하면서 정리를 하려합니다.<br>부족한 부분이 많을 겁니다..ㅎㅎ 많은 피드백 주시면 감사하겠습니다!!</p>
 <h2 id="아이디어-구체화"><a href="#아이디어-구체화" class="headerlink" title="아이디어 구체화"></a>아이디어 구체화</h2><p>가장 먼저 아이디어를 선정하고 구체화해야합니다.  </p>
 <ul>
@@ -227,7 +241,7 @@
 
 
 </div>
-<div id="toast" aria-live="polite" aria-atomic="true" class="toast" style="display:none">링크가 복사되었습니다.</div>
+<div id="toast" aria-live="polite" aria-atomic="true" class="toast top" style="display:none" data-duration="1500" data-message="링크가 복사되었습니다.">링크가 복사되었습니다.</div>
 
 <div class="footer-wrapper container">
   <footer class="footer clearfix">
@@ -252,6 +266,8 @@
 
 
 <script src="/js/main.js"></script>
+<!-- page view counter -->
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 </body>
 </html>

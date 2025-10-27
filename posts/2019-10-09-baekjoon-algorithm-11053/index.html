@@ -112,6 +112,14 @@
         <a href="/categories"
            class="header-toolbar-right"> 31 </a>
       </li>
+      <li>
+        <span class="header-toolbar-left"><i class="fa fa-eye"></i> Views </span>
+        <span class="header-toolbar-right">
+          <span id="busuanzi_container_site_pv" style="display:none">PV: <span id="busuanzi_value_site_pv"></span></span>
+          <span style="margin:0 6px;">/</span>
+          <span id="busuanzi_container_site_uv" style="display:none">UV: <span id="busuanzi_value_site_uv"></span></span>
+        </span>
+      </li>
     </ul>
     <h2 class="header-title">
       <i class="fa fa-book text-muted"></i>
@@ -146,6 +154,12 @@
 
   <article class="post-content">
     <h1>BOJ 11053[백준 11053]</h1>
+    <p class="post-info">
+      <span id="busuanzi_container_page_pv" style="display:none">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+      </span>
+    </p>
     <p><a target="_blank" rel="noopener" href="https://www.acmicpc.net/problem/11053">가장 긴 증가하는 부분 수열</a></p>
 <h2 id="문제파악"><a href="#문제파악" class="headerlink" title="문제파악"></a>문제파악</h2><p>일단 저는 <a target="_blank" rel="noopener" href="https://www.acmicpc.net/board/view/42010">여기</a>를 참고했습니다..<br>수열이 주어지고, 그 수열의 부분 수열에서 값이 증가하는 부분 수열, 그리고 그 중 가장 긴 부분 수열의 길이를 구하는 문제입니다.  </p>
 <h2 id="해결-방법"><a href="#해결-방법" class="headerlink" title="해결 방법"></a>해결 방법</h2><p>배열에 담긴 수를 돌면서, 가장 긴 증가하는 부분 수열의 길이를 구해봅니다.<br>배열의 0번째 인덱스인 경우에는 하나이기 때문에 dp[0] &#x3D; 1로 초기화를 해줍니다.<br>그리고 dp[1~n]도 최소 1개씩은 가질 수 있기 때문에 1로 초기화 해줍니다.<br>이제 배열의 1번째 인덱스의 경우를 보면, 증가하는 수열이 되야하기 때문에 0번째 인덱스와 1번째 인덱스를 비교해줍니다.<br>1번째 인덱스의 값이 더 크고 dp[1]이 dp[0] + 1 보다 작다면, dp[1] &#x3D; dp[0] + 1이 됩니다.<br>여기서 dp[1]이 dp[0] + 1 보다 작아야된다는 조건은 인덱스의 값을 비교했을 때, 계속 증가해야하기 때문입니다.  </p>
@@ -168,7 +182,7 @@
 
 
 </div>
-<div id="toast" aria-live="polite" aria-atomic="true" class="toast" style="display:none">링크가 복사되었습니다.</div>
+<div id="toast" aria-live="polite" aria-atomic="true" class="toast top" style="display:none" data-duration="1500" data-message="링크가 복사되었습니다.">링크가 복사되었습니다.</div>
 
 <div class="footer-wrapper container">
   <footer class="footer clearfix">
@@ -193,6 +207,8 @@
 
 
 <script src="/js/main.js"></script>
+<!-- page view counter -->
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 </body>
 </html>

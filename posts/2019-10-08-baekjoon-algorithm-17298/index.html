@@ -112,6 +112,14 @@
         <a href="/categories"
            class="header-toolbar-right"> 31 </a>
       </li>
+      <li>
+        <span class="header-toolbar-left"><i class="fa fa-eye"></i> Views </span>
+        <span class="header-toolbar-right">
+          <span id="busuanzi_container_site_pv" style="display:none">PV: <span id="busuanzi_value_site_pv"></span></span>
+          <span style="margin:0 6px;">/</span>
+          <span id="busuanzi_container_site_uv" style="display:none">UV: <span id="busuanzi_value_site_uv"></span></span>
+        </span>
+      </li>
     </ul>
     <h2 class="header-title">
       <i class="fa fa-book text-muted"></i>
@@ -146,6 +154,12 @@
 
   <article class="post-content">
     <h1>BOJ 17298[백준 17298]</h1>
+    <p class="post-info">
+      <span id="busuanzi_container_page_pv" style="display:none">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+      </span>
+    </p>
     <p><a target="_blank" rel="noopener" href="https://www.acmicpc.net/problem/17298">오큰수</a></p>
 <h2 id="문제파악"><a href="#문제파악" class="headerlink" title="문제파악"></a>문제파악</h2><p>아마 분류가 스택이 아니었으면, 문자열 탐색하면서 풀어보려고 시도해봤을 것 같네요..<br>오큰수를 구하는 건데 오큰수는 <strong>Ai의 오큰수는 오른쪽에 있으면서 Ai보다 큰 수 중에서 가장 왼쪽에 있는 수</strong>라고 정의되어있습니다.<br>따라서 [3, 5, 2, 7]의 경우에 3의 오큰수는 [5, 2, 7] 중 3보다 크면서 가장 왼쪽에 있는 수인 5가 됩니다.  </p>
 <h2 id="해결-방법"><a href="#해결-방법" class="headerlink" title="해결 방법"></a>해결 방법</h2><p>처음 입력 받아서 수열을 스택에 쌓아두고, 하나씩 꺼내면서 다른 스택에 있는 수와 비교해보는 방식으로 해결했습니다.<br>처음 입력 받은 스택을 왼쪽 스택, 다른 스택을 오른쪽 스택이라고 하겠습니다.<br>왼쪽 스택에서 처음 값을 꺼내면, 오른쪽 스택이 비어있으므로 -1이 되고 왼쪽 스택에서 꺼낸 값을 오른쪽 스택에 넣어줍니다.<br>이제 다시 왼쪽 스택에서 값을 꺼내고, 오른쪽 스택에서 값을 꺼내 비교해줍니다.<br>여기서 오른쪽 스택에 있는 값이 더 크다면, 그 값이 오큰수가 되고 오른쪽 스택에서 꺼낸 값과 왼쪽 스택에서 꺼낸 값을 순서대로 오른쪽 스택에 넣어줍니다.<br>오른쪽 스택에 있는 값이 더 작다면, 그 값은 버리고 다시 오른쪽 스택에서 값을 꺼내 비교해줍니다.<br>이렇게 n번 반복하면 오큰수가 담긴 배열이 생성이 됩니다.</p>
@@ -168,7 +182,7 @@
 
 
 </div>
-<div id="toast" aria-live="polite" aria-atomic="true" class="toast" style="display:none">링크가 복사되었습니다.</div>
+<div id="toast" aria-live="polite" aria-atomic="true" class="toast top" style="display:none" data-duration="1500" data-message="링크가 복사되었습니다.">링크가 복사되었습니다.</div>
 
 <div class="footer-wrapper container">
   <footer class="footer clearfix">
@@ -193,6 +207,8 @@
 
 
 <script src="/js/main.js"></script>
+<!-- page view counter -->
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 </body>
 </html>

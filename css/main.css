@@ -1144,3 +1144,11 @@ pre {
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   pointer-events: none;
 }
+.toast.top {
+  top: 24px;
+  bottom: auto;
+}
+.toast.bottom {
+  bottom: 24px;
+  top: auto;
+}

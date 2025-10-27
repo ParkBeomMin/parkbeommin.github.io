@@ -112,6 +112,14 @@
         <a href="/categories"
            class="header-toolbar-right"> 31 </a>
       </li>
+      <li>
+        <span class="header-toolbar-left"><i class="fa fa-eye"></i> Views </span>
+        <span class="header-toolbar-right">
+          <span id="busuanzi_container_site_pv" style="display:none">PV: <span id="busuanzi_value_site_pv"></span></span>
+          <span style="margin:0 6px;">/</span>
+          <span id="busuanzi_container_site_uv" style="display:none">UV: <span id="busuanzi_value_site_uv"></span></span>
+        </span>
+      </li>
     </ul>
     <h2 class="header-title">
       <i class="fa fa-book text-muted"></i>
@@ -146,6 +154,12 @@
 
   <article class="post-content">
     <h1>BOJ 2206[백준 2206]</h1>
+    <p class="post-info">
+      <span id="busuanzi_container_page_pv" style="display:none">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+      </span>
+    </p>
     <p><a target="_blank" rel="noopener" href="https://www.acmicpc.net/problem/2206">벽 부수고 이동하기</a></p>
 <h2 id="문제파악"><a href="#문제파악" class="headerlink" title="문제파악"></a>문제파악</h2><p>n*m으로 이루어진 맵에서 (0, 0) 지점에서 (n-1, m-1)까지 가는 <strong>최단 거리</strong>를 구하는 문제입니다.<br>따라서 <strong>bfs 알고리즘</strong>을 활용하면 되겠죠?!<br><strong>하지만! 여기서 주의할 점은.. 벽을 한 번 부수고 이동할 수 있다는 것입니다.</strong><br>이 점을 유의해서 문제를 해결해야 합니다.</p>
 <h2 id="해결-방법"><a href="#해결-방법" class="headerlink" title="해결 방법"></a>해결 방법</h2><p>일반적인 bfs문제 해결과 같이 큐를 활용하고, 방문한 지점을 큐에 넣고 상하좌우로 이동하면서 판단합니다.<br>이 문제에서 핵심은 벽을 한 번 부수고 이동할 수 있다는 것인데, 그로 인해 최단 거리를 두 가지 경우로 나누어보아야합니다.  </p>
@@ -173,7 +187,7 @@
 
 
 </div>
-<div id="toast" aria-live="polite" aria-atomic="true" class="toast" style="display:none">링크가 복사되었습니다.</div>
+<div id="toast" aria-live="polite" aria-atomic="true" class="toast top" style="display:none" data-duration="1500" data-message="링크가 복사되었습니다.">링크가 복사되었습니다.</div>
 
 <div class="footer-wrapper container">
   <footer class="footer clearfix">
@@ -198,6 +212,8 @@
 
 
 <script src="/js/main.js"></script>
+<!-- page view counter -->
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 </body>
 </html>

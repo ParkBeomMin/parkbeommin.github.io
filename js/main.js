@@ -44,14 +44,16 @@ document.addEventListener('DOMContentLoaded', function() {
 	function showToast(message) {
 		var toast = document.getElementById('toast');
 		if (!toast) return;
-		toast.textContent = message || '링크가 복사되었습니다.';
+		var defaultMessage = toast.getAttribute('data-message') || '링크가 복사되었습니다.';
+		toast.textContent = message || defaultMessage;
 		toast.style.display = 'block';
 		toast.style.opacity = '1';
+		var duration = parseInt(toast.getAttribute('data-duration') || '1200', 10);
 		setTimeout(function(){
 			toast.style.transition = 'opacity .3s ease';
 			toast.style.opacity = '0';
 			setTimeout(function(){ toast.style.display = 'none'; toast.style.transition = ''; }, 300);
-		}, 1200);
+		}, duration);
 	}
 
 	// hook toast into copy
@@ -60,4 +62,22 @@ document.addEventListener('DOMContentLoaded', function() {
 		originalCopyUrl();
 		showToast('링크가 복사되었습니다.');
 	};
+
+	// show pv container when busuanzi loaded sets value
+	function revealPvWhenReady() {
+		var container = document.getElementById('busuanzi_container_page_pv');
+		var value = document.getElementById('busuanzi_value_page_pv');
+		if (!container || !value) return;
+		var tries = 0;
+		var timer = setInterval(function(){
+			tries++;
+			if (value.innerText && value.innerText.trim() !== '') {
+				container.style.display = '';
+				clearInterval(timer);
+			}
+			if (tries > 40) clearInterval(timer);
+		}, 100);
+	}
+
+	revealPvWhenReady();
 });
