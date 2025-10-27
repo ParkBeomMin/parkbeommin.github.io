@@ -146,7 +146,9 @@
 
   <article class="post-content">
     <h1>서로 다른 도메인간 SSO 인증 구현</h1>
-    <p><img src="/images/sso/1.jpeg" alt="SSO"></p>
+    <p style="text-align:center;"><img src="/images/sso/1.jpeg" alt="SSO"></p>
+
+
 <h1 id="🔐-SSO란"><a href="#🔐-SSO란" class="headerlink" title="🔐 SSO란?"></a>🔐 SSO란?</h1><p>SSO란 Single Sign-On(🔊 싱글 사인온)의 약자로, 한 번의 로그인으로 여러 애플리케이션이나 웹사이트에 접속할 수 있도록 하는 통합 인증 기술입니다.</p>
 <blockquote>
 <p>예를 들어, 바(bar)에 입장한 손님이 술을 한 잔 더 주문할 때마다 신분증을 다시 제시해야 한다면 매우 번거로울 것입니다.<br>하지만 대부분의 식당에서는 입장 시 한 번만 신원을 확인하고, 이후에는 자유롭게 주문할 수 있습니다.<br>이와 같이 SSO는 사용자의 신원을 한 번만 확인한 뒤 여러 서비스에서 인증 정보를 재사용하도록 해줍니다.  </p>
@@ -182,7 +184,8 @@
 <blockquote>
 <p>즉, SAML 프로토콜 대신 JWT 기반 Token Relay 방식의 커스텀 SSO를 선택했습니다.</p>
 </blockquote>
-<p><img src="/images/sso/2.jpeg" alt="Token Relay 기반 SSO"></p>
+<p style="text-align:center;"><img src="/images/sso/2.jpeg" alt="SSO"></p>
+
 <h2 id="🏗️-배경"><a href="#🏗️-배경" class="headerlink" title="🏗️ 배경"></a>🏗️ 배경</h2><ul>
 <li>A도메인(<a target="_blank" rel="noopener" href="http://www.a.com)과/">www.a.com)과</a> B도메인(<a target="_blank" rel="noopener" href="http://www.b.com)이/">www.b.com)이</a> 별도 회원 DB를 가진 상태로 운영 중</li>
 <li>통합 로그인(IdP) 서버를 join.a.com에 구축</li>
