@@ -40,4 +40,24 @@ document.addEventListener('DOMContentLoaded', function() {
 			copyUrl();
 		}
 	});
+
+	function showToast(message) {
+		var toast = document.getElementById('toast');
+		if (!toast) return;
+		toast.textContent = message || '링크가 복사되었습니다.';
+		toast.style.display = 'block';
+		toast.style.opacity = '1';
+		setTimeout(function(){
+			toast.style.transition = 'opacity .3s ease';
+			toast.style.opacity = '0';
+			setTimeout(function(){ toast.style.display = 'none'; toast.style.transition = ''; }, 300);
+		}, 1200);
+	}
+
+	// hook toast into copy
+	var originalCopyUrl = copyUrl;
+	copyUrl = function() {
+		originalCopyUrl();
+		showToast('링크가 복사되었습니다.');
+	};
 });
