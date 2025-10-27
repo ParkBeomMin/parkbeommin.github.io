@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="<%= config.language || '' %>">
+<%- partial('_partial/head') %>
+<body id="replica-app">
+<%- partial('_partial/navbar') %>
+<div class="main-container">
+  <%- body %>
+</div>
+<div id="toast" aria-live="polite" aria-atomic="true" class="toast <%= (theme.toast && theme.toast.position) ? theme.toast.position : 'bottom' %>" style="display:none" data-duration="<%= (theme.toast && theme.toast.duration) ? theme.toast.duration : 1200 %>" data-message="<%= (theme.toast && theme.toast.message) ? theme.toast.message : '링크가 복사되었습니다.' %>">링크가 복사되었습니다.</div>
+<%- partial('_partial/footer') %>
+<%- partial('_partial/script') %>
+</body>
+</html>

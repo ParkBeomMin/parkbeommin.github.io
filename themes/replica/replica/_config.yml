@@ -1,0 +1,28 @@
+# left-side user profile
+avatar: https://avatars.githubusercontent.com/u/23355295?v=4 # by default https://octodex.github.com/images/baracktocat.jpg
+location:
+email:
+social:
+  github:
+  weibo:
+  linkedin:
+
+# navbar menu
+menu:
+ archives: true
+ tags: true
+ categories: true
+
+rss_dir: atom.xml
+
+# widget
+ga: # google analytics tracking code UA-XXXXXXX-X
+baidutongji: # baidutongji tracking code
+duoshuo: # duoshuo username
+gsc: # google custom search code
+
+
+toast:
+  position: top   # top | bottom
+  duration: 1500  # ms
+  message: 링크가 복사되었습니다.

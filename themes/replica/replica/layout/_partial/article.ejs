@@ -1,0 +1,32 @@
+<%
+var publishTimestamp = page.date.valueOf();
+%>
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    <%= config.author || '' %>
+
+    <span class="post-date float-right" title="{{moment(<%= publishTimestamp %>).format('MMM DD, YYYY, h:mm:ss A')}}">
+      <i class="fa fa-pencil-square-o"></i>
+      {{moment(<%= publishTimestamp %>).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1><%= page.title || 'Untitle' %></h1>
+    <p class="post-info">
+      <span id="busuanzi_container_page_pv" style="display:none">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+      </span>
+    </p>
+    <%- page.content %>
+  </article>
+</div>
+<% if (config.gitalk ) { %>
+    <%- partial('_widget/gitalk') %>
+<% }else if(config.disqus){ %>
+    <%- partial('_widget/disqus') %>
+<% }else if(config.utteranc){ %>
+    <%- partial('_widget/utteranc') %>
+<% } %>
