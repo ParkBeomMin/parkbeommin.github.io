@@ -1,9 +1,10 @@
 ---
 title: 서로 다른 도메인간 SSO 인증 구현
-date: 2025-10-23 08:58:59
 tags: SSO, SAML, JWT, 인증, 아키텍처
-categories: 
+date: 2025-10-23 08:58:59
+categories:
 ---
+
 
 ![SSO](/images/sso/1.jpeg)
 
