@@ -1,0 +1,208 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getPublishedThoughts, formatDate } from '../../utils/content';
+
+const thoughts = await getPublishedThoughts();
+---
+
+<BaseLayout
+  title="Thoughts - blog"
+  description="짧은 생각과 메모들을 기록하는 공간입니다."
+>
+  <div class="thoughts-page">
+    <div class="container">
+      <header class="page-header">
+        <h1 class="page-title">Thoughts</h1>
+        <p class="page-description">
+          짧은 생각과 메모들을 기록하는 공간입니다.
+        </p>
+      </header>
+      
+      {thoughts.length > 0 ? (
+        <div class="thoughts-list">
+          {thoughts.map(thought => (
+            <article class="thought-item">
+              <time datetime={thought.data.publishedAt.toISOString()} class="thought-date">
+                {formatDate(thought.data.publishedAt)}
+              </time>
+              <div class="thought-content">
+                <h2 class="thought-title">
+                  <a href={`/blog/thoughts/${thought.id}`} class="thought-link">
+                    {thought.data.title}
+                  </a>
+                </h2>
+                {thought.data.description && (
+                  <p class="thought-description">{thought.data.description}</p>
+                )}
+                {thought.data.tags.length > 0 && (
+                  <div class="thought-tags">
+                    {thought.data.tags.map(tag => (
+                      <span class="tag">{tag}</span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <div class="empty-state">
+          <p>아직 게시된 생각이 없습니다.</p>
+        </div>
+      )}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .thoughts-page {
+    min-height: calc(100vh - var(--header-height));
+    padding: var(--space-2xl) 0;
+  }
+  
+  .container {
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+  }
+  
+  .page-header {
+    margin-bottom: var(--space-3xl);
+    text-align: center;
+    max-width: var(--prose-max-width);
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .page-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: var(--space-lg);
+    color: var(--color-text-primary);
+  }
+  
+  .page-description {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+  
+  .thoughts-list {
+    max-width: var(--prose-max-width);
+    margin: 0 auto;
+  }
+  
+  .thought-item {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: var(--space-xl);
+    padding: var(--space-xl) 0;
+    border-bottom: 1px solid var(--color-border-light);
+  }
+  
+  .thought-item:last-child {
+    border-bottom: none;
+  }
+  
+  .thought-date {
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.4;
+  }
+  
+  .thought-content {
+    min-width: 0;
+  }
+  
+  .thought-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: var(--space-sm);
+  }
+  
+  .thought-link {
+    color: var(--color-text-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  .thought-link:hover,
+  .thought-link:focus {
+    color: var(--color-accent);
+  }
+  
+  .thought-description {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-md);
+  }
+  
+  .thought-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+  }
+  
+  .tag {
+    display: inline-block;
+    padding: var(--space-xs) var(--space-sm);
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--color-accent);
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+  
+  .empty-state {
+    text-align: center;
+    padding: var(--space-3xl) 0;
+    color: var(--color-text-muted);
+  }
+  
+  /* Mobile responsive */
+  @media (max-width: 768px) {
+    .thoughts-page {
+      padding: var(--space-xl) 0;
+    }
+    
+    .thought-item {
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+    }
+    
+    .thought-date {
+      font-size: 0.75rem;
+    }
+    
+    .page-title {
+      font-size: 2rem;
+    }
+    
+    .page-description {
+      font-size: 1rem;
+    }
+    
+    .page-header {
+      margin-bottom: var(--space-2xl);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .container {
+      padding: 0 var(--space-sm);
+    }
+    
+    .page-title {
+      font-size: 1.75rem;
+    }
+    
+    .thought-title {
+      font-size: 1.125rem;
+    }
+  }
+</style>

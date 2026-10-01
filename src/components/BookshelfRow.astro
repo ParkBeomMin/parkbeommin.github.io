@@ -1,0 +1,193 @@
+---
+import type { BookEntry } from '../utils/content';
+
+export interface Props {
+  books: BookEntry[];
+  showMore?: boolean;
+}
+
+const { books, showMore = true } = Astro.props;
+const displayedBooks = books.slice(0, 4);
+---
+
+<section class="bookshelf-section" aria-labelledby="bookshelf-title">
+  <div class="section-header">
+    <h2 id="bookshelf-title" class="section-title">Bookshelf</h2>
+    {showMore && books.length > 4 && (
+      <a href="/blog/bookshelf" class="section-more">더 보기</a>
+    )}
+  </div>
+  
+  <div class="books-grid">
+    {displayedBooks.map(book => (
+      <article class="book-item">
+        <a href={`/blog/bookshelf/${book.id}`} class="book-link">
+          <div class="book-cover">
+            <svg width="80" height="120" viewBox="0 0 80 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="80" height="120" rx="4" fill="var(--color-accent)" opacity="0.8"/>
+              <rect x="8" y="12" width="64" height="3" rx="1.5" fill="white" opacity="0.9"/>
+              <rect x="8" y="24" width="48" height="2" rx="1" fill="white" opacity="0.7"/>
+              <rect x="8" y="32" width="56" height="2" rx="1" fill="white" opacity="0.7"/>
+              <rect x="8" y="96" width="40" height="2" rx="1" fill="white" opacity="0.6"/>
+              <rect x="8" y="104" width="32" height="2" rx="1" fill="white" opacity="0.5"/>
+            </svg>
+          </div>
+          <h3 class="book-title">{book.data.title}</h3>
+          <p class="book-author">{book.data.bookAuthor}</p>
+        </a>
+      </article>
+    ))}
+  </div>
+  
+  {showMore && (
+    <div class="bookshelf-footer">
+      <a href="/blog/bookshelf" class="bookshelf-view-all">
+        모든 책 보기
+      </a>
+    </div>
+  )}
+</section>
+
+<style>
+  .bookshelf-section {
+    padding: var(--space-2xl) 0;
+    border-bottom: 1px solid var(--color-border-light);
+  }
+  
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: var(--space-xl);
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+  }
+  
+  .section-more {
+    color: var(--color-accent);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+  
+  .section-more:hover,
+  .section-more:focus {
+    color: var(--color-accent-hover);
+  }
+  
+  .books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
+  }
+  
+  .book-item {
+    text-align: center;
+  }
+  
+  .book-link {
+    display: block;
+    text-decoration: none;
+    color: var(--color-text-primary);
+    transition: transform 0.2s ease;
+  }
+  
+  .book-link:hover,
+  .book-link:focus {
+    transform: translateY(-4px);
+  }
+  
+  .book-cover {
+    margin: 0 auto var(--space-md);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.2s ease;
+  }
+  
+  .book-link:hover .book-cover,
+  .book-link:focus .book-cover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  }
+  
+  .book-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: var(--space-xs);
+    color: var(--color-text-primary);
+  }
+  
+  .book-author {
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+  
+  .bookshelf-footer {
+    text-align: center;
+  }
+  
+  .bookshelf-view-all {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--space-sm) var(--space-lg);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    min-height: 44px;
+  }
+  
+  .bookshelf-view-all:hover,
+  .bookshelf-view-all:focus {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    background: rgba(99, 102, 241, 0.05);
+  }
+  
+  /* Mobile responsive */
+  @media (max-width: 768px) {
+    .books-grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-md);
+    }
+    
+    .section-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-sm);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .bookshelf-section {
+      padding: var(--space-xl) 0;
+    }
+    
+    .section-title {
+      font-size: 1.25rem;
+    }
+    
+    .books-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .book-title {
+      font-size: 0.8rem;
+    }
+    
+    .book-author {
+      font-size: 0.7rem;
+    }
+  }
+</style>

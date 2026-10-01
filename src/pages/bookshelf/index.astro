@@ -1,0 +1,242 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getPublishedBooks, formatDate } from '../../utils/content';
+
+const books = await getPublishedBooks();
+---
+
+<BaseLayout
+  title="Bookshelf - blog"
+  description="읽은 책들에 대한 생각과 노트를 모아둔 서재입니다."
+>
+  <div class="bookshelf-page">
+    <div class="container">
+      <header class="page-header">
+        <h1 class="page-title">Bookshelf</h1>
+        <p class="page-description">
+          읽은 책들에 대한 생각과 노트를 모아둔 서재입니다.
+        </p>
+      </header>
+      
+      {books.length > 0 ? (
+        <div class="books-grid">
+          {books.map(book => (
+            <article class="book-card">
+              <a href={`/blog/bookshelf/${book.id}`} class="book-link">
+                <div class="book-cover">
+                  <svg width="120" height="180" viewBox="0 0 120 180" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <rect width="120" height="180" rx="6" fill="var(--color-accent)" opacity="0.8"/>
+                    <rect x="12" y="20" width="96" height="4" rx="2" fill="white" opacity="0.9"/>
+                    <rect x="12" y="32" width="72" height="3" rx="1.5" fill="white" opacity="0.7"/>
+                    <rect x="12" y="44" width="84" height="3" rx="1.5" fill="white" opacity="0.7"/>
+                    <rect x="12" y="140" width="60" height="3" rx="1.5" fill="white" opacity="0.6"/>
+                    <rect x="12" y="152" width="48" height="3" rx="1.5" fill="white" opacity="0.5"/>
+                  </svg>
+                </div>
+                
+                <div class="book-info">
+                  <h2 class="book-title">{book.data.title}</h2>
+                  <p class="book-author">by {book.data.bookAuthor}</p>
+                  <time datetime={book.data.publishedAt.toISOString()} class="book-date">
+                    {formatDate(book.data.publishedAt)}
+                  </time>
+                  
+                  {book.data.description && (
+                    <p class="book-description">{book.data.description}</p>
+                  )}
+                  
+                  {book.data.tags.length > 0 && (
+                    <div class="book-tags">
+                      {book.data.tags.slice(0, 2).map(tag => (
+                        <span class="tag">{tag}</span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </a>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <div class="empty-state">
+          <p>아직 게시된 독서 노트가 없습니다.</p>
+        </div>
+      )}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .bookshelf-page {
+    min-height: calc(100vh - var(--header-height));
+    padding: var(--space-2xl) 0;
+  }
+  
+  .container {
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+  }
+  
+  .page-header {
+    margin-bottom: var(--space-3xl);
+    text-align: center;
+    max-width: var(--prose-max-width);
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .page-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: var(--space-lg);
+    color: var(--color-text-primary);
+  }
+  
+  .page-description {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+  
+  .books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-2xl);
+    margin: 0 auto;
+  }
+  
+  .book-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .book-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+  
+  .book-link {
+    display: flex;
+    gap: var(--space-lg);
+    padding: var(--space-lg);
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .book-cover {
+    flex-shrink: 0;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .book-info {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  .book-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: var(--space-xs);
+    color: var(--color-text-primary);
+  }
+  
+  .book-author {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-sm);
+    font-weight: 500;
+  }
+  
+  .book-date {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
+    margin-bottom: var(--space-md);
+    display: block;
+  }
+  
+  .book-description {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-md);
+  }
+  
+  .book-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+  }
+  
+  .tag {
+    display: inline-block;
+    padding: var(--space-xs) var(--space-sm);
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--color-accent);
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+  
+  .empty-state {
+    text-align: center;
+    padding: var(--space-3xl) 0;
+    color: var(--color-text-muted);
+  }
+  
+  /* Mobile responsive */
+  @media (max-width: 768px) {
+    .bookshelf-page {
+      padding: var(--space-xl) 0;
+    }
+    
+    .books-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-xl);
+    }
+    
+    .book-link {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .book-cover {
+      align-self: center;
+    }
+    
+    .page-title {
+      font-size: 2rem;
+    }
+    
+    .page-description {
+      font-size: 1rem;
+    }
+    
+    .page-header {
+      margin-bottom: var(--space-2xl);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .container {
+      padding: 0 var(--space-sm);
+    }
+    
+    .page-title {
+      font-size: 1.75rem;
+    }
+    
+    .book-link {
+      padding: var(--space-md);
+    }
+  }
+</style>

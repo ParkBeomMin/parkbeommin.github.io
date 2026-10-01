@@ -1,0 +1,277 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="About - blog"
+  description="블로그 소유자에 대한 소개 페이지입니다."
+>
+  <div class="about-page">
+    <div class="container">
+      <header class="page-header">
+        <div class="author-avatar">
+          <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="120" height="120" rx="60" fill="var(--color-accent)"/>
+            <rect x="30" y="40" width="60" height="6" rx="3" fill="white"/>
+            <rect x="36" y="52" width="48" height="6" rx="3" fill="rgba(255,255,255,0.8)"/>
+            <rect x="30" y="64" width="60" height="6" rx="3" fill="rgba(255,255,255,0.6)"/>
+            <circle cx="60" cy="84" r="12" fill="rgba(255,255,255,0.9)"/>
+          </svg>
+        </div>
+        
+        <h1 class="page-title">About</h1>
+        <p class="page-subtitle">
+          안녕하세요, 블로그에 오신 것을 환영합니다.
+        </p>
+      </header>
+      
+      <div class="about-content">
+        <section class="intro-section">
+          <h2>소개</h2>
+          <p>
+            <strong>📝 편집 가능한 플레이스홀더:</strong> 이 페이지는 블로그 소유자가 직접 수정해야 하는 템플릿입니다. 
+            아래 내용을 실제 소개 내용으로 교체해주세요.
+          </p>
+          
+          <p>
+            여기에는 여러분의 이야기가 들어갈 예정입니다. 개발자로서의 여정, 관심사, 
+            현재 하고 있는 일, 그리고 이 블로그를 통해 나누고 싶은 이야기들을 적어주세요.
+          </p>
+          
+          <p>
+            예를 들어:
+          </p>
+          <ul>
+            <li>개발 경력과 전문 분야</li>
+            <li>좋아하는 기술 스택이나 도구들</li>
+            <li>취미나 관심사</li>
+            <li>블로그를 시작하게 된 이유</li>
+            <li>독자들에게 전하고 싶은 메시지</li>
+          </ul>
+        </section>
+        
+        <section class="contact-section">
+          <h2>연락처</h2>
+          <p>
+            <strong>📧 편집 필요:</strong> 아래 연락처 정보를 실제 정보로 업데이트하거나 
+            원하지 않는 항목은 제거해주세요.
+          </p>
+          
+          <div class="contact-links">
+            <div class="contact-item">
+              <strong>이메일:</strong> your.email@example.com
+            </div>
+            <div class="contact-item">
+              <strong>GitHub:</strong> <a href="https://github.com/ParkBeomMin" target="_blank" rel="noopener noreferrer">@ParkBeomMin</a>
+            </div>
+          </div>
+        </section>
+        
+        <section class="tech-section">
+          <h2>이 블로그에 대해</h2>
+          <p>
+            이 블로그는 <a href="https://astro.build" target="_blank" rel="noopener noreferrer">Astro</a>와 
+            TypeScript로 구축되었습니다. 모든 콘텐츠는 마크다운 파일로 작성되며, 
+            GitHub Pages를 통해 배포됩니다.
+          </p>
+          
+          <p>
+            소스 코드는 <a href="https://github.com/parkbeommin/blog" target="_blank" rel="noopener noreferrer">GitHub</a>에서 
+            확인할 수 있습니다.
+          </p>
+        </section>
+        
+        <section class="update-notice">
+          <div class="notice-box">
+            <h3>⚠️ 중요 안내</h3>
+            <p>
+              이 About 페이지는 <strong>편집 가능한 템플릿</strong>입니다. 
+              <code>/opt/data/blog/src/pages/about.astro</code> 파일을 직접 수정하여 
+              개인 정보와 소개 내용으로 교체해주세요.
+            </p>
+            <p>
+              모든 플레이스홀더 텍스트와 예시 연락처 정보를 제거하고 
+              실제 내용으로 업데이트하는 것을 잊지 마세요.
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .about-page {
+    min-height: calc(100vh - var(--header-height));
+    padding: var(--space-2xl) 0;
+  }
+  
+  .container {
+    max-width: var(--prose-max-width);
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+  }
+  
+  .page-header {
+    text-align: center;
+    margin-bottom: var(--space-3xl);
+    padding-bottom: var(--space-2xl);
+    border-bottom: 1px solid var(--color-border-light);
+  }
+  
+  .author-avatar {
+    margin: 0 auto var(--space-xl);
+  }
+  
+  .page-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: var(--space-md);
+    color: var(--color-text-primary);
+  }
+  
+  .page-subtitle {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+  
+  .about-content {
+    line-height: 1.7;
+  }
+  
+  .about-content section {
+    margin-bottom: var(--space-3xl);
+  }
+  
+  .about-content section:last-child {
+    margin-bottom: 0;
+  }
+  
+  .about-content h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: var(--space-lg);
+    color: var(--color-text-primary);
+  }
+  
+  .about-content h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: var(--space-md);
+    color: var(--color-text-primary);
+  }
+  
+  .about-content p {
+    margin-bottom: var(--space-lg);
+    color: var(--color-text-secondary);
+  }
+  
+  .about-content ul {
+    margin-bottom: var(--space-lg);
+    padding-left: var(--space-lg);
+  }
+  
+  .about-content li {
+    margin-bottom: var(--space-sm);
+    color: var(--color-text-secondary);
+  }
+  
+  .about-content a {
+    color: var(--color-accent);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .about-content a:hover,
+  .about-content a:focus {
+    color: var(--color-accent-hover);
+    text-decoration: underline;
+  }
+  
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+  
+  .contact-item {
+    padding: var(--space-md);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--radius-md);
+    color: var(--color-text-secondary);
+  }
+  
+  .contact-item strong {
+    color: var(--color-text-primary);
+  }
+  
+  .notice-box {
+    padding: var(--space-xl);
+    background: rgba(255, 193, 7, 0.1);
+    border: 1px solid rgba(255, 193, 7, 0.3);
+    border-radius: var(--radius-md);
+  }
+  
+  .notice-box h3 {
+    color: rgb(161, 98, 7);
+    margin-bottom: var(--space-md);
+  }
+  
+  .notice-box p {
+    color: rgb(161, 98, 7);
+    margin-bottom: var(--space-md);
+  }
+  
+  .notice-box p:last-child {
+    margin-bottom: 0;
+  }
+  
+  .notice-box code {
+    background: rgba(0, 0, 0, 0.1);
+    padding: 0.2em 0.4em;
+    border-radius: var(--radius-sm);
+    font-size: 0.9em;
+    font-family: var(--font-family-mono);
+  }
+  
+  /* Mobile responsive */
+  @media (max-width: 768px) {
+    .about-page {
+      padding: var(--space-xl) 0;
+    }
+    
+    .page-title {
+      font-size: 2rem;
+    }
+    
+    .page-subtitle {
+      font-size: 1.125rem;
+    }
+    
+    .page-header {
+      margin-bottom: var(--space-2xl);
+    }
+    
+    .about-content section {
+      margin-bottom: var(--space-2xl);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .container {
+      padding: 0 var(--space-sm);
+    }
+    
+    .page-title {
+      font-size: 1.75rem;
+    }
+    
+    .notice-box {
+      padding: var(--space-lg);
+    }
+  }
+</style>

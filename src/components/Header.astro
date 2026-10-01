@@ -1,0 +1,131 @@
+---
+const currentPath = Astro.url.pathname;
+const baseUrl = '/blog';
+
+const navItems = [
+  { href: `${baseUrl}/articles`, label: 'Articles', current: currentPath.startsWith('/blog/articles') },
+  { href: `${baseUrl}/thoughts`, label: 'Thoughts', current: currentPath.startsWith('/blog/thoughts') },
+  { href: `${baseUrl}/bookshelf`, label: 'Bookshelf', current: currentPath.startsWith('/blog/bookshelf') },
+  { href: `${baseUrl}/about`, label: 'About', current: currentPath === '/blog/about' || currentPath === '/blog/about/' }
+];
+---
+
+<header class="header">
+  <div class="header-container">
+    <a href="/blog" class="brand" aria-label="홈으로 이동">
+      blog
+    </a>
+    
+    <nav class="nav" aria-label="주요 네비게이션">
+      <ul class="nav-list">
+        {navItems.map(item => (
+          <li>
+            <a 
+              href={item.href} 
+              class={`nav-link ${item.current ? 'nav-link--current' : ''}`}
+              aria-current={item.current ? 'page' : undefined}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .header {
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border-light);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(8px);
+    background-color: rgba(255, 255, 255, 0.95);
+  }
+  
+  .header-container {
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .brand {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    text-decoration: none;
+    letter-spacing: -0.025em;
+  }
+  
+  .brand:hover {
+    color: var(--color-accent);
+  }
+  
+  .nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: var(--space-lg);
+  }
+  
+  .nav-link {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-sm);
+    transition: color 0.2s ease, background-color 0.2s ease;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-link:hover,
+  .nav-link:focus {
+    color: var(--color-accent);
+    background-color: rgba(99, 102, 241, 0.1);
+  }
+  
+  .nav-link--current {
+    color: var(--color-accent);
+    background-color: rgba(99, 102, 241, 0.1);
+  }
+  
+  /* Mobile responsive */
+  @media (max-width: 768px) {
+    .header-container {
+      padding: 0 var(--space-md);
+    }
+    
+    .nav-list {
+      gap: var(--space-md);
+    }
+    
+    .nav-link {
+      padding: var(--space-sm);
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .brand {
+      font-size: 1.125rem;
+    }
+    
+    .nav-list {
+      gap: var(--space-sm);
+    }
+    
+    .nav-link {
+      padding: var(--space-xs) var(--space-sm);
+      font-size: 0.875rem;
+    }
+  }
+</style>

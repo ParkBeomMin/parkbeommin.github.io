@@ -1,0 +1,181 @@
+---
+import type { ArticleEntry } from '../utils/content';
+import { formatDate, extractExcerpt } from '../utils/content';
+
+export interface Props {
+  article: ArticleEntry;
+}
+
+const { article } = Astro.props;
+const { id, data } = article;
+const excerpt = extractExcerpt(article.body || '', 200);
+---
+
+<article class="featured-article" aria-labelledby="featured-title">
+  <div class="featured-content">
+    <div class="featured-thumbnail">
+      <svg width="240" height="140" viewBox="0 0 240 140" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect width="240" height="140" rx="8" fill="var(--color-accent)" opacity="0.1"/>
+        <rect x="20" y="30" width="200" height="8" rx="4" fill="var(--color-accent)" opacity="0.3"/>
+        <rect x="20" y="50" width="160" height="6" rx="3" fill="var(--color-accent)" opacity="0.2"/>
+        <rect x="20" y="70" width="180" height="6" rx="3" fill="var(--color-accent)" opacity="0.2"/>
+        <circle cx="200" cy="100" r="16" fill="var(--color-accent)" opacity="0.4"/>
+      </svg>
+    </div>
+    
+    <div class="featured-info">
+      <div class="featured-meta">
+        <time datetime={data.publishedAt.toISOString()} class="featured-date">
+          {formatDate(data.publishedAt)}
+        </time>
+        {data.readingTime && (
+          <span class="featured-reading-time" aria-label={`읽는 시간 ${data.readingTime}분`}>
+            {data.readingTime}분
+          </span>
+        )}
+      </div>
+      
+      <h2 id="featured-title" class="featured-title">
+        <a href={`/blog/articles/${id}`} class="featured-link">
+          {data.title}
+        </a>
+      </h2>
+      
+      <p class="featured-excerpt">
+        {excerpt || data.description}
+      </p>
+      
+      {data.tags.length > 0 && (
+        <div class="featured-tags">
+          {data.tags.slice(0, 3).map(tag => (
+            <span class="tag">{tag}</span>
+          ))}
+        </div>
+      )}
+    </div>
+  </div>
+</article>
+
+<style>
+  .featured-article {
+    padding: var(--space-2xl) 0;
+    border-bottom: 1px solid var(--color-border-light);
+  }
+  
+  .featured-content {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: var(--space-xl);
+    align-items: flex-start;
+  }
+  
+  .featured-thumbnail {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  
+  .featured-info {
+    flex: 1;
+  }
+  
+  .featured-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+  }
+  
+  .featured-date {
+    font-weight: 500;
+  }
+  
+  .featured-reading-time::before {
+    content: '•';
+    margin-right: var(--space-sm);
+  }
+  
+  .featured-title {
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: var(--space-lg);
+  }
+  
+  .featured-link {
+    color: var(--color-text-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  .featured-link:hover,
+  .featured-link:focus {
+    color: var(--color-accent);
+  }
+  
+  .featured-excerpt {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-lg);
+  }
+  
+  .featured-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+  
+  .tag {
+    display: inline-block;
+    padding: var(--space-xs) var(--space-sm);
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--color-accent);
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+  
+  /* Mobile responsive */
+  @media (max-width: 768px) {
+    .featured-content {
+      grid-template-columns: 1fr;
+      gap: var(--space-lg);
+    }
+    
+    .featured-thumbnail {
+      width: 100%;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+    
+    .featured-title {
+      font-size: 1.75rem;
+    }
+    
+    .featured-excerpt {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .featured-article {
+      padding: var(--space-xl) 0;
+    }
+    
+    .featured-title {
+      font-size: 1.5rem;
+    }
+    
+    .featured-meta {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-xs);
+    }
+    
+    .featured-reading-time::before {
+      display: none;
+    }
+  }
+</style>

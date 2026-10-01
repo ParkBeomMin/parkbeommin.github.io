@@ -1,0 +1,233 @@
+---
+export interface Props {
+  headings: {
+    id: string;
+    text: string;
+    level: number;
+  }[];
+}
+
+const { headings } = Astro.props;
+
+// h2, h3만 필터링
+const tocHeadings = headings.filter(heading => heading.level >= 2 && heading.level <= 3);
+---
+
+{tocHeadings.length > 0 && (
+  <>
+    {/* 모바일용 details/summary */}
+    <details class="toc-mobile">
+      <summary class="toc-summary">목차</summary>
+      <nav class="toc-nav" aria-label="목차">
+        <ul class="toc-list">
+          {tocHeadings.map(heading => (
+            <li class={`toc-item toc-level-${heading.level}`}>
+              <a href={`#${heading.id}`} class="toc-link">
+                {heading.text}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </details>
+
+    {/* 데스크탑용 sticky aside */}
+    <aside class="toc-desktop" aria-label="목차">
+      <div class="toc-header">
+        <h2 class="toc-title">목차</h2>
+      </div>
+      <nav class="toc-nav">
+        <ul class="toc-list">
+          {tocHeadings.map(heading => (
+            <li class={`toc-item toc-level-${heading.level}`}>
+              <a href={`#${heading.id}`} class="toc-link">
+                {heading.text}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </aside>
+  </>
+)}
+
+<style>
+  /* 모바일/태블릿 TOC - 1024px 이하 */
+  .toc-mobile {
+    display: block;
+    margin-bottom: var(--space-xl);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+  }
+  
+  /* 데스크탑 TOC 숨김 - 1024px 이하 */
+  .toc-desktop {
+    display: none;
+  }
+
+  /* 데스크탑에서 모바일 TOC 숨김, 데스크탑 TOC 보이기 */
+  @media (min-width: 1025px) {
+    .toc-mobile {
+      display: none;
+    }
+    
+    .toc-desktop {
+      display: block;
+    }
+  }
+
+  .toc-summary {
+    padding: var(--space-md);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    cursor: pointer;
+    user-select: none;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  .toc-summary:hover,
+  .toc-summary:focus {
+    background: rgba(99, 102, 241, 0.05);
+    color: var(--color-accent);
+  }
+
+  .toc-summary::marker {
+    color: var(--color-accent);
+  }
+
+  .toc-mobile .toc-nav {
+    padding: 0 var(--space-md) var(--space-md);
+  }
+
+  /* 데스크탑 TOC 스타일 */
+  @media (min-width: 1025px) {
+    .toc-desktop {
+      position: sticky;
+      top: var(--space-xl);
+      align-self: flex-start;
+      width: 220px;
+      flex-shrink: 0;
+      padding: var(--space-lg);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+    }
+  }
+
+  .toc-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-md);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* 공통 스타일 */
+  .toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .toc-item {
+    margin-bottom: var(--space-xs);
+  }
+
+  .toc-level-3 {
+    margin-left: var(--space-md);
+  }
+
+  .toc-link {
+    display: block;
+    padding: var(--space-xs) var(--space-sm);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    border-radius: var(--radius-sm);
+    transition: all 0.2s ease;
+    min-height: 32px;
+    display: flex;
+    align-items: center;
+  }
+
+  .toc-link:hover,
+  .toc-link:focus {
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--color-accent);
+  }
+
+  .toc-link:focus {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  /* 활성 링크 스타일 */
+  .toc-link.active {
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--color-accent);
+    font-weight: 500;
+  }
+
+  /* 모바일 반응형 */
+  @media (max-width: 768px) {
+    .toc-mobile {
+      margin: 0 calc(-1 * var(--space-sm)) var(--space-xl);
+    }
+  }
+</style>
+
+<script>
+  // 간단한 TOC 활성화
+  function setupTableOfContents() {
+    const tocLinks = document.querySelectorAll('.toc-link');
+    const headings = Array.from(document.querySelectorAll('h2[id], h3[id]'));
+    
+    if (!tocLinks.length || !headings.length) return;
+
+    function updateActiveLink() {
+      const scrollY = window.scrollY;
+      let activeHeading = null;
+      
+      for (let i = headings.length - 1; i >= 0; i--) {
+        const heading = headings[i] as HTMLElement;
+        if (scrollY >= heading.offsetTop - 100) {
+          activeHeading = heading;
+          break;
+        }
+      }
+      
+      tocLinks.forEach(link => link.classList.remove('active'));
+      
+      if (activeHeading) {
+        const activeLink = document.querySelector(`.toc-link[href="#${activeHeading.id}"]`);
+        if (activeLink) {
+          activeLink.classList.add('active');
+        }
+      }
+    }
+
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          updateActiveLink();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+
+    updateActiveLink();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupTableOfContents);
+  } else {
+    setupTableOfContents();
+  }
+</script>

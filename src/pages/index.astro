@@ -1,0 +1,168 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AuthorIntro from '../components/AuthorIntro.astro';
+import FeaturedArticle from '../components/FeaturedArticle.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import ThoughtsList from '../components/ThoughtsList.astro';
+import BookshelfRow from '../components/BookshelfRow.astro';
+import { 
+  getFeaturedArticle, 
+  getLatestArticles, 
+  getPublishedThoughts, 
+  getPublishedBooks 
+} from '../utils/content';
+
+// Get content for homepage
+const featuredArticle = await getFeaturedArticle();
+const latestArticles = await getLatestArticles();
+const thoughts = await getPublishedThoughts();
+const books = await getPublishedBooks();
+---
+
+<BaseLayout
+  title="blog - 개인 블로그"
+  description="개발, 독서, 일상의 작은 통찰들을 기록하는 개인 블로그입니다."
+>
+  <div class="homepage">
+    <div class="container">
+      <!-- Author Introduction -->
+      <AuthorIntro />
+      
+      <!-- Featured Article -->
+      {featuredArticle && (
+        <FeaturedArticle article={featuredArticle} />
+      )}
+      
+      <!-- Latest Articles -->
+      {latestArticles.length > 0 && (
+        <section class="latest-articles" aria-labelledby="latest-title">
+          <div class="section-header">
+            <h2 id="latest-title" class="section-title">Latest Articles</h2>
+            <a href="/blog/articles" class="section-more">더 보기</a>
+          </div>
+          
+          <div class="articles-grid">
+            {latestArticles.slice(0, 2).map(article => (
+              <ArticleCard article={article} variant="secondary" />
+            ))}
+          </div>
+        </section>
+      )}
+      
+      <!-- More Articles Grid -->
+      {latestArticles.length > 2 && (
+        <section class="more-articles" aria-labelledby="more-title">
+          <div class="section-header">
+            <h2 id="more-title" class="section-title">More Articles</h2>
+            <a href="/blog/articles" class="section-more">전체 보기</a>
+          </div>
+          
+          <div class="articles-list">
+            {latestArticles.slice(2).map(article => (
+              <ArticleCard article={article} variant="list" />
+            ))}
+          </div>
+        </section>
+      )}
+      
+      <!-- Thoughts -->
+      {thoughts.length > 0 && (
+        <ThoughtsList thoughts={thoughts} />
+      )}
+      
+      <!-- Bookshelf -->
+      {books.length > 0 && (
+        <BookshelfRow books={books} />
+      )}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .homepage {
+    min-height: calc(100vh - var(--header-height));
+  }
+  
+  .container {
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+  }
+  
+  .latest-articles,
+  .more-articles {
+    padding: var(--space-2xl) 0;
+    border-bottom: 1px solid var(--color-border-light);
+  }
+  
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: var(--space-xl);
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+  }
+  
+  .section-more {
+    color: var(--color-accent);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+  
+  .section-more:hover,
+  .section-more:focus {
+    color: var(--color-accent-hover);
+  }
+  
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-xl);
+  }
+  
+  .articles-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+  
+  /* Mobile responsive */
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 var(--space-md);
+    }
+    
+    .articles-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-lg);
+    }
+    
+    .latest-articles,
+    .more-articles {
+      padding: var(--space-xl) 0;
+    }
+    
+    .section-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-sm);
+    }
+    
+    .section-title {
+      font-size: 1.25rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .container {
+      padding: 0 var(--space-sm);
+    }
+  }
+</style>

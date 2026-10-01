@@ -1,0 +1,179 @@
+---
+import type { ThoughtEntry } from '../utils/content';
+import { formatDate } from '../utils/content';
+
+export interface Props {
+  thoughts: ThoughtEntry[];
+  showMore?: boolean;
+}
+
+const { thoughts, showMore = true } = Astro.props;
+const displayedThoughts = thoughts.slice(0, 4);
+---
+
+<section class="thoughts-section" aria-labelledby="thoughts-title">
+  <div class="section-header">
+    <h2 id="thoughts-title" class="section-title">Thoughts</h2>
+    {showMore && thoughts.length > 4 && (
+      <a href="/blog/thoughts" class="section-more">더 보기</a>
+    )}
+  </div>
+  
+  <div class="thoughts-list">
+    {displayedThoughts.map(thought => (
+      <article class="thought-item">
+        <time datetime={thought.data.publishedAt.toISOString()} class="thought-date">
+          {formatDate(thought.data.publishedAt, 'ko-KR').replace(/년|월/g, '.').replace(/일/, '')}
+        </time>
+        <h3 class="thought-title">
+          <a href={`/blog/thoughts/${thought.id}`} class="thought-link">
+            {thought.data.title}
+          </a>
+        </h3>
+      </article>
+    ))}
+  </div>
+  
+  {showMore && (
+    <div class="thoughts-footer">
+      <a href="/blog/thoughts" class="thoughts-view-all">
+        모든 생각 보기
+      </a>
+    </div>
+  )}
+</section>
+
+<style>
+  .thoughts-section {
+    padding: var(--space-2xl) 0;
+    border-bottom: 1px solid var(--color-border-light);
+  }
+  
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: var(--space-xl);
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+  }
+  
+  .section-more {
+    color: var(--color-accent);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+  
+  .section-more:hover,
+  .section-more:focus {
+    color: var(--color-accent-hover);
+  }
+  
+  .thoughts-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+  
+  .thought-item {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-lg);
+    padding: var(--space-md) 0;
+    border-bottom: 1px solid var(--color-border-light);
+  }
+  
+  .thought-item:last-child {
+    border-bottom: none;
+  }
+  
+  .thought-date {
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+    flex-shrink: 0;
+    min-width: 80px;
+  }
+  
+  .thought-title {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.4;
+    margin: 0;
+    flex: 1;
+  }
+  
+  .thought-link {
+    color: var(--color-text-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  .thought-link:hover,
+  .thought-link:focus {
+    color: var(--color-accent);
+  }
+  
+  .thoughts-footer {
+    margin-top: var(--space-xl);
+    text-align: center;
+  }
+  
+  .thoughts-view-all {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--space-sm) var(--space-lg);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    min-height: 44px;
+  }
+  
+  .thoughts-view-all:hover,
+  .thoughts-view-all:focus {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    background: rgba(99, 102, 241, 0.05);
+  }
+  
+  /* Mobile responsive */
+  @media (max-width: 768px) {
+    .thought-item {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-xs);
+    }
+    
+    .thought-date {
+      min-width: auto;
+      font-size: 0.75rem;
+    }
+    
+    .section-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-sm);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .thoughts-section {
+      padding: var(--space-xl) 0;
+    }
+    
+    .section-title {
+      font-size: 1.25rem;
+    }
+  }
+</style>

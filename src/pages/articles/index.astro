@@ -1,0 +1,114 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import { getPublishedArticles } from '../../utils/content';
+
+const articles = await getPublishedArticles();
+---
+
+<BaseLayout
+  title="Articles - blog"
+  description="개발, 기술, 그리고 일상에 대한 긴 형태의 글들을 모아둔 곳입니다."
+>
+  <div class="articles-page">
+    <div class="container">
+      <header class="page-header">
+        <h1 class="page-title">Articles</h1>
+        <p class="page-description">
+          개발, 기술, 그리고 일상에 대한 긴 형태의 글들을 모아둔 곳입니다.
+        </p>
+      </header>
+      
+      {articles.length > 0 ? (
+        <div class="articles-list">
+          {articles.map(article => (
+            <ArticleCard article={article} variant="list" />
+          ))}
+        </div>
+      ) : (
+        <div class="empty-state">
+          <p>아직 게시된 글이 없습니다.</p>
+        </div>
+      )}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .articles-page {
+    min-height: calc(100vh - var(--header-height));
+    padding: var(--space-2xl) 0;
+  }
+  
+  .container {
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+  }
+  
+  .page-header {
+    margin-bottom: var(--space-3xl);
+    text-align: center;
+    max-width: var(--prose-max-width);
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .page-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: var(--space-lg);
+    color: var(--color-text-primary);
+  }
+  
+  .page-description {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+  
+  .articles-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    max-width: var(--prose-max-width);
+    margin: 0 auto;
+  }
+  
+  .empty-state {
+    text-align: center;
+    padding: var(--space-3xl) 0;
+    color: var(--color-text-muted);
+  }
+  
+  /* Mobile responsive */
+  @media (max-width: 768px) {
+    .articles-page {
+      padding: var(--space-xl) 0;
+    }
+    
+    .page-title {
+      font-size: 2rem;
+    }
+    
+    .page-description {
+      font-size: 1rem;
+    }
+    
+    .page-header {
+      margin-bottom: var(--space-2xl);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .container {
+      padding: 0 var(--space-sm);
+    }
+    
+    .page-title {
+      font-size: 1.75rem;
+    }
+  }
+</style>
