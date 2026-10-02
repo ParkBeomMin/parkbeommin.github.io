@@ -1,0 +1,3 @@
+# Preserve intentional trailing whitespace in migrated markdown articles
+# These files contain two-space hard line breaks which are semantically important
+src/content/articles/*.md -whitespace

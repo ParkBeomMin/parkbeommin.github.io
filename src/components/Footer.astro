@@ -1,4 +1,6 @@
 ---
+import SocialLinks from './SocialLinks.astro';
+
 const currentYear = new Date().getFullYear();
 ---
 
@@ -10,9 +12,7 @@ const currentYear = new Date().getFullYear();
       </p>
       
       <div class="footer-links">
-        <a href="/rss.xml" class="footer-link" aria-label="RSS 피드 구독">
-          RSS
-        </a>
+        <SocialLinks size="sm" />
       </div>
     </div>
   </div>
@@ -49,24 +49,6 @@ const currentYear = new Date().getFullYear();
     gap: var(--space-md);
   }
   
-  .footer-link {
-    color: var(--color-text-secondary);
-    text-decoration: none;
-    font-size: 0.875rem;
-    font-weight: 500;
-    padding: var(--space-xs) var(--space-sm);
-    border-radius: var(--radius-sm);
-    transition: color 0.2s ease, background-color 0.2s ease;
-    min-height: 44px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .footer-link:hover,
-  .footer-link:focus {
-    color: var(--color-accent);
-    background-color: rgba(99, 102, 241, 0.1);
-  }
   
   /* Mobile responsive */
   @media (max-width: 768px) {

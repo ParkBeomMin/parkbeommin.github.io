@@ -1,10 +1,13 @@
 ---
+import SocialLinks from './SocialLinks.astro';
+
 const currentPath = Astro.url.pathname;
 
 const navItems = [
   { href: '/articles', label: 'Articles', current: currentPath.startsWith('/articles') },
   { href: '/thoughts', label: 'Thoughts', current: currentPath.startsWith('/thoughts') },
   { href: '/bookshelf', label: 'Bookshelf', current: currentPath.startsWith('/bookshelf') },
+  { href: '/timeline', label: 'Timeline', current: currentPath.startsWith('/timeline') },
   { href: '/about', label: 'About', current: currentPath === '/about' || currentPath === '/about/' }
 ];
 ---
@@ -15,21 +18,40 @@ const navItems = [
       blog
     </a>
     
-    <nav class="nav" aria-label="주요 네비게이션">
-      <ul class="nav-list">
-        {navItems.map(item => (
+    <div class="header-content">
+      <nav class="nav" aria-label="주요 네비게이션">
+        <ul class="nav-list">
+          {navItems.map(item => (
           <li>
-            <a 
-              href={item.href} 
+            <a
+              href={item.href}
               class={`nav-link ${item.current ? 'nav-link--current' : ''}`}
               aria-current={item.current ? 'page' : undefined}
             >
               {item.label}
             </a>
           </li>
-        ))}
-      </ul>
-    </nav>
+          ))}
+        </ul>
+      </nav>
+    </div>
+
+    <div class="header-actions">
+      <button
+        type="button"
+        class="search-btn"
+        aria-label="검색 열기"
+        data-search-open
+      >
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d="M19 19L14.65 14.65M17 9A8 8 0 1 1 1 9A8 8 0 0 1 17 9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <div class="header-social">
+        <SocialLinks size="sm" />
+      </div>
+    </div>
   </div>
 </header>
 
@@ -43,6 +65,13 @@ const navItems = [
     backdrop-filter: blur(8px);
     background-color: rgba(255, 255, 255, 0.95);
   }
+
+  /* Mobile/tablet에서는 sticky 제거 */
+  @media (max-width: 768px) {
+    .header {
+      position: static;
+    }
+  }
   
   .header-container {
     max-width: var(--content-max-width);
@@ -53,6 +82,18 @@ const navItems = [
     align-items: center;
     justify-content: space-between;
   }
+
+  .header-content {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+  }
   
   .brand {
     font-size: 1.25rem;
@@ -60,6 +101,11 @@ const navItems = [
     color: var(--color-text-primary);
     text-decoration: none;
     letter-spacing: -0.025em;
+    min-height: 44px;
+    min-width: 44px;
+    display: flex;
+    align-items: center;
+    padding: var(--space-xs) 0;
   }
   
   .brand:hover {
@@ -96,35 +142,125 @@ const navItems = [
     color: var(--color-accent);
     background-color: rgba(99, 102, 241, 0.1);
   }
+
+  .search-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: var(--space-sm);
+    background: none;
+    border: none;
+    border-radius: var(--radius-sm);
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .search-btn:hover,
+  .search-btn:focus {
+    color: var(--color-accent);
+    background: rgba(99, 102, 241, 0.1);
+  }
+
+  .search-btn:focus {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
   
-  /* Mobile responsive */
+  /* Tablet and mobile responsive - 2-row layout */
   @media (max-width: 768px) {
     .header-container {
-      padding: 0 var(--space-md);
+      padding: var(--space-sm) var(--space-md);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-template-rows: auto auto;
+      grid-template-areas:
+        "brand actions"
+        "nav nav";
+      gap: var(--space-sm);
+      height: auto;
+      min-height: calc(var(--header-height) * 1.5);
+      align-items: start;
     }
     
+    .brand {
+      grid-area: brand;
+      align-self: center;
+    }
+    
+    .header-content {
+      grid-area: nav;
+      width: 100%;
+      justify-content: flex-start;
+      gap: 0;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .header-content::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav {
+      width: 100%;
+    }
+
     .nav-list {
-      gap: var(--space-md);
+      gap: var(--space-sm);
+      justify-content: flex-start;
+      width: max-content;
+      min-width: 100%;
+      padding: var(--space-xs) 0;
     }
-    
+
     .nav-link {
       padding: var(--space-sm);
-      font-size: 0.9rem;
+      font-size: 0.875rem;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .header-actions {
+      grid-area: actions;
+      gap: var(--space-xs);
+      flex-shrink: 0;
+      align-self: center;
+    }
+
+    .search-btn {
+      flex-shrink: 0;
+    }
+
+    .header-social {
+      flex-shrink: 0;
     }
   }
   
   @media (max-width: 480px) {
+    .header-container {
+      padding: var(--space-xs) var(--space-sm);
+      gap: var(--space-xs);
+    }
+
     .brand {
       font-size: 1.125rem;
     }
-    
+
     .nav-list {
-      gap: var(--space-sm);
+      gap: var(--space-xs);
     }
-    
+
     .nav-link {
       padding: var(--space-xs) var(--space-sm);
-      font-size: 0.875rem;
+      font-size: 0.8rem;
+    }
+
+    .header-actions {
+      gap: var(--space-xs);
     }
   }
 </style>
