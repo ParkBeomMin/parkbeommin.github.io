@@ -7,9 +7,17 @@ const currentYear = new Date().getFullYear();
 <footer class="footer">
   <div class="footer-container">
     <div class="footer-content">
-      <p class="footer-text">
-        © {currentYear} blog. 모든 권리 보유.
-      </p>
+      <div class="footer-text">
+        <p>© {currentYear} blog. 모든 권리 보유.</p>
+        <p class="site-stats">
+          <span id="busuanzi_container_site_pv" style="display: none;">
+            누적 조회 <span id="busuanzi_value_site_pv"></span>
+          </span>
+          <span id="busuanzi_container_site_uv" style="display: none;">
+            방문자 <span id="busuanzi_value_site_uv"></span>
+          </span>
+        </p>
+      </div>
       
       <div class="footer-links">
         <SocialLinks size="sm" />
@@ -42,6 +50,26 @@ const currentYear = new Date().getFullYear();
     color: var(--color-text-muted);
     font-size: 0.875rem;
     margin: 0;
+  }
+
+  .footer-text p {
+    margin: 0 0 var(--space-xs) 0;
+  }
+
+  .site-stats {
+    display: flex;
+    gap: var(--space-sm);
+    font-size: 0.8rem;
+  }
+
+  .site-stats span {
+    opacity: 0.8;
+  }
+
+  /* Show separator between visible stats */
+  .site-stats #busuanzi_container_site_pv[style=""] + #busuanzi_container_site_uv[style=""]:before {
+    content: ' · ';
+    margin-right: var(--space-sm);
   }
   
   .footer-links {

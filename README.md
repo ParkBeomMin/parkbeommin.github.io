@@ -252,6 +252,27 @@ npm run dev
 - 저장소가 public이거나 GitHub Pro 계정인지 확인
 - `astro.config.mjs`의 `site`와 `base` 설정 확인
 
+## 📄 Google AdSense
+
+이 블로그는 origin/backup 브랜치에서 복원된 Google AdSense 통합을 사용합니다.
+
+### 복원된 설정
+- **전역 스크립트**: `src/layouts/BaseLayout.astro`의 head에 위치
+- **ads.txt 파일**: `public/ads.txt`에 위치
+- **Auto Ads 방식**: AdSense 콘솔에서 자동 광고 배치 제어
+- **비활성화 방법**: BaseLayout.astro에서 AdSense 스크립트 제거 및 ads.txt 파일 삭제
+
+## 📊 Busuanzi 방문 통계
+
+이 블로그는 origin/backup 브랜치에서 복원된 Busuanzi 방문 통계를 사용합니다.
+
+### 복원된 설정
+- **전역 스크립트**: `https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js`
+- **PV (페이지 조회수)**: 각 글에서 `조회수 <숫자>` 형태로 표시
+- **사이트 통계**: 푸터에서 `누적 조회 <숫자> · 방문자 <숫자>` 형태로 표시
+- **계정 불필요**: 외부 서비스로 설치만으로 동작
+- **광고 차단기**: 차단 시 통계가 표시되지 않을 수 있음
+
 ## 📄 라이선스
 
 이 프로젝트는 MIT 라이선스 하에 배포됩니다.

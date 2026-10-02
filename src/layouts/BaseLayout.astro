@@ -69,6 +69,93 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <!-- Preload fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Google AdSense -->
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7426857657290789"
+      crossorigin="anonymous">
+    </script>
+
+    <!-- Busuanzi 방문자 통계 -->
+    <script
+      async
+      defer
+      src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <script>
+      // Busuanzi readiness helper - bounded polling to show counters when ready
+      (function() {
+        let attempts = 0;
+        const maxAttempts = 50; // 5 seconds max at 100ms intervals
+        let allCountersRevealed = false;
+
+        function checkBusuanziReady() {
+          if (attempts >= maxAttempts || allCountersRevealed) return;
+          attempts++;
+
+          let revealedCount = 0;
+          let totalCounters = 0;
+
+          // Check page views counter
+          const pageViews = document.getElementById('busuanzi_value_page_pv');
+          if (pageViews) {
+            totalCounters++;
+            if (pageViews.textContent && pageViews.textContent.trim() !== '') {
+              const container = document.getElementById('busuanzi_container_page_pv');
+              if (container) {
+                container.style.display = '';
+                revealedCount++;
+              }
+            }
+          }
+
+          // Check site PV counter
+          const sitePV = document.getElementById('busuanzi_value_site_pv');
+          if (sitePV) {
+            totalCounters++;
+            if (sitePV.textContent && sitePV.textContent.trim() !== '') {
+              const container = document.getElementById('busuanzi_container_site_pv');
+              if (container) {
+                container.style.display = '';
+                revealedCount++;
+              }
+            }
+          }
+
+          // Check site UV counter
+          const siteUV = document.getElementById('busuanzi_value_site_uv');
+          if (siteUV) {
+            totalCounters++;
+            if (siteUV.textContent && siteUV.textContent.trim() !== '') {
+              const container = document.getElementById('busuanzi_container_site_uv');
+              if (container) {
+                container.style.display = '';
+                revealedCount++;
+              }
+            }
+          }
+
+          // Stop early if all present counters have values
+          if (totalCounters > 0 && revealedCount === totalCounters) {
+            allCountersRevealed = true;
+            return;
+          }
+
+          // Continue polling if needed
+          if (attempts < maxAttempts && !allCountersRevealed) {
+            setTimeout(checkBusuanziReady, 100);
+          }
+        }
+
+        // Start checking after DOM is ready
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', checkBusuanziReady);
+        } else {
+          setTimeout(checkBusuanziReady, 100);
+        }
+      })();
+    </script>
   </head>
   <body>
     <a href="#main-content" class="skip-link">메인 콘텐츠로 바로가기</a>

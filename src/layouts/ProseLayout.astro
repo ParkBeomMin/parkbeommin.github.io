@@ -61,6 +61,9 @@ const hasToc = type === 'article' && headings.filter(h => h.level >= 2 && h.leve
               {readingTime}분
             </span>
           )}
+          <span id="busuanzi_container_page_pv" class="page-views" style="display: none;">
+            조회수 <span id="busuanzi_value_page_pv"></span>
+          </span>
         </div>
         
         <h1 class="article-title">{title}</h1>
