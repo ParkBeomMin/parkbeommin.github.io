@@ -262,16 +262,17 @@ npm run dev
 - **Auto Ads 방식**: AdSense 콘솔에서 자동 광고 배치 제어
 - **비활성화 방법**: BaseLayout.astro에서 AdSense 스크립트 제거 및 ads.txt 파일 삭제
 
-## 📊 Busuanzi 방문 통계
+## 📊 방문 통계 (Vercount)
 
-이 블로그는 origin/backup 브랜치에서 복원된 Busuanzi 방문 통계를 사용합니다.
+이 블로그는 원래 Busuanzi 호환 방문 통계를 Vercount 서비스로 제공합니다.
 
-### 복원된 설정
-- **전역 스크립트**: `https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js`
+### 현재 설정
+- **전역 스크립트**: `https://events.vercount.one/js`
+- **Busuanzi 호환**: 기존 DOM ID와 완전 호환으로 이전 데이터 마이그레이션 가능
 - **PV (페이지 조회수)**: 각 글에서 `조회수 <숫자>` 형태로 표시
 - **사이트 통계**: 푸터에서 `누적 조회 <숫자> · 방문자 <숫자>` 형태로 표시
 - **계정 불필요**: 외부 서비스로 설치만으로 동작
-- **광고 차단기**: 차단 시 통계가 표시되지 않을 수 있음
+- **서비스 중단/광고 차단기**: 차단 시 통계가 표시되지 않을 수 있음
 
 ## 📄 라이선스
 

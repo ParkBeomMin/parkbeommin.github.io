@@ -77,11 +77,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       crossorigin="anonymous">
     </script>
 
-    <!-- Busuanzi 방문자 통계 -->
+    <!-- Vercount 방문자 통계 (Busuanzi 호환) -->
     <script
-      async
       defer
-      src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+      src="https://events.vercount.one/js">
     </script>
     <script>
       // Busuanzi readiness helper - bounded polling to show counters when ready
