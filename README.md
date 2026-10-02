@@ -29,27 +29,65 @@ npm run preview
 npm run check
 ```
 
-## 📝 글 작성하기
+## ✍️ 글 작성과 이미지 붙여넣기
+
+### 글 작성 준비
+
+1. **저장소 복제 및 업데이트**
+   ```bash
+   git clone <repository-url>
+   git pull origin main
+   ```
+
+2. **새 글 생성**
+   `src/content/articles/<영문-슬러그>.md` 파일을 생성하세요.
+
+3. **필수 frontmatter 작성**
+   ```markdown
+   ---
+   title: '글 제목'
+   description: '글 요약'
+   publishedAt: 2026-10-01T09:00:00.000Z
+   type: 'article'
+   tags: ['태그1', '태그2']
+   featured: false  # 홈페이지 featured로 표시할지 여부
+   draft: false     # true면 프로덕션 빌드에서 제외
+   readingTime: 5   # 예상 읽는 시간(분)
+   cover: '/images/posts/my-article/thumbnail.jpg'  # 선택사항: 썸네일 이미지
+   coverAlt: '썸네일 설명'  # cover 사용 시 권장
+   ---
+
+   여기에 글 내용을 마크다운으로 작성하세요.
+   ```
+
+### 이미지 붙여넣기
+
+1. **VS Code 확장 프로그램 설치** (최초 1회만)
+   - 권장 확장 프로그램 알림이 뜨면 "Install"을 클릭하거나
+   - Extensions에서 `mushan.vscode-paste-image` 검색 후 설치
+
+2. **이미지 붙여넣기**
+   - **Mac**: `Cmd+Alt+V`
+   - **Windows/Linux**: `Ctrl+Alt+V`
+   - 클립보드의 이미지가 자동으로 `public/images/posts/<파일명>/` 폴더에 저장됩니다
+   - 마크다운에는 `/images/posts/<파일명>/타임스탬프-이미지명.png` 형태로 삽입됩니다
+
+3. **썸네일 자동 추출**
+   - `cover` 필드가 없으면 글 본문의 첫 번째 이미지가 자동으로 썸네일이 됩니다
+   - `cover` 필드가 있으면 해당 이미지가 썸네일로 사용됩니다
+   - 이미지가 없으면 기본 플레이스홀더가 표시됩니다
+
+4. **미리보기 및 발행**
+   ```bash
+   npm run dev  # http://localhost:4321에서 미리보기
+   git add .
+   git commit -m "feat: 새 글 추가"
+   git push
+   ```
 
 이 블로그는 3가지 종류의 콘텐츠를 지원합니다:
 
 ### 1. Articles (긴 글)
-`src/content/articles/` 디렉토리에 마크다운 파일을 생성하세요.
-
-```markdown
----
-title: '글 제목'
-description: '글 요약'
-publishedAt: 2026-10-01T09:00:00.000Z
-type: 'article'
-tags: ['태그1', '태그2']
-featured: false  # 홈페이지 featured로 표시할지 여부
-draft: false     # true면 프로덕션 빌드에서 제외
-readingTime: 5   # 예상 읽는 시간(분)
----
-
-여기에 글 내용을 마크다운으로 작성하세요.
-```
 
 ### 2. Thoughts (짧은 메모)
 `src/content/thoughts/` 디렉토리에 마크다운 파일을 생성하세요.

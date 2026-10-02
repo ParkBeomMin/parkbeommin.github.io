@@ -1,6 +1,7 @@
 ---
 import type { ArticleEntry } from '../utils/content';
 import { formatDate, extractExcerpt } from '../utils/content';
+import { getArticleThumbnail } from '../utils/thumbnail';
 
 export interface Props {
   article: ArticleEntry;
@@ -9,18 +10,32 @@ export interface Props {
 const { article } = Astro.props;
 const { id, data } = article;
 const excerpt = extractExcerpt(article.body || '', 200);
+const thumbnail = getArticleThumbnail(data.cover, data.coverAlt, article.body, data.title);
 ---
 
 <article class="featured-article" aria-labelledby="featured-title">
   <div class="featured-content">
     <div class="featured-thumbnail">
-      <svg width="240" height="140" viewBox="0 0 240 140" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <rect width="240" height="140" rx="8" fill="var(--color-accent)" opacity="0.1"/>
-        <rect x="20" y="30" width="200" height="8" rx="4" fill="var(--color-accent)" opacity="0.3"/>
-        <rect x="20" y="50" width="160" height="6" rx="3" fill="var(--color-accent)" opacity="0.2"/>
-        <rect x="20" y="70" width="180" height="6" rx="3" fill="var(--color-accent)" opacity="0.2"/>
-        <circle cx="200" cy="100" r="16" fill="var(--color-accent)" opacity="0.4"/>
-      </svg>
+      {thumbnail.isPlaceholder ? (
+        <div class="placeholder-svg" aria-hidden="true">
+          <svg width="240" height="140" viewBox="0 0 240 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="240" height="140" rx="8" fill="#6366f1" opacity="0.1"/>
+            <rect x="20" y="30" width="200" height="8" rx="4" fill="#6366f1" opacity="0.3"/>
+            <rect x="20" y="50" width="160" height="6" rx="3" fill="#6366f1" opacity="0.2"/>
+            <rect x="20" y="70" width="180" height="6" rx="3" fill="#6366f1" opacity="0.2"/>
+            <circle cx="200" cy="100" r="16" fill="#6366f1" opacity="0.4"/>
+          </svg>
+        </div>
+      ) : (
+        <img
+          src={thumbnail.src}
+          alt={thumbnail.alt}
+          width="240"
+          height="140"
+          loading="lazy"
+          decoding="async"
+        />
+      )}
     </div>
 
     <div class="featured-info">
@@ -73,6 +88,19 @@ const excerpt = extractExcerpt(article.body || '', 200);
     border-radius: var(--radius-lg);
     overflow: hidden;
     order: 2;
+  }
+
+  .featured-thumbnail img,
+  .featured-thumbnail .placeholder-svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .placeholder-svg svg {
+    width: 100%;
+    height: 100%;
   }
 
   .featured-info {
