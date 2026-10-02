@@ -14,7 +14,7 @@ export interface Props {
 const { 
   title, 
   description, 
-  image = '/blog/og-default.png', 
+  image = '/og-default.png',
   type = 'website',
   publishedAt,
   updatedAt 
@@ -29,7 +29,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/blog/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     
     <!-- Canonical URL -->
@@ -63,7 +63,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     )}
     
     <!-- RSS Feed -->
-    <link rel="alternate" type="application/rss+xml" title="blog RSS Feed" href="/blog/rss.xml" />
+    <link rel="alternate" type="application/rss+xml" title="blog RSS Feed" href="/rss.xml" />
     
     <!-- Preload fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

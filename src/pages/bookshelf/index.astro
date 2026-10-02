@@ -22,7 +22,7 @@ const books = await getPublishedBooks();
         <div class="books-grid">
           {books.map(book => (
             <article class="book-card">
-              <a href={`/blog/bookshelf/${book.id}`} class="book-link">
+              <a href={`/bookshelf/${book.id}`} class="book-link">
                 <div class="book-cover">
                   <svg width="120" height="180" viewBox="0 0 120 180" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <rect width="120" height="180" rx="6" fill="var(--color-accent)" opacity="0.8"/>

@@ -15,7 +15,7 @@ const displayedThoughts = thoughts.slice(0, 4);
   <div class="section-header">
     <h2 id="thoughts-title" class="section-title">Thoughts</h2>
     {showMore && thoughts.length > 4 && (
-      <a href="/blog/thoughts" class="section-more">더 보기</a>
+      <a href="/thoughts" class="section-more">더 보기</a>
     )}
   </div>
   
@@ -26,7 +26,7 @@ const displayedThoughts = thoughts.slice(0, 4);
           {formatDate(thought.data.publishedAt, 'ko-KR').replace(/년|월/g, '.').replace(/일/, '')}
         </time>
         <h3 class="thought-title">
-          <a href={`/blog/thoughts/${thought.id}`} class="thought-link">
+          <a href={`/thoughts/${thought.id}`} class="thought-link">
             {thought.data.title}
           </a>
         </h3>
@@ -36,7 +36,7 @@ const displayedThoughts = thoughts.slice(0, 4);
   
   {showMore && (
     <div class="thoughts-footer">
-      <a href="/blog/thoughts" class="thoughts-view-all">
+      <a href="/thoughts" class="thoughts-view-all">
         모든 생각 보기
       </a>
     </div>

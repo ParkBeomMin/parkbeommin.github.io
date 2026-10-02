@@ -2,8 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://parkbeommin.github.io/blog/sitemap.xml
+Sitemap: https://parkbeommin.github.io/sitemap.xml
 
 # Disallow draft content (if any exposed)
-Disallow: /blog/drafts/
 Disallow: /_*

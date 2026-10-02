@@ -1,18 +1,17 @@
 ---
 const currentPath = Astro.url.pathname;
-const baseUrl = '/blog';
 
 const navItems = [
-  { href: `${baseUrl}/articles`, label: 'Articles', current: currentPath.startsWith('/blog/articles') },
-  { href: `${baseUrl}/thoughts`, label: 'Thoughts', current: currentPath.startsWith('/blog/thoughts') },
-  { href: `${baseUrl}/bookshelf`, label: 'Bookshelf', current: currentPath.startsWith('/blog/bookshelf') },
-  { href: `${baseUrl}/about`, label: 'About', current: currentPath === '/blog/about' || currentPath === '/blog/about/' }
+  { href: '/articles', label: 'Articles', current: currentPath.startsWith('/articles') },
+  { href: '/thoughts', label: 'Thoughts', current: currentPath.startsWith('/thoughts') },
+  { href: '/bookshelf', label: 'Bookshelf', current: currentPath.startsWith('/bookshelf') },
+  { href: '/about', label: 'About', current: currentPath === '/about' || currentPath === '/about/' }
 ];
 ---
 
 <header class="header">
   <div class="header-container">
-    <a href="/blog" class="brand" aria-label="홈으로 이동">
+    <a href="/" class="brand" aria-label="홈으로 이동">
       blog
     </a>
     

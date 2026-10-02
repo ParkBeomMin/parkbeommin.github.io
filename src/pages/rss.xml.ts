@@ -15,17 +15,17 @@ export async function GET(context: APIContext) {
     ...articles.map(item => ({
       ...item,
       type: 'article' as const,
-      url: `/blog/articles/${item.id}`,
+      url: `/articles/${item.id}`,
     })),
     ...thoughts.map(item => ({
       ...item,
       type: 'thought' as const,
-      url: `/blog/thoughts/${item.id}`,
+      url: `/thoughts/${item.id}`,
     })),
     ...books.map(item => ({
       ...item,
       type: 'book' as const,
-      url: `/blog/bookshelf/${item.id}`,
+      url: `/bookshelf/${item.id}`,
     }))
   ].sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 

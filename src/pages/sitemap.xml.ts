@@ -15,31 +15,31 @@ export async function GET(context: APIContext) {
   // Static pages
   const staticPages = [
     {
-      url: `${baseUrl}/blog/`,
+      url: `${baseUrl}/`,
       changefreq: 'daily',
       priority: 1.0,
       lastmod: new Date().toISOString().split('T')[0]
     },
     {
-      url: `${baseUrl}/blog/articles/`,
+      url: `${baseUrl}/articles/`,
       changefreq: 'daily',
       priority: 0.8,
       lastmod: new Date().toISOString().split('T')[0]
     },
     {
-      url: `${baseUrl}/blog/thoughts/`,
+      url: `${baseUrl}/thoughts/`,
       changefreq: 'daily', 
       priority: 0.7,
       lastmod: new Date().toISOString().split('T')[0]
     },
     {
-      url: `${baseUrl}/blog/bookshelf/`,
+      url: `${baseUrl}/bookshelf/`,
       changefreq: 'weekly',
       priority: 0.7,
       lastmod: new Date().toISOString().split('T')[0]
     },
     {
-      url: `${baseUrl}/blog/about/`,
+      url: `${baseUrl}/about/`,
       changefreq: 'monthly',
       priority: 0.5,
       lastmod: new Date().toISOString().split('T')[0]
@@ -49,19 +49,19 @@ export async function GET(context: APIContext) {
   // Dynamic content pages
   const contentPages = [
     ...articles.map(item => ({
-      url: `${baseUrl}/blog/articles/${item.id}/`,
+      url: `${baseUrl}/articles/${item.id}/`,
       changefreq: 'monthly',
       priority: 0.6,
       lastmod: (item.data.updatedAt || item.data.publishedAt).toISOString().split('T')[0]
     })),
     ...thoughts.map(item => ({
-      url: `${baseUrl}/blog/thoughts/${item.id}/`,
+      url: `${baseUrl}/thoughts/${item.id}/`,
       changefreq: 'monthly',
       priority: 0.5,
       lastmod: (item.data.updatedAt || item.data.publishedAt).toISOString().split('T')[0]
     })),
     ...books.map(item => ({
-      url: `${baseUrl}/blog/bookshelf/${item.id}/`,
+      url: `${baseUrl}/bookshelf/${item.id}/`,
       changefreq: 'monthly',
       priority: 0.5,
       lastmod: (item.data.updatedAt || item.data.publishedAt).toISOString().split('T')[0]

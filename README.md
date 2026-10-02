@@ -13,7 +13,7 @@ npm install
 # 개발 서버 실행
 npm run dev
 
-# 브라우저에서 http://localhost:4321/blog 접속
+# 브라우저에서 http://localhost:4321/ 접속
 ```
 
 ### 빌드 및 미리보기
@@ -119,15 +119,14 @@ RSS 피드는 `/rss.xml` 경로에서 자동으로 생성됩니다.
 3. Source를 "GitHub Actions"로 설정합니다
 4. `main` 브랜치에 코드를 푸시하면 자동으로 배포됩니다
 
-배포된 사이트는 `https://parkbeommin.github.io/blog/`에서 확인할 수 있습니다.
+배포된 사이트는 `https://parkbeommin.github.io/`에서 확인할 수 있습니다.
 
 ### 배포 URL 변경
-다른 도메인이나 경로를 사용하려면 `astro.config.mjs`의 `site`와 `base` 설정을 수정하세요:
+다른 도메인을 사용하려면 `astro.config.mjs`의 `site` 설정을 수정하세요:
 
 ```javascript
 export default defineConfig({
   site: 'https://yourdomain.com',
-  base: '/your-path',
   // ...
 });
 ```

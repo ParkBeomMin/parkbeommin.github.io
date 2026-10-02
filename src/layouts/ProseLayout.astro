@@ -101,7 +101,7 @@ const hasToc = type === 'article' && headings.filter(h => h.level >= 2 && h.leve
       
       <footer class="article-footer">
         <nav class="article-nav" aria-label="글 네비게이션">
-          <a href={`/blog/${type === 'article' ? 'articles' : type === 'thought' ? 'thoughts' : 'bookshelf'}`} class="nav-back">
+          <a href={`/${type === 'article' ? 'articles' : type === 'thought' ? 'thoughts' : 'bookshelf'}`} class="nav-back">
             ← {typeLabels[type]} 목록으로 돌아가기
           </a>
         </nav>
