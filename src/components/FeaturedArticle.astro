@@ -22,7 +22,7 @@ const excerpt = extractExcerpt(article.body || '', 200);
         <circle cx="200" cy="100" r="16" fill="var(--color-accent)" opacity="0.4"/>
       </svg>
     </div>
-    
+
     <div class="featured-info">
       <div class="featured-meta">
         <time datetime={data.publishedAt.toISOString()} class="featured-date">
@@ -34,17 +34,17 @@ const excerpt = extractExcerpt(article.body || '', 200);
           </span>
         )}
       </div>
-      
+
       <h2 id="featured-title" class="featured-title">
         <a href={`/articles/${id}`} class="featured-link">
           {data.title}
         </a>
       </h2>
-      
+
       <p class="featured-excerpt">
         {excerpt || data.description}
       </p>
-      
+
       {data.tags.length > 0 && (
         <div class="featured-tags">
           {data.tags.slice(0, 3).map(tag => (
@@ -58,122 +58,136 @@ const excerpt = extractExcerpt(article.body || '', 200);
 
 <style>
   .featured-article {
-    padding: var(--space-2xl) 0;
-    border-bottom: 1px solid var(--color-border-light);
+    padding: 0 0 var(--space-3xl) 0;
+    margin-bottom: var(--space-2xl);
   }
-  
+
   .featured-content {
     display: grid;
-    grid-template-columns: 240px 1fr;
-    gap: var(--space-xl);
+    grid-template-columns: 1fr 280px;
+    gap: var(--space-3xl);
     align-items: flex-start;
   }
-  
+
   .featured-thumbnail {
     border-radius: var(--radius-lg);
     overflow: hidden;
+    order: 2;
   }
-  
+
   .featured-info {
-    flex: 1;
+    order: 1;
   }
-  
+
   .featured-meta {
     display: flex;
     align-items: center;
     gap: var(--space-sm);
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-lg);
     color: var(--color-text-muted);
-    font-size: 0.875rem;
-  }
-  
-  .featured-date {
+    font-size: 0.9rem;
     font-weight: 500;
   }
-  
+
+  .featured-date {
+    font-weight: 600;
+  }
+
   .featured-reading-time::before {
     content: '•';
     margin-right: var(--space-sm);
   }
-  
+
   .featured-title {
-    font-size: 2rem;
-    font-weight: 600;
-    line-height: 1.2;
-    margin-bottom: var(--space-lg);
+    font-size: 2.75rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: var(--space-xl);
+    letter-spacing: -0.03em;
   }
-  
+
   .featured-link {
     color: var(--color-text-primary);
     text-decoration: none;
     transition: color 0.2s ease;
   }
-  
+
   .featured-link:hover,
   .featured-link:focus {
     color: var(--color-accent);
   }
-  
+
   .featured-excerpt {
-    font-size: 1.125rem;
-    line-height: 1.6;
+    font-size: 1.25rem;
+    line-height: 1.5;
     color: var(--color-text-secondary);
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-xl);
+    max-width: 32em;
   }
-  
+
   .featured-tags {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-sm);
   }
-  
+
   .tag {
     display: inline-block;
-    padding: var(--space-xs) var(--space-sm);
-    background: rgba(99, 102, 241, 0.1);
+    padding: var(--space-sm) var(--space-md);
+    background: rgba(99, 102, 241, 0.08);
     color: var(--color-accent);
-    border-radius: var(--radius-sm);
-    font-size: 0.875rem;
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
     font-weight: 500;
   }
-  
+
   /* Mobile responsive */
   @media (max-width: 768px) {
     .featured-content {
       grid-template-columns: 1fr;
-      gap: var(--space-lg);
+      gap: var(--space-xl);
     }
-    
+
     .featured-thumbnail {
+      order: 0;
       width: 100%;
-      max-width: 300px;
+      max-width: 320px;
       margin: 0 auto;
     }
-    
+
+    .featured-info {
+      order: 1;
+    }
+
+    .featured-title {
+      font-size: 2.125rem;
+    }
+
+    .featured-excerpt {
+      font-size: 1.125rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .featured-article {
+      padding: 0 0 var(--space-2xl) 0;
+      margin-bottom: var(--space-xl);
+    }
+
     .featured-title {
       font-size: 1.75rem;
     }
-    
+
     .featured-excerpt {
       font-size: 1rem;
     }
-  }
-  
-  @media (max-width: 480px) {
-    .featured-article {
-      padding: var(--space-xl) 0;
-    }
-    
-    .featured-title {
-      font-size: 1.5rem;
-    }
-    
+
     .featured-meta {
       flex-direction: column;
       align-items: flex-start;
       gap: var(--space-xs);
     }
-    
+
     .featured-reading-time::before {
       display: none;
     }

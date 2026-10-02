@@ -5,11 +5,11 @@ import FeaturedArticle from '../components/FeaturedArticle.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 import ThoughtsList from '../components/ThoughtsList.astro';
 import BookshelfRow from '../components/BookshelfRow.astro';
-import { 
-  getFeaturedArticle, 
-  getLatestArticles, 
-  getPublishedThoughts, 
-  getPublishedBooks 
+import {
+  getFeaturedArticle,
+  getLatestArticles,
+  getPublishedThoughts,
+  getPublishedBooks
 } from '../utils/content';
 
 // Get content for homepage
@@ -27,12 +27,12 @@ const books = await getPublishedBooks();
     <div class="container">
       <!-- Author Introduction -->
       <AuthorIntro />
-      
+
       <!-- Featured Article -->
       {featuredArticle && (
         <FeaturedArticle article={featuredArticle} />
       )}
-      
+
       <!-- Latest Articles -->
       {latestArticles.length > 0 && (
         <section class="latest-articles" aria-labelledby="latest-title">
@@ -40,7 +40,7 @@ const books = await getPublishedBooks();
             <h2 id="latest-title" class="section-title">Latest Articles</h2>
             <a href="/articles" class="section-more">더 보기</a>
           </div>
-          
+
           <div class="articles-grid">
             {latestArticles.slice(0, 2).map(article => (
               <ArticleCard article={article} variant="secondary" />
@@ -48,7 +48,7 @@ const books = await getPublishedBooks();
           </div>
         </section>
       )}
-      
+
       <!-- More Articles Grid -->
       {latestArticles.length > 2 && (
         <section class="more-articles" aria-labelledby="more-title">
@@ -56,7 +56,7 @@ const books = await getPublishedBooks();
             <h2 id="more-title" class="section-title">More Articles</h2>
             <a href="/articles" class="section-more">전체 보기</a>
           </div>
-          
+
           <div class="articles-list">
             {latestArticles.slice(2).map(article => (
               <ArticleCard article={article} variant="list" />
@@ -64,16 +64,21 @@ const books = await getPublishedBooks();
           </div>
         </section>
       )}
-      
-      <!-- Thoughts -->
-      {thoughts.length > 0 && (
-        <ThoughtsList thoughts={thoughts} />
-      )}
-      
-      <!-- Bookshelf -->
-      {books.length > 0 && (
-        <BookshelfRow books={books} />
-      )}
+
+      <!-- Lower Content Grid: Thoughts and Bookshelf -->
+      <div class="lower-content">
+        {thoughts.length > 0 && (
+          <div class="lower-section">
+            <ThoughtsList thoughts={thoughts} />
+          </div>
+        )}
+
+        {books.length > 0 && (
+          <div class="lower-section">
+            <BookshelfRow books={books} />
+          </div>
+        )}
+      </div>
     </div>
   </div>
 </BaseLayout>
@@ -82,87 +87,116 @@ const books = await getPublishedBooks();
   .homepage {
     min-height: calc(100vh - var(--header-height));
   }
-  
+
   .container {
     max-width: var(--content-max-width);
     margin: 0 auto;
-    padding: 0 var(--space-md);
+    padding: 0 var(--space-lg);
   }
-  
+
   .latest-articles,
   .more-articles {
-    padding: var(--space-2xl) 0;
-    border-bottom: 1px solid var(--color-border-light);
+    padding: var(--space-3xl) 0 var(--space-2xl) 0;
   }
-  
+
   .section-header {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    margin-bottom: var(--space-xl);
+    margin-bottom: var(--space-2xl);
   }
-  
+
   .section-title {
-    font-size: 1.5rem;
-    font-weight: 600;
+    font-size: 1.75rem;
+    font-weight: 700;
     color: var(--color-text-primary);
+    letter-spacing: -0.025em;
   }
-  
+
   .section-more {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: var(--space-sm) var(--space-xs);
     color: var(--color-accent);
     text-decoration: none;
-    font-size: 0.875rem;
+    font-size: 0.9rem;
     font-weight: 500;
     transition: color 0.2s ease;
   }
-  
+
   .section-more:hover,
   .section-more:focus {
     color: var(--color-accent-hover);
   }
-  
+
   .articles-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--space-xl);
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-2xl);
   }
-  
+
   .articles-list {
     display: flex;
     flex-direction: column;
-    gap: var(--space-md);
+    gap: 0;
   }
-  
+
+  /* Lower content two-column layout */
+  .lower-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3xl);
+    margin-top: var(--space-2xl);
+  }
+
+
   /* Mobile responsive */
   @media (max-width: 768px) {
     .container {
       padding: 0 var(--space-md);
     }
-    
+
     .articles-grid {
       grid-template-columns: 1fr;
-      gap: var(--space-lg);
+      gap: var(--space-xl);
     }
-    
+
     .latest-articles,
     .more-articles {
-      padding: var(--space-xl) 0;
+      padding: var(--space-2xl) 0 var(--space-xl) 0;
     }
-    
+
+    .section-header {
+      align-items: center;
+      margin-bottom: var(--space-xl);
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+    }
+
+    /* Stack lower content on mobile */
+    .lower-content {
+      grid-template-columns: 1fr;
+      gap: var(--space-xl);
+      margin-top: var(--space-xl);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .container {
+      padding: 0 var(--space-sm);
+    }
+
+    .section-title {
+      font-size: 1.375rem;
+    }
+
     .section-header {
       flex-direction: column;
       align-items: flex-start;
       gap: var(--space-sm);
-    }
-    
-    .section-title {
-      font-size: 1.25rem;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .container {
-      padding: 0 var(--space-sm);
     }
   }
 </style>

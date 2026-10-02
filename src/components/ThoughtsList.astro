@@ -18,7 +18,7 @@ const displayedThoughts = thoughts.slice(0, 4);
       <a href="/thoughts" class="section-more">더 보기</a>
     )}
   </div>
-  
+
   <div class="thoughts-list">
     {displayedThoughts.map(thought => (
       <article class="thought-item">
@@ -33,7 +33,7 @@ const displayedThoughts = thoughts.slice(0, 4);
       </article>
     ))}
   </div>
-  
+
   {showMore && (
     <div class="thoughts-footer">
       <a href="/thoughts" class="thoughts-view-all">
@@ -45,135 +45,136 @@ const displayedThoughts = thoughts.slice(0, 4);
 
 <style>
   .thoughts-section {
-    padding: var(--space-2xl) 0;
-    border-bottom: 1px solid var(--color-border-light);
+    padding: 0;
   }
-  
+
   .section-header {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
     margin-bottom: var(--space-xl);
   }
-  
+
   .section-title {
-    font-size: 1.5rem;
-    font-weight: 600;
+    font-size: 1.375rem;
+    font-weight: 700;
     color: var(--color-text-primary);
+    letter-spacing: -0.01em;
   }
-  
+
   .section-more {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: var(--space-sm) var(--space-xs);
     color: var(--color-accent);
     text-decoration: none;
-    font-size: 0.875rem;
+    font-size: 0.85rem;
     font-weight: 500;
     transition: color 0.2s ease;
   }
-  
+
   .section-more:hover,
   .section-more:focus {
     color: var(--color-accent-hover);
   }
-  
+
   .thoughts-list {
     display: flex;
     flex-direction: column;
-    gap: var(--space-lg);
+    gap: 0;
   }
-  
+
   .thought-item {
     display: flex;
     align-items: baseline;
-    gap: var(--space-lg);
-    padding: var(--space-md) 0;
+    gap: var(--space-md);
+    padding: var(--space-sm) 0;
     border-bottom: 1px solid var(--color-border-light);
   }
-  
+
   .thought-item:last-child {
     border-bottom: none;
   }
-  
+
   .thought-date {
     color: var(--color-text-muted);
-    font-size: 0.875rem;
-    font-weight: 500;
+    font-size: 0.8rem;
+    font-weight: 600;
     font-variant-numeric: tabular-nums;
     flex-shrink: 0;
-    min-width: 80px;
+    min-width: 60px;
   }
-  
+
   .thought-title {
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 500;
     line-height: 1.4;
     margin: 0;
     flex: 1;
   }
-  
+
   .thought-link {
     color: var(--color-text-primary);
     text-decoration: none;
     transition: color 0.2s ease;
   }
-  
+
   .thought-link:hover,
   .thought-link:focus {
     color: var(--color-accent);
   }
-  
+
   .thoughts-footer {
-    margin-top: var(--space-xl);
-    text-align: center;
+    margin-top: var(--space-lg);
+    text-align: left;
   }
-  
+
   .thoughts-view-all {
     display: inline-flex;
     align-items: center;
-    padding: var(--space-sm) var(--space-lg);
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-sm);
-    color: var(--color-text-secondary);
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.2s ease;
     min-height: 44px;
+    padding: var(--space-sm) var(--space-xs);
+    color: var(--color-accent);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
   }
-  
+
   .thoughts-view-all:hover,
   .thoughts-view-all:focus {
-    border-color: var(--color-accent);
-    color: var(--color-accent);
-    background: rgba(99, 102, 241, 0.05);
+    color: var(--color-accent-hover);
   }
-  
+
   /* Mobile responsive */
   @media (max-width: 768px) {
     .thought-item {
       flex-direction: column;
       align-items: flex-start;
       gap: var(--space-xs);
+      padding: var(--space-md) 0;
     }
-    
+
     .thought-date {
       min-width: auto;
       font-size: 0.75rem;
     }
-    
+
+    .section-header {
+      align-items: center;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+    }
+  }
+
+  @media (max-width: 480px) {
     .section-header {
       flex-direction: column;
       align-items: flex-start;
       gap: var(--space-sm);
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .thoughts-section {
-      padding: var(--space-xl) 0;
-    }
-    
-    .section-title {
-      font-size: 1.25rem;
     }
   }
 </style>
